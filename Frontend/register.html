@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr-TR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NakliJET | Kayıt Ol</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <main>
+        <div id="loading">
+            <div id="loading-content">
+                <img src="assets/img/logo.png" alt="NakliJET Logo">
+                <i class="fa-regular fa-loader fa-spin"></i>
+            </div>
+        </div>
+        <section id="register">
+            <div id="register-content">
+                <div id="register-navigation">
+                    <button class="singular active">Bireysel</button>
+                    <button class="company">Firma</button>
+                </div>
+                <div id="register-title">
+                    <h1>Kayıt Ol</h1>
+                </div>
+                <div id="register-form">
+                    <div class="form-row">
+                        <div class="form-control">
+                            <label for="name">Ad</label>
+                            <div class="form-input">
+                                <input type="text" id="name" placeholder="Ad">
+                            </div>
+                        </div>
+                        <div class="form-control">
+                            <label for="surname">Soyad</label>
+                            <div class="form-input">
+                                <input type="text" id="surname" placeholder="Soyad">
+                            </div>
+                        </div>
+                        <div class="form-control company">
+                            <label for="company">Firma Adı</label>
+                            <div class="form-input">
+                                <input type="text" id="company" placeholder="Firma Adı Giriniz">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-control">
+                        <label for="username">Kullanıcı Adı</label>
+                        <div class="form-input">
+                            <input type="text" id="username" placeholder="Kullanıcı Adı Giriniz">
+                        </div>
+                    </div>
+                    <div class="form-control">
+                        <label for="email">E Posta</label>
+                        <div class="form-input">
+                            <input type="email" id="email" placeholder="E Posta Giriniz">
+                        </div>
+                    </div>
+                    <div class="form-control">
+                        <label for="password">Parola</label>
+                        <div class="form-input">
+                            <input type="password" id="password" placeholder="Parola Giriniz">
+                            <i class="fa-sharp fa-regular fa-eye-slash"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="register-button">
+                <button id="register">Kayıt Ol</button>
+                <p>Hesabınız var mı? <a href="login.html">Giriş Yap</a></p>
+            </div>
+        </section>
+    </main>
+
+    <!--FontAwesome CDN-->
+    <script src="https://kit.fontawesome.com/193131ac84.js" crossorigin="anonymous"></script>
+    <!--jQuery CDN-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+    <script src="assets/js/auth.js"></script>
+</body>
+</html>
