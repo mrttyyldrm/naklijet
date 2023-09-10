@@ -15,7 +15,7 @@ using System.Text;
 
 namespace JwtUser.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/")]
     [ApiController]
     public class AuthenticationController : ControllerBase
     {
@@ -32,7 +32,7 @@ namespace JwtUser.API.Controllers
 
 
         [HttpPost]
-        [Route("login")]
+        [Route("Login")]
         public async Task<IActionResult> Login([FromBody] LoginDto model)
         {
             var user = await _userManager.FindByNameAsync(model.UserName);
@@ -42,7 +42,7 @@ namespace JwtUser.API.Controllers
 
                 var authClaims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, user.UserName),
+                    new Claim(ClaimTypes.Name, user.UserName!),
                     new Claim(ClaimTypes.NameIdentifier, user.Id),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),              
                 };
@@ -64,10 +64,10 @@ namespace JwtUser.API.Controllers
         }
 
         [HttpPost]
-        [Route("register")]
+        [Route("Register")]
         public async Task<IActionResult> Register([FromBody] RegisterDto model)
         {
-            var userExists = await _userManager.FindByNameAsync(model.UserName);
+            var userExists = await _userManager.FindByNameAsync(model.UserName!);
             if (userExists != null)
                
                 return StatusCode(StatusCodes.Status500InternalServerError, new ResponseDto
@@ -86,7 +86,7 @@ namespace JwtUser.API.Controllers
                 IsCompany = false
             };
 
-            var result = await _userManager.CreateAsync(user, model.Password);
+            var result = await _userManager.CreateAsync(user, model.Password!);
             if (!result.Succeeded)
                 return StatusCode(StatusCodes.Status500InternalServerError, new ResponseDto
                 { 
@@ -102,10 +102,10 @@ namespace JwtUser.API.Controllers
 
 
         [HttpPost]
-        [Route("registerforcompany")]
+        [Route("RegisterCompany")]
         public async Task<IActionResult> RegisterforCompany([FromBody] RegisterForCompanyDto model)
         {
-            var userExists = await _userManager.FindByNameAsync(model.UserName);
+            var userExists = await _userManager.FindByNameAsync(model.UserName!);
             if (userExists != null)
 
                 return StatusCode(StatusCodes.Status500InternalServerError, new ResponseDto
@@ -116,13 +116,14 @@ namespace JwtUser.API.Controllers
 
             AppUser company = new()
             {
+                CompanyName = model.CompanyName,
                 Email = model.Email,
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UserName = model.UserName,               
                 IsCompany = true
             };
 
-            var result = await _userManager.CreateAsync(company, model.Password);
+            var result = await _userManager.CreateAsync(company, model.Password!);
             if (!result.Succeeded)
                 return StatusCode(StatusCodes.Status500InternalServerError, new ResponseDto
                 {
@@ -141,7 +142,7 @@ namespace JwtUser.API.Controllers
 
         private JwtSecurityToken GetToken(List<Claim> authClaims)
         {
-            var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
+            var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]!));
 
             var token = new JwtSecurityToken(
                 issuer: _configuration["JWT:ValidIssuer"],

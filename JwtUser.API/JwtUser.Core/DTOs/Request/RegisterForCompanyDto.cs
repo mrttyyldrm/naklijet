@@ -10,6 +10,7 @@ namespace JwtUser.Core.DTOs.Request
     public class RegisterForCompanyDto
     {
         [Required(ErrorMessage = "User Name is required")]
+        public string? CompanyName { get; set; }
         public string? UserName { get; set; }
 
         [EmailAddress]

@@ -12,11 +12,12 @@ namespace JwtUser.Core.Entities
     {
         public string? Name { get; set; }
         public string? Surname { get; set; }
+        public string? CompanyName { get; set; }
         public bool IsCompany { get; set; }
 
         [JsonIgnore]
         public ICollection<Transport> Transports { get; set; }
-
+        
         [JsonIgnore]
         public ICollection<Application> Applications { get; set; }
 

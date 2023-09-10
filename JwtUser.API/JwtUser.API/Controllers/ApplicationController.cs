@@ -45,7 +45,7 @@ namespace JwtUser.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddApplication(AddApplicationDto addApplicationDto)
         {
-            var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var userId = _httpContextAccessor.HttpContext!.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
             var application = _mapper.Map<Application>(addApplicationDto);
 

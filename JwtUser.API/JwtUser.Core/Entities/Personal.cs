@@ -10,7 +10,7 @@ namespace JwtUser.Core.Entities
     {
         public string? Name { get; set; }
         public string? Surname { get; set; }
-      
+
         public int AppellationId { get; set; }
         public Appellation? Appellation { get; set; }
 
@@ -18,8 +18,5 @@ namespace JwtUser.Core.Entities
 
         public string? CompanyId { get; set; }
         public AppUser? Company { get; set; }
-
-
-
     }
 }

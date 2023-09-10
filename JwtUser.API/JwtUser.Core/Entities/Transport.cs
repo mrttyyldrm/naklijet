@@ -58,7 +58,8 @@ namespace JwtUser.Core.Entities
         [JsonIgnore]
         public AppUser AppUser { get; set; }
         
-
+        public int? ToStreetId { get; set; }
+        public Street? ToStreet { get; set; }
 
     }
 }

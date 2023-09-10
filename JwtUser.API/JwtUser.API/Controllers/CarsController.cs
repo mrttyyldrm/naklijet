@@ -35,7 +35,7 @@ namespace JwtUser.API.Controllers
         public async Task<IActionResult> CreateCars([FromBody]CarsDto carsDto)
         {
 
-            var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var userId = _httpContextAccessor.HttpContext!.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
             var cars = _mapper.Map<Cars>(carsDto);
 

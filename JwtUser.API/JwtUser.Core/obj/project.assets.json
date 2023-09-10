@@ -3771,11 +3771,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Onur\\Desktop\\Transportathon\\Transportathon\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj",
+      "projectUniqueName": "C:\\Users\\Onur\\Desktop\\TransportathonFinal\\Transportathon\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj",
       "projectName": "JwtUser.Core",
-      "projectPath": "C:\\Users\\Onur\\Desktop\\Transportathon\\Transportathon\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj",
+      "projectPath": "C:\\Users\\Onur\\Desktop\\TransportathonFinal\\Transportathon\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj",
       "packagesPath": "C:\\Users\\Onur\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Onur\\Desktop\\Transportathon\\Transportathon\\JwtUser.API\\JwtUser.Core\\obj\\",
+      "outputPath": "C:\\Users\\Onur\\Desktop\\TransportathonFinal\\Transportathon\\JwtUser.API\\JwtUser.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Onur\\AppData\\Roaming\\NuGet\\NuGet.Config",

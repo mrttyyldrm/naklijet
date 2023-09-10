@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Onur\\Desktop\\Transportathon\\Transportathon\\JwtUser.API\\JwtUser.Repository\\JwtUser.Repository.csproj": {}
+    "C:\\Users\\Onur\\Desktop\\TransportathonFinal\\Transportathon\\JwtUser.API\\JwtUser.Repository\\JwtUser.Repository.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Onur\\Desktop\\Transportathon\\Transportathon\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj": {
+    "C:\\Users\\Onur\\Desktop\\TransportathonFinal\\Transportathon\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Onur\\Desktop\\Transportathon\\Transportathon\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Onur\\Desktop\\TransportathonFinal\\Transportathon\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj",
         "projectName": "JwtUser.Core",
-        "projectPath": "C:\\Users\\Onur\\Desktop\\Transportathon\\Transportathon\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj",
+        "projectPath": "C:\\Users\\Onur\\Desktop\\TransportathonFinal\\Transportathon\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj",
         "packagesPath": "C:\\Users\\Onur\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Onur\\Desktop\\Transportathon\\Transportathon\\JwtUser.API\\JwtUser.Core\\obj\\",
+        "outputPath": "C:\\Users\\Onur\\Desktop\\TransportathonFinal\\Transportathon\\JwtUser.API\\JwtUser.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Onur\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -89,14 +89,14 @@
         }
       }
     },
-    "C:\\Users\\Onur\\Desktop\\Transportathon\\Transportathon\\JwtUser.API\\JwtUser.Repository\\JwtUser.Repository.csproj": {
+    "C:\\Users\\Onur\\Desktop\\TransportathonFinal\\Transportathon\\JwtUser.API\\JwtUser.Repository\\JwtUser.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Onur\\Desktop\\Transportathon\\Transportathon\\JwtUser.API\\JwtUser.Repository\\JwtUser.Repository.csproj",
+        "projectUniqueName": "C:\\Users\\Onur\\Desktop\\TransportathonFinal\\Transportathon\\JwtUser.API\\JwtUser.Repository\\JwtUser.Repository.csproj",
         "projectName": "JwtUser.Repository",
-        "projectPath": "C:\\Users\\Onur\\Desktop\\Transportathon\\Transportathon\\JwtUser.API\\JwtUser.Repository\\JwtUser.Repository.csproj",
+        "projectPath": "C:\\Users\\Onur\\Desktop\\TransportathonFinal\\Transportathon\\JwtUser.API\\JwtUser.Repository\\JwtUser.Repository.csproj",
         "packagesPath": "C:\\Users\\Onur\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Onur\\Desktop\\Transportathon\\Transportathon\\JwtUser.API\\JwtUser.Repository\\obj\\",
+        "outputPath": "C:\\Users\\Onur\\Desktop\\TransportathonFinal\\Transportathon\\JwtUser.API\\JwtUser.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Onur\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -113,8 +113,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Onur\\Desktop\\Transportathon\\Transportathon\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj": {
-                "projectPath": "C:\\Users\\Onur\\Desktop\\Transportathon\\Transportathon\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj"
+              "C:\\Users\\Onur\\Desktop\\TransportathonFinal\\Transportathon\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj": {
+                "projectPath": "C:\\Users\\Onur\\Desktop\\TransportathonFinal\\Transportathon\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj"
               }
             }
           }

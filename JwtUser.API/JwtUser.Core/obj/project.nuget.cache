@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3Cmw78774j5wc857iFM8Drj0ahblDyYL11uWaq2OHIETGhDd0skmyTJVAfqXw19lFTtxtNLiMsXJCMxqBggYAw==",
+  "dgSpecHash": "Bo2/AdM9qiwaXFtJEvJgmTxWaHthshDyAYwlLVG88LTd7sBN1mLj5PMYKC9g3CikcVa2oi7lr/XPHSrDZ3aX5A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Onur\\Desktop\\Transportathon\\Transportathon\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj",
+  "projectFilePath": "C:\\Users\\Onur\\Desktop\\TransportathonFinal\\Transportathon\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Onur\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Onur\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
