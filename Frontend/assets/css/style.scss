@@ -565,6 +565,50 @@ main{
             }
         }
     }
+    aside{
+        position: fixed;
+        top: 0; left: 0;
+        height: 100%;
+        width: 30rem;
+        background-color: $white;
+        #aside-bar{
+            width: 100%;
+            height: 100%;
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+
+            #aside-logo{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                img{
+                    justify-items: flex-start;
+                    width: 15rem;
+                }
+                i{
+                    font-size: 2rem;
+                    color: $text;
+                }
+            }
+            #aside-links{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 3rem;
+
+                a{
+                    @include button(false ,primary ,false );
+                    display: flex;
+                    justify-content: flex-start;
+                    gap: 1rem;
+                }
+            }
+        }
+    }
 }
 
 /*#endregion*/

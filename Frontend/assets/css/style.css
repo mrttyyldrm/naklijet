@@ -523,6 +523,62 @@ main section#customer #customer-content #customer-title {
   align-items: flex-start;
   text-align: left;
 }
+main aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 30rem;
+  background-color: #FFF;
+}
+main aside #aside-bar {
+  width: 100%;
+  height: 100%;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+main aside #aside-bar #aside-logo {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+main aside #aside-bar #aside-logo img {
+  justify-items: flex-start;
+  width: 15rem;
+}
+main aside #aside-bar #aside-logo i {
+  font-size: 2rem;
+  color: #999CAD;
+}
+main aside #aside-bar #aside-links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+main aside #aside-bar #aside-links a {
+  width: 100%;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  background-color: #FF6000;
+  color: #FFF;
+  border: none;
+  display: flex;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+  padding: 1.5rem;
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+main aside #aside-bar #aside-links a.active {
+  opacity: 1;
+}
 
 /*#endregion*/
 /*#region Responsive Codes*/
