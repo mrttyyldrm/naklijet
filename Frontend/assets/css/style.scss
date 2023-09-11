@@ -196,6 +196,101 @@ main{
         }
     }
 
+    #success{
+        #success-container{
+            padding: 20rem 0 0 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            #success-content{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 3rem;
+
+                #success-icon{
+                    width: 17.5rem;
+                    height: 17.5rem;
+                    border-radius: 50%;
+                    background-color: $primary;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    i{
+                        font-size: 10rem;
+                        color: $white;
+                    }
+                }
+                #success-title{
+
+                        @extend %title;
+                }
+            }
+            #success-button{
+                @include button(primary, false);
+                position: absolute;
+                bottom: 3rem;
+                width: 85%;
+                opacity: 1;
+
+                a{
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    #error{
+        #error-container{
+            padding: 20rem 0 0 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            #error-content{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 3rem;
+
+                #error-icon{
+                    width: 17.5rem;
+                    height: 17.5rem;
+                    border-radius: 50%;
+                    background-color: $primary;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    i{
+                        font-size: 10rem;
+                        color: $white;
+                    }
+                }
+                #error-title{
+                        @extend %title;
+                }
+            }
+            #error-button{
+                @include button(primary, false);
+                position: absolute;
+                bottom: 3rem;
+                width: 85%;
+                opacity: 1;
+
+                a{
+                    color: $white;
+                }
+            }
+        }
+    }
+
     /*#endregion*/
 
     section#home{
@@ -424,6 +519,7 @@ main{
             }
         }
     }
+    
 }
 
 /*#endregion*/
