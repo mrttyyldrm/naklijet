@@ -1,12 +1,12 @@
 /*#region Component Codes*/
-main section#register #register-button p, main section#login #login-button p, main section#home #home-button #home-line p, main section#customer #customer-content #customer-title p, main section#register #register-content #register-title p, main section#login #login-content #login-title p, main section#home #home-content #home-title p, main #error #error-container #error-content #error-title p, main #success #success-container #success-content #success-title p {
+main section#register #register-button p, main section#login #login-button p, main section#home #home-button #home-line p, main aside #aside-logout p, main aside #aside-content #aside-menu nav ul li p, main section#register #register-content #register-title p, main section#login #login-content #login-title p, main section#home #home-content #home-title p, main #error #error-container #error-content #error-title p, main #success #success-container #success-content #success-title p {
   font-size: 1.6rem;
   font-weight: 600;
   font-family: "Quicksand", sans-serif;
   color: #999CAD;
 }
 
-main section#customer #customer-content #customer-title, main section#register #register-content #register-title, main section#login #login-content #login-title, main section#home #home-content #home-title, main #error #error-container #error-content #error-title, main #success #success-container #success-content #success-title {
+main section#register #register-content #register-title, main section#login #login-content #login-title, main section#home #home-content #home-title, main #error #error-container #error-content #error-title, main #success #success-container #success-content #success-title {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,7 +14,7 @@ main section#customer #customer-content #customer-title, main section#register #
   gap: 1rem;
   margin-bottom: 3rem;
 }
-main section#customer #customer-content #customer-title h1, main section#register #register-content #register-title h1, main section#login #login-content #login-title h1, main section#home #home-content #home-title h1, main #error #error-container #error-content #error-title h1, main #success #success-container #success-content #success-title h1 {
+main section#register #register-content #register-title h1, main section#login #login-content #login-title h1, main section#home #home-content #home-title h1, main #error #error-container #error-content #error-title h1, main #success #success-container #success-content #success-title h1 {
   font-size: 3rem;
   font-weight: 700;
   font-family: "Montserrat", sans-serif;
@@ -76,6 +76,119 @@ main section#home #home-button #home-line hr {
   background-color: #E0DEF7;
 }
 
+main aside {
+  z-index: 101;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 30rem;
+  padding: 3rem 2rem;
+  background-color: #FFF;
+  border-right: 0.15rem solid #E0DEF7;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  transition: left 0.5s ease;
+}
+main aside.active {
+  left: 0;
+}
+main aside #aside-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5rem;
+}
+main aside #aside-content #aside-title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main aside #aside-content #aside-title img {
+  width: 15rem;
+}
+main aside #aside-content #aside-title i {
+  font-size: 2rem;
+  color: #999CAD;
+}
+main aside #aside-content #aside-menu {
+  width: 100%;
+}
+main aside #aside-content #aside-menu nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.6rem;
+}
+main aside #aside-content #aside-menu nav ul li {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.8rem;
+  transition: background-color 0.3s ease;
+}
+main aside #aside-content #aside-menu nav ul li.active {
+  background-color: #FF6000;
+}
+main aside #aside-content #aside-menu nav ul li.active p {
+  color: #FFF;
+}
+main aside #aside-content #aside-menu nav ul li.active .aside-icon i {
+  color: #FFF;
+}
+main aside #aside-content #aside-menu nav ul li.active span {
+  background-color: #FFF;
+  color: #FF6000;
+}
+main aside #aside-content #aside-menu nav ul li .aside-icon {
+  width: 2.25rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main aside #aside-content #aside-menu nav ul li .aside-icon i {
+  font-size: 2.25rem;
+  color: #999CAD;
+  transition: color 0.3s ease;
+}
+main aside #aside-content #aside-menu nav ul li p {
+  transition: color 0.3s ease;
+}
+main aside #aside-content #aside-menu nav ul li span {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.4rem;
+  background-color: #FF6000;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #FFF;
+  transition-property: background-color, color;
+  transition: 0.3s ease;
+}
+main aside #aside-logout {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.2rem;
+}
+main aside #aside-logout #logout-icon {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main aside #aside-logout #logout-icon i {
+  font-size: 2.25rem;
+  color: #999CAD;
+}
 /*#endregion*/
 * {
   padding: 0;
@@ -108,8 +221,18 @@ main {
   /*#region Popups*/
   /*#endregion*/
 }
+main #overlay {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.75);
+  display: none;
+}
 main #loading {
-  z-index: 99;
+  z-index: 98;
   position: fixed;
   top: 0;
   left: 0;
@@ -135,7 +258,7 @@ main #loading #loading-content i {
   color: #999CAD;
 }
 main #success {
-  z-index: 100;
+  z-index: 99;
   position: fixed;
   top: 0;
   left: 0;
@@ -172,6 +295,7 @@ main #success #success-container #success-content #success-icon i {
   color: #FFF;
 }
 main #success #success-container #success-button a {
+  cursor: pointer;
   width: 100%;
   border-radius: 1rem;
   font-weight: 600;
@@ -189,7 +313,7 @@ main #success #success-container #success-button a.active {
   opacity: 1;
 }
 main #error {
-  z-index: 100;
+  z-index: 99;
   position: fixed;
   top: 0;
   left: 0;
@@ -226,6 +350,7 @@ main #error #error-container #error-content #error-icon i {
   color: #FFF;
 }
 main #error #error-container #error-button a {
+  cursor: pointer;
   width: 100%;
   border-radius: 1rem;
   font-weight: 600;
@@ -283,6 +408,7 @@ main section#home #home-content #home-login {
   width: 100%;
 }
 main section#home #home-content #home-login a {
+  cursor: pointer;
   width: 100%;
   border-radius: 1rem;
   font-weight: 600;
@@ -317,6 +443,7 @@ main section#home #home-button #home-line p {
   flex-shrink: 0;
 }
 main section#home #home-button a {
+  cursor: pointer;
   width: 100%;
   border-radius: 1rem;
   font-weight: 600;
@@ -371,6 +498,7 @@ main section#login #login-button {
   gap: 1.5rem;
 }
 main section#login #login-button button {
+  cursor: pointer;
   width: 100%;
   border-radius: 1rem;
   font-weight: 600;
@@ -408,6 +536,7 @@ main section#register #register-content #register-navigation {
 }
 main section#register #register-content #register-navigation button {
   z-index: 1;
+  cursor: pointer;
   width: 100%;
   border-radius: 1rem;
   font-weight: 600;
@@ -460,6 +589,7 @@ main section#register #register-button {
   gap: 1.5rem;
 }
 main section#register #register-button button {
+  cursor: pointer;
   width: 100%;
   border-radius: 1rem;
   font-weight: 600;
@@ -490,6 +620,7 @@ main section#customer header {
   top: 0;
   left: 0;
   width: 100%;
+  min-height: 8.6rem;
   padding: 2rem;
   background-color: #FFF;
   border-bottom: 0.15rem solid #E0DEF7;
@@ -502,6 +633,7 @@ main section#customer header #header-menu i {
   color: #141414;
 }
 main section#customer header #header-button a {
+  cursor: pointer;
   width: 100%;
   border-radius: 1rem;
   font-weight: 600;
@@ -519,67 +651,26 @@ main section#customer header #header-button a {
 main section#customer header #header-button a.active {
   opacity: 1;
 }
-main section#customer #customer-content #customer-title {
-  align-items: flex-start;
-  text-align: left;
+main section#business {
+  position: static;
+  padding-top: 12rem;
 }
-main aside {
+main section#business header {
   position: fixed;
   top: 0;
   left: 0;
-  height: 100%;
-  width: 30rem;
+  width: 100%;
+  min-height: 8.6rem;
+  padding: 2rem;
   background-color: #FFF;
-}
-main aside #aside-bar {
-  width: 100%;
-  height: 100%;
-  padding: 3rem 2rem;
+  border-bottom: 0.15rem solid #E0DEF7;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
 }
-main aside #aside-bar #aside-logo {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
+main section#business header #header-menu i {
+  font-size: 2.75rem;
+  color: #141414;
 }
-main aside #aside-bar #aside-logo img {
-  justify-items: flex-start;
-  width: 15rem;
-}
-main aside #aside-bar #aside-logo i {
-  font-size: 2rem;
-  color: #999CAD;
-}
-main aside #aside-bar #aside-links {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
-main aside #aside-bar #aside-links a {
-  width: 100%;
-  border-radius: 1rem;
-  font-weight: 600;
-  font-family: "Montserrat", sans-serif;
-  background-color: #FF6000;
-  color: #FFF;
-  border: none;
-  display: flex;
-  justify-content: center;
-  transition: opacity 0.3s ease;
-  padding: 1.5rem;
-  font-size: 1.6rem;
-  display: flex;
-  justify-content: flex-start;
-  gap: 1rem;
-}
-main aside #aside-bar #aside-links a.active {
-  opacity: 1;
-}
-
 /*#endregion*/
 /*#region Responsive Codes*/
 @media screen and (max-width: 425px) {

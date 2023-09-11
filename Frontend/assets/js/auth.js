@@ -33,7 +33,7 @@ $(document).ready(function(){
                 }),
                 success: function(data){
                     localStorage.setItem("token", data.token);
-                    location.href = "panel.html";
+                    location.href = "customer.html";
                 },
                 error: function(){
                     $("#error-title h1").text("Giriş Başarısız");
@@ -41,6 +41,7 @@ $(document).ready(function(){
                     $("#error-button a").attr("href","login.html");
                     $("#error").fadeIn();
                     $("#loading").fadeOut();
+                    $(".form-input input").val("");
                 }
             });
         }
@@ -105,12 +106,14 @@ $(document).ready(function(){
                         $("#success-button a").text("Giriş Yap");
                         $("#success").fadeIn();
                         $("#loading").fadeOut();
+                        $(".form-input input").val("");
                     },
                     error: function(){
                         $("#error-title h1").text("Kayıt Başarısız");
                         $("#error-title p").text("Lütfen daha sonra tekrar deneyiniz.");
                         $("#error").fadeIn();
                         $("#loading").fadeOut();
+                        $(".form-input input").val("");
                     }
                 });
             }
@@ -132,12 +135,14 @@ $(document).ready(function(){
                         $("#success-button a").text("Giriş Yap");
                         $("#success").fadeIn();
                         $("#loading").fadeOut();
+                        $(".form-input input").val("");
                     },
                     error: function(){
                         $("#error-title h1").text("Kayıt Başarısız");
                         $("#error-title p").text("Lütfen daha sonra tekrar deneyiniz.");
                         $("#error").fadeIn();
                         $("#loading").fadeOut();
+                        $(".form-input input").val("");
                     }
                 });
             }

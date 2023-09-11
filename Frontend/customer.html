@@ -13,12 +13,10 @@
 <body>
     
     <main>
-        <div id="loading">
-        </div>
-        <div id="error">
-        </div>
-        <div id="success">
-        </div>
+        <div id="overlay"></div>
+        <div id="loading"></div>
+        <div id="error"></div>
+        <div id="success"></div>
         <section id="customer">
             <header>
                 <div id="header-menu">
@@ -29,28 +27,61 @@
                 </div>
             </header>
             <div id="customer-content">
-                <div id="customer-title">
-                    <h1>Siparişlerim</h1>
-                    <p>Hoş Geldin Mert, Siparişlerini buradan inceleyebilir, son durumunu inceleyebilirsin!</p>
-                </div>
+                <!--AJAX Loads-->
             </div>
         </section>
         <aside>
-            <div id="aside-bar">
-                <div id="aside-logo">
-                    <img src="assets/img/logo.png" alt="logo">
-                    <i class="fa-regular fa-square-chevron-up fa-rotate-270"></i>
+            <div id="aside-content">
+                <div id="aside-title">
+                    <div id="aside-logo">
+                        <img src="assets/img/logo.png" alt="logo">
+                    </div>
+                    <i class="fa-regular fa-left-from-line"></i>
                 </div>
-                <div id="aside-links">
-                    <a href="" class="active"><i class="fa-light fa-user"></i> Hesabım</a>
-                    <a href=""><i class="fa-light fa-bag-shopping"></i> Siparişlerim</a>
-                    <a href=""><i class="fa-light fa-memo"></i> Taleplerim</a>
-                    <a href=""><i class="fa-light fa-messages"></i> Mesajlarım</a>
-                    <a href=""><i class="fa-light fa-list-check"></i> Listelerim</a>
-                </div>    
-                <div id="cancel">
-                    <a href=""><i class="fa-light fa-right-from-bracket fa-rotate-180"></i> Çıkış Yap</a>
+                <div id="aside-menu">
+                    <nav>
+                        <ul>
+                            <li class="hidden">
+                                <div class="aside-icon">
+                                    <i class="fa-regular fa-id-badge"></i>
+                                </div>
+                                <p>Hesabım</p>
+                                <span>Yakında</span>
+                            </li>
+                            <li class="active">
+                                <div class="aside-icon">
+                                    <i class="fa-regular fa-bag-shopping"></i>
+                                </div>
+                                <p>Siparişlerim</p>
+                            </li>
+                            <li>
+                                <div class="aside-icon">
+                                    <i class="fa-regular fa-square-star"></i>
+                                </div>
+                                <p>Taleplerim</p>
+                            </li>
+                            <li>
+                                <div class="aside-icon">
+                                    <i class="fa-regular fa-messages"></i>
+                                </div>
+                                <p>Mesajlarım</p>
+                            </li>
+                            <li class="hidden">
+                                <div class="aside-icon">
+                                    <i class="fa-regular fa-list-check"></i>
+                                </div>
+                                <p>Listelerim</p>
+                                <span>Yakında</span>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
+            </div>
+            <div id="aside-logout">
+                <div id="logout-icon">
+                    <i class="fa-regular fa-right-from-bracket"></i>
+                </div>
+                <p>Çıkış Yap</p>
             </div>
         </aside>
     </main>

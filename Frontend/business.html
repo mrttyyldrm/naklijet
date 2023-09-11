@@ -13,15 +13,80 @@
 <body>
     
     <main>
-        <div id="loading">
-        </div>
-        <div id="error">
-        </div>
-        <div id="success">
-        </div>
+        <div id="overlay"></div>
+        <div id="loading"></div>
+        <div id="error"></div>
+        <div id="success"></div>
         <section id="business">
-
+            <header>
+                <div id="header-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </header>
+            <div id="business-content">
+                <!--AJAX Loads-->
+            </div>
         </section>
+        <aside>
+            <div id="aside-content">
+                <div id="aside-title">
+                    <div id="aside-logo">
+                        <img src="assets/img/logo.png" alt="logo">
+                    </div>
+                    <i class="fa-regular fa-left-from-line"></i>
+                </div>
+                <div id="aside-menu">
+                    <nav>
+                        <ul>
+                            <li class="hidden">
+                                <div class="aside-icon">
+                                    <i class="fa-regular fa-id-badge"></i>
+                                </div>
+                                <p>Hesabım</p>
+                                <span>Yakında</span>
+                            </li>
+                            <li class="active">
+                                <div class="aside-icon">
+                                    <i class="fa-regular fa-tags"></i>
+                                </div>
+                                <p>Satışlarım</p>
+                            </li>
+                            <li>
+                                <div class="aside-icon">
+                                    <i class="fa-regular fa-file-lines"></i>
+                                </div>
+                                <p>Alıcı İstekleri</p>
+                            </li>
+                            <li>
+                                <div class="aside-icon">
+                                    <i class="fa-regular fa-users"></i>
+                                </div>
+                                <p>Filo Yönetimi</p>
+                            </li>
+                            <li>
+                                <div class="aside-icon">
+                                    <i class="fa-regular fa-message-lines"></i>
+                                </div>
+                                <p>Mesajlarım</p>
+                            </li>
+                            <li class="hidden">
+                                <div class="aside-icon">
+                                    <i class="fa-regular fa-list-check"></i>
+                                </div>
+                                <p>Listelerim</p>
+                                <span>Yakında</span>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div id="aside-logout">
+                <div id="logout-icon">
+                    <i class="fa-regular fa-right-from-bracket"></i>
+                </div>
+                <p>Çıkış Yap</p>
+            </div>
+        </aside>
     </main>
 
     <!--FontAwesome CDN-->
@@ -29,5 +94,6 @@
     <!--jQuery CDN-->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
     <script src="assets/js/business.js"></script>
+    <script src="assets/js/components.js"></script>
 </body>
 </html>

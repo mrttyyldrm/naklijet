@@ -10,4 +10,9 @@ $(document).ready(function(){
             $("#error").fadeOut();
         });
     });
+
+    $("#overlay").click(function(){
+        $(this).fadeOut(500);
+        $("aside").removeClass("active");
+    });
 });
