@@ -53,18 +53,18 @@ $(document).ready(function(){
             $("#register-form input").val("");
         }
 
-        if($(this).hasClass("company")){
+        if($(this).hasClass("business")){
             $("#register-form .form-row .form-control").hide();
-            $("#register-form .form-row .form-control.company").css("display","flex");
+            $("#register-form .form-row .form-control.business").css("display","flex");
         }
         else{
             $("#register-form .form-row .form-control").css("display","flex");
-            $("#register-form .form-row .form-control.company").hide();
+            $("#register-form .form-row .form-control.business").hide();
         }
     });
 
     $("#register-form .form-input input").keyup(function(){
-        if($("#register-navigation button.singular").hasClass("active")){
+        if($("#register-navigation button.customer").hasClass("active")){
             if($("input#name").val() != "" && $("input#surname").val() != "" && $("input#username").val() != "" && $("input#email").val() != "" && $("input#password").val() != ""){
                 $("button#register").addClass("active");
             }
@@ -72,8 +72,8 @@ $(document).ready(function(){
                 $("button#register").removeClass("active");
             }
         }
-        else if($("#register-navigation button.company").hasClass("active")){
-            if($("input#company").val() != "" && $("input#username").val() != "" && $("input#email").val() != "" && $("input#password").val() != ""){
+        else if($("#register-navigation button.business").hasClass("active")){
+            if($("input#business").val() != "" && $("input#username").val() != "" && $("input#email").val() != "" && $("input#password").val() != ""){
                 $("button#register").addClass("active");
             }
             else{
@@ -86,7 +86,7 @@ $(document).ready(function(){
         if($(this).hasClass("active")){
             $("#loading").fadeIn();
             
-            if($("#register-navigation button.singular").hasClass("active")){
+            if($("#register-navigation button.customer").hasClass("active")){
                 $.ajax({
                     url: "https://api.bsp-academy.com/Register",
                     type: "POST",
@@ -114,13 +114,13 @@ $(document).ready(function(){
                     }
                 });
             }
-            else if($("#register-navigation button.company").hasClass("active")){
+            else if($("#register-navigation button.business").hasClass("active")){
                 $.ajax({
                     url: "https://api.bsp-academy.com/RegisterCompany",
                     type: "POST",
                     contentType: "application/json",
                     data: JSON.stringify({
-                        "companyName": $("input#company").val(),
+                        "companyName": $("input#business").val(),
                         "userName": $("input#username").val(),
                         "email": $("input#email").val(),
                         "password": $("input#password").val()

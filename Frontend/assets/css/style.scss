@@ -498,7 +498,7 @@ main{
                 .form-control{
                     @extend %input;
 
-                    &.company{
+                    &.business{
                         display: none;
                     }
                 }
@@ -527,6 +527,44 @@ main{
         }
     }
     
+    section#customer{
+        position: static;
+        padding-top: 12rem;
+
+        header{
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            padding: 2rem;
+            background-color: $white;
+            border-bottom: $border;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            #header-menu{
+                i{
+                    font-size: 2.75rem;
+                    color: $black;
+                }
+            }
+
+            #header-button{
+                a{
+                    @include button(false, primary, false);
+                    padding: 1.5rem 4rem;
+                }
+            }
+        }
+
+        #customer-content{
+            #customer-title{
+                @extend %title;
+                align-items: flex-start;
+                text-align: left;
+            }
+        }
+    }
 }
 
 /*#endregion*/

@@ -1,12 +1,12 @@
 /*#region Component Codes*/
-main section#register #register-button p, main section#login #login-button p, main section#home #home-button #home-line p, main section#register #register-content #register-title p, main section#login #login-content #login-title p, main section#home #home-content #home-title p, main #error #error-container #error-content #error-title p, main #success #success-container #success-content #success-title p {
+main section#register #register-button p, main section#login #login-button p, main section#home #home-button #home-line p, main section#customer #customer-content #customer-title p, main section#register #register-content #register-title p, main section#login #login-content #login-title p, main section#home #home-content #home-title p, main #error #error-container #error-content #error-title p, main #success #success-container #success-content #success-title p {
   font-size: 1.6rem;
   font-weight: 600;
   font-family: "Quicksand", sans-serif;
   color: #999CAD;
 }
 
-main section#register #register-content #register-title, main section#login #login-content #login-title, main section#home #home-content #home-title, main #error #error-container #error-content #error-title, main #success #success-container #success-content #success-title {
+main section#customer #customer-content #customer-title, main section#register #register-content #register-title, main section#login #login-content #login-title, main section#home #home-content #home-title, main #error #error-container #error-content #error-title, main #success #success-container #success-content #success-title {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,7 +14,7 @@ main section#register #register-content #register-title, main section#login #log
   gap: 1rem;
   margin-bottom: 3rem;
 }
-main section#register #register-content #register-title h1, main section#login #login-content #login-title h1, main section#home #home-content #home-title h1, main #error #error-container #error-content #error-title h1, main #success #success-container #success-content #success-title h1 {
+main section#customer #customer-content #customer-title h1, main section#register #register-content #register-title h1, main section#login #login-content #login-title h1, main section#home #home-content #home-title h1, main #error #error-container #error-content #error-title h1, main #success #success-container #success-content #success-title h1 {
   font-size: 3rem;
   font-weight: 700;
   font-family: "Montserrat", sans-serif;
@@ -449,7 +449,7 @@ main section#register #register-content #register-form .form-row {
   align-items: center;
   gap: 2rem;
 }
-main section#register #register-content #register-form .form-control.company {
+main section#register #register-content #register-form .form-control.business {
   display: none;
 }
 main section#register #register-button {
@@ -480,6 +480,48 @@ main section#register #register-button button.active {
 main section#register #register-button p a {
   font-weight: 800;
   color: #141414;
+}
+main section#customer {
+  position: static;
+  padding-top: 12rem;
+}
+main section#customer header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  background-color: #FFF;
+  border-bottom: 0.15rem solid #E0DEF7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main section#customer header #header-menu i {
+  font-size: 2.75rem;
+  color: #141414;
+}
+main section#customer header #header-button a {
+  width: 100%;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  background-color: #FF6000;
+  color: #FFF;
+  border: none;
+  display: flex;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+  padding: 1.5rem;
+  font-size: 1.6rem;
+  padding: 1.5rem 4rem;
+}
+main section#customer header #header-button a.active {
+  opacity: 1;
+}
+main section#customer #customer-content #customer-title {
+  align-items: flex-start;
+  text-align: left;
 }
 
 /*#endregion*/
