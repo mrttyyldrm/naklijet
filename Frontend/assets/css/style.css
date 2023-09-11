@@ -109,7 +109,7 @@ main {
   /*#endregion*/
 }
 main #loading {
-  z-index: 100;
+  z-index: 99;
   position: fixed;
   top: 0;
   left: 0;
@@ -134,17 +134,27 @@ main #loading #loading-content i {
   font-size: 3rem;
   color: #999CAD;
 }
-main #success #success-container {
-  padding: 20rem 0 0 0;
+main #success {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: #FFF;
+  display: none;
+}
+main #success #success-container {
+  padding: 3rem;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
 }
 main #success #success-container #success-content {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 3rem;
 }
@@ -161,7 +171,7 @@ main #success #success-container #success-content #success-icon i {
   font-size: 10rem;
   color: #FFF;
 }
-main #success #success-container #success-button {
+main #success #success-container #success-button a {
   width: 100%;
   border-radius: 1rem;
   font-weight: 600;
@@ -171,32 +181,34 @@ main #success #success-container #success-button {
   border: none;
   display: flex;
   justify-content: center;
-  opacity: 0.4;
   transition: opacity 0.3s ease;
   padding: 1.5rem;
   font-size: 1.6rem;
-  position: absolute;
-  bottom: 3rem;
-  width: 85%;
+}
+main #success #success-container #success-button a.active {
   opacity: 1;
 }
-main #success #success-container #success-button.active {
-  opacity: 1;
-}
-main #success #success-container #success-button a {
-  color: #FFF;
-}
-main #error #error-container {
-  padding: 20rem 0 0 0;
+main #error {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: #FFF;
+  display: none;
+}
+main #error #error-container {
+  padding: 3rem;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
 }
 main #error #error-container #error-content {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 3rem;
 }
@@ -213,7 +225,7 @@ main #error #error-container #error-content #error-icon i {
   font-size: 10rem;
   color: #FFF;
 }
-main #error #error-container #error-button {
+main #error #error-container #error-button a {
   width: 100%;
   border-radius: 1rem;
   font-weight: 600;
@@ -223,20 +235,12 @@ main #error #error-container #error-button {
   border: none;
   display: flex;
   justify-content: center;
-  opacity: 0.4;
   transition: opacity 0.3s ease;
   padding: 1.5rem;
   font-size: 1.6rem;
-  position: absolute;
-  bottom: 3rem;
-  width: 85%;
-  opacity: 1;
 }
-main #error #error-container #error-button.active {
+main #error #error-container #error-button a.active {
   opacity: 1;
-}
-main #error #error-container #error-button a {
-  color: #FFF;
 }
 main section#home {
   background-color: #FFF;
@@ -288,8 +292,8 @@ main section#home #home-content #home-login a {
   border: none;
   display: flex;
   justify-content: center;
-  opacity: 0.4;
   transition: opacity 0.3s ease;
+  opacity: 0.4;
   padding: 1.5rem;
   font-size: 1.6rem;
 }
@@ -322,12 +326,8 @@ main section#home #home-button a {
   border: none;
   display: flex;
   justify-content: center;
-  opacity: 0.4;
   transition: opacity 0.3s ease;
-  opacity: 1;
-  border: 0.3rem solid #FF6000;
-  background-color: #FFF;
-  color: #141414;
+  opacity: 0.4;
   padding: 1.5rem;
   font-size: 1.6rem;
 }
@@ -380,8 +380,8 @@ main section#login #login-button button {
   border: none;
   display: flex;
   justify-content: center;
-  opacity: 0.4;
   transition: opacity 0.3s ease;
+  opacity: 0.4;
   padding: 1.5rem;
   font-size: 1.6rem;
 }
@@ -417,8 +417,8 @@ main section#register #register-content #register-navigation button {
   border: none;
   display: flex;
   justify-content: center;
-  opacity: 0.4;
   transition: opacity 0.3s ease;
+  opacity: 0.4;
   opacity: 1;
   border: 0.15rem solid #E0DEF7;
   background-color: #FFF;
@@ -469,8 +469,8 @@ main section#register #register-button button {
   border: none;
   display: flex;
   justify-content: center;
-  opacity: 0.4;
   transition: opacity 0.3s ease;
+  opacity: 0.4;
   padding: 1.5rem;
   font-size: 1.6rem;
 }

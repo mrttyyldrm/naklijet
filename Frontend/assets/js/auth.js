@@ -26,15 +26,21 @@ $(document).ready(function(){
             $.ajax({
                 url: "https://api.bsp-academy.com/Login",
                 type: "POST",
-                data: {
+                contentType: "application/json",
+                data: JSON.stringify({
                     "userName": $("input#username").val(),
                     "password": $("input#password").val()
-                },
+                }),
                 success: function(data){
-                    
+                    localStorage.setItem("token", data.token);
+                    location.href = "panel.html";
                 },
                 error: function(){
-
+                    $("#error-title h1").text("Giriş Başarısız");
+                    $("#error-title p").text("Kullanıcı adı veya şifre hatalı");
+                    $("#error-button a").attr("href","login.html");
+                    $("#error").fadeIn();
+                    $("#loading").fadeOut();
                 }
             });
         }
@@ -84,18 +90,27 @@ $(document).ready(function(){
                 $.ajax({
                     url: "https://api.bsp-academy.com/Register",
                     type: "POST",
-                    data: {
+                    contentType: "application/json",
+                    data: JSON.stringify({
                         "name": $("input#name").val(),
                         "surname": $("input#surname").val(),
                         "userName": $("input#username").val(),
                         "email": $("input#email").val(),
                         "password": $("input#password").val()
-                    },
-                    success: function(data){
-                        
+                    }),
+                    success: function(){
+                        $("#success-title h1").text("Kayıt Oluşturuldu");
+                        $("#success-title p").text("Hesabınızla panele giriş yapabilirsiniz.");
+                        $("#success-button a").attr("href", "login.html");
+                        $("#success-button a").text("Giriş Yap");
+                        $("#success").fadeIn();
+                        $("#loading").fadeOut();
                     },
                     error: function(){
-    
+                        $("#error-title h1").text("Kayıt Başarısız");
+                        $("#error-title p").text("Lütfen daha sonra tekrar deneyiniz.");
+                        $("#error").fadeIn();
+                        $("#loading").fadeOut();
                     }
                 });
             }
@@ -103,17 +118,26 @@ $(document).ready(function(){
                 $.ajax({
                     url: "https://api.bsp-academy.com/RegisterCompany",
                     type: "POST",
-                    data: {
+                    contentType: "application/json",
+                    data: JSON.stringify({
                         "companyName": $("input#company").val(),
                         "userName": $("input#username").val(),
                         "email": $("input#email").val(),
                         "password": $("input#password").val()
-                    },
-                    success: function(data){
-                        
+                    }),
+                    success: function(){
+                        $("#success-title h1").text("Kayıt Oluşturuldu");
+                        $("#success-title p").text("Hesabınızla panele giriş yapabilirsiniz.");
+                        $("#success-button a").attr("href", "login.html");
+                        $("#success-button a").text("Giriş Yap");
+                        $("#success").fadeIn();
+                        $("#loading").fadeOut();
                     },
                     error: function(){
-    
+                        $("#error-title h1").text("Kayıt Başarısız");
+                        $("#error-title p").text("Lütfen daha sonra tekrar deneyiniz.");
+                        $("#error").fadeIn();
+                        $("#loading").fadeOut();
                     }
                 });
             }
