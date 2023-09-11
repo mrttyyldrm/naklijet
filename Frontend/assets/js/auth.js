@@ -26,15 +26,19 @@ $(document).ready(function(){
             $.ajax({
                 url: "https://api.bsp-academy.com/Login",
                 type: "POST",
-                data: {
+                contentType: "application/json",
+                data: JSON.stringify({
                     "userName": $("input#username").val(),
                     "password": $("input#password").val()
-                },
+                }),
                 success: function(data){
-                    
+                    console.log(data);
+                    alert("Başarılı!");
+                    $("#loading").fadeOut();
                 },
                 error: function(){
-
+                    alert("Hata!");
+                    $("#loading").fadeOut();
                 }
             });
         }
@@ -84,18 +88,21 @@ $(document).ready(function(){
                 $.ajax({
                     url: "https://api.bsp-academy.com/Register",
                     type: "POST",
-                    data: {
+                    contentType: "application/json",
+                    data: JSON.stringify({
                         "name": $("input#name").val(),
                         "surname": $("input#surname").val(),
                         "userName": $("input#username").val(),
                         "email": $("input#email").val(),
                         "password": $("input#password").val()
-                    },
-                    success: function(data){
-                        
+                    }),
+                    success: function(){
+                        alert("Başarılı!");
+                        location.href = "login.html";
                     },
                     error: function(){
-    
+                        alert("Hata!");
+                        $("#loading").fadeOut();
                     }
                 });
             }
@@ -103,17 +110,20 @@ $(document).ready(function(){
                 $.ajax({
                     url: "https://api.bsp-academy.com/RegisterCompany",
                     type: "POST",
-                    data: {
+                    contentType: "application/json",
+                    data: JSON.stringify({
                         "companyName": $("input#company").val(),
                         "userName": $("input#username").val(),
                         "email": $("input#email").val(),
                         "password": $("input#password").val()
-                    },
-                    success: function(data){
-                        
+                    }),
+                    success: function(){
+                        alert("Başarılı!");
+                        location.href = "login.html";
                     },
                     error: function(){
-    
+                        alert("Hata!");
+                        $("#loading").fadeOut();
                     }
                 });
             }
