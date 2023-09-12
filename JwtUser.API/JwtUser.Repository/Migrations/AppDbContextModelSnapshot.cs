@@ -22,6 +22,29 @@ namespace JwtUser.Repository.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("JwtUser.Core.Entities.AppPersonel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ApplicationId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PersonalId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationId");
+
+                    b.HasIndex("PersonalId");
+
+                    b.ToTable("AppPersonels");
+                });
+
             modelBuilder.Entity("JwtUser.Core.Entities.Appellation", b =>
                 {
                     b.Property<int>("Id")
@@ -162,39 +185,6 @@ namespace JwtUser.Repository.Migrations
                     b.ToTable("HowCarries");
                 });
 
-            modelBuilder.Entity("JwtUser.Core.Entities.Insurance", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Insurances");
-                });
-
-            modelBuilder.Entity("JwtUser.Core.Entities.PackageHelper", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PackageHelpers");
-                });
-
             modelBuilder.Entity("JwtUser.Core.Entities.Personal", b =>
                 {
                     b.Property<int>("Id")
@@ -283,17 +273,10 @@ namespace JwtUser.Repository.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Directions")
-                        .IsRequired()
+                    b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("HowCarryId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("InsuranceId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PackageHelperId")
                         .HasColumnType("int");
 
                     b.Property<int>("StreetId")
@@ -302,10 +285,22 @@ namespace JwtUser.Repository.Migrations
                     b.Property<int?>("ToStreetId")
                         .HasColumnType("int");
 
-                    b.Property<int>("itemCount")
+                    b.Property<int>("bigitemCount")
                         .HasColumnType("int");
 
-                    b.Property<int>("packageCount")
+                    b.Property<bool>("isInsurances")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("isIntercity")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("isPackageHelpers")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("miditemCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("smallitemCount")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -315,10 +310,6 @@ namespace JwtUser.Repository.Migrations
                     b.HasIndex("CategoryId");
 
                     b.HasIndex("HowCarryId");
-
-                    b.HasIndex("InsuranceId");
-
-                    b.HasIndex("PackageHelperId");
 
                     b.HasIndex("StreetId");
 
@@ -552,6 +543,23 @@ namespace JwtUser.Repository.Migrations
                     b.HasDiscriminator().HasValue("AppUser");
                 });
 
+            modelBuilder.Entity("JwtUser.Core.Entities.AppPersonel", b =>
+                {
+                    b.HasOne("JwtUser.Core.Entities.Application", null)
+                        .WithMany("AppPersonels")
+                        .HasForeignKey("ApplicationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JwtUser.Core.Entities.Personal", "Personals")
+                        .WithMany("AppPersonels")
+                        .HasForeignKey("PersonalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Personals");
+                });
+
             modelBuilder.Entity("JwtUser.Core.Entities.Application", b =>
                 {
                     b.HasOne("JwtUser.Core.Entities.Cars", "Cars")
@@ -645,18 +653,6 @@ namespace JwtUser.Repository.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("JwtUser.Core.Entities.Insurance", "Insurances")
-                        .WithMany("Transports")
-                        .HasForeignKey("InsuranceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("JwtUser.Core.Entities.PackageHelper", "PackageHelpers")
-                        .WithMany("Transports")
-                        .HasForeignKey("PackageHelperId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("JwtUser.Core.Entities.Street", "Street")
                         .WithMany()
                         .HasForeignKey("StreetId")
@@ -672,10 +668,6 @@ namespace JwtUser.Repository.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("HowCarries");
-
-                    b.Navigation("Insurances");
-
-                    b.Navigation("PackageHelpers");
 
                     b.Navigation("Street");
 
@@ -738,6 +730,11 @@ namespace JwtUser.Repository.Migrations
                     b.Navigation("Personal");
                 });
 
+            modelBuilder.Entity("JwtUser.Core.Entities.Application", b =>
+                {
+                    b.Navigation("AppPersonels");
+                });
+
             modelBuilder.Entity("JwtUser.Core.Entities.Category", b =>
                 {
                     b.Navigation("Transports");
@@ -753,14 +750,9 @@ namespace JwtUser.Repository.Migrations
                     b.Navigation("Transports");
                 });
 
-            modelBuilder.Entity("JwtUser.Core.Entities.Insurance", b =>
+            modelBuilder.Entity("JwtUser.Core.Entities.Personal", b =>
                 {
-                    b.Navigation("Transports");
-                });
-
-            modelBuilder.Entity("JwtUser.Core.Entities.PackageHelper", b =>
-                {
-                    b.Navigation("Transports");
+                    b.Navigation("AppPersonels");
                 });
 
             modelBuilder.Entity("JwtUser.Core.Entities.Town", b =>

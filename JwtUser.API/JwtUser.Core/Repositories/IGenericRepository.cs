@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -12,7 +13,7 @@ namespace JwtUser.Core.Repositories
         Task AddAsync(T entity);
         IQueryable<T> GetAllAsync();
         IQueryable<T> GetListByFilter(Expression<Func<T, bool>> expression);
-
+        Task AddRangeAsync(IEnumerable<T> entities);
         Task<T> GetByIdAsync(int id);
 
         void Remove(T t);

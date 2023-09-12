@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JwtUser.Core.DTOs.Response;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,20 +13,20 @@ namespace JwtUser.Core.Entities
 
         //[JsonIgnore]
         public int CategoryId { get; set; }
-       // [JsonIgnore]
+        // [JsonIgnore]
         public Category Category { get; set; }
 
 
 
-        public string Directions { get; set; }      //adres tarifi
+        public string? Description { get; set; }      //adres tarifi
 
-        public int itemCount { get; set; }
-        public int packageCount { get; set; }
+        public int bigitemCount { get; set; }
+        public int miditemCount { get; set; }
+        public int smallitemCount { get; set; }
 
 
         //[JsonIgnore]
         public int StreetId { get; set; }
-
         //[JsonIgnore]
         public Street Street { get; set; }
 
@@ -34,32 +35,26 @@ namespace JwtUser.Core.Entities
         //[JsonIgnore]
         public int HowCarryId { get; set; }
 
-       // [JsonIgnore]
-         public HowCarry HowCarries { get; set; }
+        // [JsonIgnore]
+        public HowCarry HowCarries { get; set; }
 
 
-       //[JsonIgnore]
-        public int PackageHelperId { get; set; }
-
-       // [JsonIgnore]
-        public PackageHelper PackageHelpers { get; set; }
+        public bool isPackageHelpers { get; set; }
 
 
-        //[JsonIgnore]
-        public int InsuranceId { get; set; }
-
-        //[JsonIgnore]
-        public Insurance Insurances { get; set; }
+        public bool isInsurances { get; set; }
 
 
         //[JsonIgnore]
         public string AppUserId { get; set; }
 
-        [JsonIgnore]
+        //[JsonIgnore]
         public AppUser AppUser { get; set; }
-        
+
         public int? ToStreetId { get; set; }
         public Street? ToStreet { get; set; }
 
+
+        public bool isIntercity  {get; set;}
     }
 }

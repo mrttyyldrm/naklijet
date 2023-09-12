@@ -13,6 +13,7 @@ namespace JwtUser.Core.Services
 
         IEnumerable<T> GetAllAsync();
         IQueryable<T> GetListByFilter(Expression<Func<T, bool>> expression);
+        Task AddRangeAsync(IEnumerable<T> entities);
 
         Task<T> GetByIdAsync(int id);
 

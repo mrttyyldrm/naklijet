@@ -27,6 +27,11 @@ namespace JwtUser.Service.Services
             await _unitOfWork.CommitAsync();
         }
 
+        public Task AddRangeAsync(IEnumerable<T> entities)
+        {
+            return _genericRepository.AddRangeAsync(entities);
+        }
+
         public IEnumerable<T> GetAllAsync()
         {
             return _genericRepository.GetAllAsync();

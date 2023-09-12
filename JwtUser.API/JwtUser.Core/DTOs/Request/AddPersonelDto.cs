@@ -12,6 +12,5 @@ namespace JwtUser.Core.DTOs.Request
         public string? Surname { get; set; }
         public int AppellationId { get; set; }
         public string? CompanyId { get; set; }
-        public int? PersonalApplicationsId { get; set; }
     }
 }

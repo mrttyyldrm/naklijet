@@ -9,7 +9,7 @@ using System.Security.Claims;
 
 namespace JwtUser.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("")]
     [ApiController]
     public class TransportController : ControllerBase
     {
@@ -27,6 +27,7 @@ namespace JwtUser.API.Controllers
 
 
         [HttpGet]
+        [Route("GetListTransports")]      //no relations
 
         public IActionResult GetListTransports()
         {
@@ -35,29 +36,15 @@ namespace JwtUser.API.Controllers
         }
 
         [HttpGet]
-        [Route("GetListTransportsTest")]
+        [Route("GetTransportsList")]
         public async Task<IActionResult> GetListTransportsTest()
         {
             var values = await _transportService.GetTransportswithRelations();
             return Ok(values);
         }
 
-        [Authorize]
-        [HttpPost]
-        public async Task<IActionResult> AddTransport(AddTransportDto transportDto)
-        {
-            var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
-            var transport = _mapper.Map<Transport>(transportDto);
-
-            transport.AppUserId = userId;
-
-            await _transportService.AddAsync(transport);
-            return Ok("Data success add");
-        }
-
-        [Authorize]
-        [HttpPost("TransportCity")]
+        //[Authorize]
+        [HttpPost("NewTransport")]
         public async Task<IActionResult> AddTransportCity(AddTransportCityDto transportCityDto)
         {
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -65,6 +52,7 @@ namespace JwtUser.API.Controllers
             var transport = _mapper.Map<Transport>(transportCityDto);
 
             transport.AppUserId = userId;
+            //transport.AppUserId = "6e7c54f8-bc2c-403f-907c-2b3545f8247d";
 
             await _transportService.AddAsync(transport);
             return Ok("Data success add");

@@ -14,7 +14,6 @@ namespace JwtUser.Service.Mapping
     {
         public MapProfile()
         {
-            CreateMap<Transport, AddTransportDto>().ReverseMap();
             CreateMap<Cars, CarsDto>().ReverseMap();
             CreateMap<Personal, PersonalDto>().ReverseMap();
             CreateMap<AppUser, AppUserDto>().ReverseMap();

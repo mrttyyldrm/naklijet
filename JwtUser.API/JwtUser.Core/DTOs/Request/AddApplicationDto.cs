@@ -20,6 +20,7 @@ namespace JwtUser.Core.DTOs.Request
         public int CompanyTransportTime { get; set; }
 
         public bool IsSuccess { get; set; }
+        public List<int> PersonalIds { get; set; } // Birden fazla PersonalId'yi saklamak için bir liste kullanabilirsiniz.
 
     }
 }

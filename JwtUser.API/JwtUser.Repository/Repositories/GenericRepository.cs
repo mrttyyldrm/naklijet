@@ -28,6 +28,12 @@ namespace JwtUser.Repository.Repositories
             await _dbSet.AddAsync(entity);
         }
 
+        public async Task AddRangeAsync(IEnumerable<T> entities)
+        {
+            await _dbSet.AddRangeAsync(entities);
+            await _dbContext.SaveChangesAsync();
+        }
+
         public IQueryable<T> GetAllAsync()
         {
             return _dbSet.AsNoTracking().AsQueryable();
