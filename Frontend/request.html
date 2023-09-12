@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="tr-TR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,8 +11,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    
+
     <main>
         <div id="loading">
         </div>
@@ -21,13 +23,209 @@
         </div>
         <section id="request">
             <div id="request-situation">
-
+                <div id="request-progress"></div>
             </div>
             <div id="request-content">
-                <!--AJAX Loads-->
+                <div class="step" queue="1" id="category">
+                    <div class="step-container">
+                        <div class="step-title">
+                            <h2>Taşıma Türü</h2>
+                            <p>Şehir içi mi yoksa şehirler arası mı yük taşımak istiyorsun?</p>
+                        </div>
+                        <div class="step-content">
+                            <div class="option" data="true">
+                                <div class="option-icon">
+                                    <i class="fa-regular fa-route"></i>
+                                </div>
+                                <p>Şehirler Arası Taşıma</p>
+                            </div>
+                            <div class="option" data="false">
+                                <div class="option-icon">
+                                    <i class="fa-regular fa-house-building"></i>
+                                </div>
+                                <p>Şehir İçi Taşıma</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step" queue="2" id="type">
+                    <div class="step-container">
+                        <div class="step-title">
+                            <h2>Taşıma Tipi</h2>
+                            <p>Evini mi taşımak istiyorsun yoksa koltuk dolap gibi birkaç parça eşya mı?</p>
+                        </div>
+                        <div class="step-content">
+                            <div class="option" data="1">
+                                <p>Parça Eşya Taşıma</p>
+                            </div>
+                            <div class="option" data="2">
+                                <p>Evden Eve Taşıma</p>
+                            </div>
+                            <div class="option" data="3">
+                                <p>Ofis Taşıma</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step" queue="3" id="from">
+                    <div class="step-container">
+                        <div class="step-title">
+                            <h2>Alış Konumu</h2>
+                            <p>Taşınacak eşyalar nereden teslim alınacak?</p>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-loading">
+                                <div class="loading-content">
+                                    <i class="fa-regular fa-loader fa-spin"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step" queue="4" id="to">
+                    <div class="step-container">
+                        <div class="step-title">
+                            <h2>Varış Konumu</h2>
+                            <p>Taşınacak eşyalar nereye teslim edilecek?</p>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-loading">
+                                <div class="loading-content">
+                                    <i class="fa-regular fa-loader fa-spin"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step" queue="5" id="count">
+                    <div class="step-container">
+                        <div class="step-title">
+                            <h2>Taşınacak Eşya</h2>
+                            <p>Taşımak istediğiniz eşyaları seçiniz.</p>
+                        </div>
+                        <div class="step-content">
+                            <div class="option" data="big">
+                                <div class="option-button minus">
+                                    <button><i class="fa-regular fa-minus"></i></button>
+                                </div>
+                                <div class="option-count">
+                                    <h3 id="big">0</h3>
+                                    <h4>Büyük Paket</h4>
+                                    <p>(6 desi ve üzeri)</p>
+                                </div>
+                                <div class="option-button plus">
+                                    <button><i class="fa-regular fa-plus"></i></button>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="option" data="mid">
+                                <div class="option-button minus">
+                                    <button><i class="fa-regular fa-minus"></i></button>
+                                </div>
+                                <div class="option-count">
+                                    <h3 id="mid">0</h3>
+                                    <h4>Orta Paket</h4>
+                                    <p>(2-5,99 desi aralığı)</p>
+                                </div>
+                                <div class="option-button plus">
+                                    <button><i class="fa-regular fa-plus"></i></button>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="option" data="small">
+                                <div class="option-button minus">
+                                    <button><i class="fa-regular fa-minus"></i></button>
+                                </div>
+                                <div class="option-count">
+                                    <h3 id="small">0</h3>
+                                    <h4>Küçük Paket</h4>
+                                    <p>(0-1,99 desi aralığı)</p>
+                                </div>
+                                <div class="option-button plus">
+                                    <button><i class="fa-regular fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-info">
+                            <p>* 1 Desi: En x Boy x Yükseklik / 3000</p>
+                            <p>* Yapılacak olası hatalı paket seçimleri sebebiyle oluşabilecek fiyat farkından alıcı sorumludur.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="step" queue="6" id="situation">
+                    <div class="step-container">
+                        <div class="step-title">
+                            <h2>Taşıma Durumu</h2>
+                            <p>Lokasyonlardan taşıma ve teslimat nasıl yapılacak?</p>
+                        </div>
+                        <div class="step-content">
+                            <div class="option" data="1">
+                                <p>Zemin Kat</p>
+                            </div>
+                            <div class="option" data="2">
+                                <p>Bina Asansörü</p>
+                            </div>
+                            <div class="option" data="3">
+                                <p>Yük Asansörü</p>
+                            </div>
+                            <div class="option" data="4">
+                                <p>Merdiven</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step" queue="7" id="packaging">
+                    <div class="step-container">
+                        <div class="step-title">
+                            <h2>Paketleme</h2>
+                            <p>Nakliyat talebinize ilişkin paketleme hizmeti almak ister misiniz?</p>
+                        </div>
+                        <div class="step-content">
+                            <div class="option" data="false">
+                                <p>Paketleme ihtiyacım yok</p>
+                            </div>
+                            <div class="option" data="true">
+                                <p>Nakliye firması paketlesin</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step" queue="8" id="insurance">
+                    <div class="step-container">
+                        <div class="step-title">
+                            <h2>Sigorta Talebi</h2>
+                            <p>Nakliyat talebiniz için paketleme hizmeti almak ister misiniz?</p>
+                        </div>
+                        <div class="step-content">
+                            <div class="option" data="true">
+                                <p>Evet, istiyorum</p>
+                            </div>
+                            <div class="option" data="false">
+                                <p>Hayır, istemiyorum</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step" queue="9" id="description">
+                    <div class="step-container">
+                        <div class="step-title">
+                            <h2>Açıklama</h2>
+                            <p>Nakliye talebinizle ilgili eklemek istediklerinizi iletebilirsiniz.</p>
+                        </div>
+                        <div class="step-content">
+                            <div class="form-control">
+                                <div class="form-input">
+                                    <textarea></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="request-button">
-                <button id="back"><i class="fa-regular fa-chevron-left"></i></button>
+                <button id="prev"><i class="fa-regular fa-chevron-left"></i>
+                    <p>İptal Et</p>
+                </button>
                 <button id="next">Devam Et</button>
             </div>
         </section>
@@ -37,7 +235,8 @@
     <script src="https://kit.fontawesome.com/193131ac84.js" crossorigin="anonymous"></script>
     <!--jQuery CDN-->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
-    <script src="assets/js/index.js"></script>
+    <script src="assets/js/request.js"></script>
     <script src="assets/js/components.js"></script>
 </body>
+
 </html>

@@ -1,12 +1,12 @@
 /*#region Component Codes*/
-main section#register #register-button p, main section#login #login-button p, main section#home #home-button #home-line p, main aside #aside-logout p, main aside #aside-content #aside-menu nav ul li p, main section#register #register-content #register-title p, main section#login #login-content #login-title p, main section#home #home-content #home-title p, main #error #error-container #error-content #error-title p, main #success #success-container #success-content #success-title p {
+main section#request #request-content .step#count .step-container .step-info p, main section#request #request-content .step#count .step-container .step-content .option .option-count p, main section#register #register-button p, main section#login #login-button p, main section#home #home-button #home-line p, main aside #aside-logout p, main aside #aside-content #aside-menu nav ul li p, main section#request #request-content .step .step-container .step-title p, main section#register #register-content #register-title p, main section#login #login-content #login-title p, main section#home #home-content #home-title p, main #error #error-container #error-content #error-title p, main #success #success-container #success-content #success-title p {
   font-size: 1.6rem;
   font-weight: 600;
   font-family: "Quicksand", sans-serif;
   color: #999CAD;
 }
 
-main section#register #register-content #register-title, main section#login #login-content #login-title, main section#home #home-content #home-title, main #error #error-container #error-content #error-title, main #success #success-container #success-content #success-title {
+main section#request #request-content .step .step-container .step-title, main section#register #register-content #register-title, main section#login #login-content #login-title, main section#home #home-content #home-title, main #error #error-container #error-content #error-title, main #success #success-container #success-content #success-title {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,27 +14,27 @@ main section#register #register-content #register-title, main section#login #log
   gap: 1rem;
   margin-bottom: 3rem;
 }
-main section#register #register-content #register-title h1, main section#login #login-content #login-title h1, main section#home #home-content #home-title h1, main #error #error-container #error-content #error-title h1, main #success #success-container #success-content #success-title h1 {
+main section#request #request-content .step .step-container .step-title h1, main section#register #register-content #register-title h1, main section#login #login-content #login-title h1, main section#home #home-content #home-title h1, main #error #error-container #error-content #error-title h1, main #success #success-container #success-content #success-title h1, main section#request #request-content .step .step-container .step-title h2, main section#register #register-content #register-title h2, main section#login #login-content #login-title h2, main section#home #home-content #home-title h2, main #error #error-container #error-content #error-title h2, main #success #success-container #success-content #success-title h2 {
   font-size: 3rem;
   font-weight: 700;
   font-family: "Montserrat", sans-serif;
   color: #141414;
   line-height: 130%;
 }
-main section#register #register-content #register-form .form-control, main section#login #login-content #login-form .form-control {
+main section#request #request-content .step .step-container .step-content .form-control, main section#register #register-content #register-form .form-control, main section#login #login-content #login-form .form-control {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
 }
-main section#register #register-content #register-form .form-control label, main section#login #login-content #login-form .form-control label {
+main section#request #request-content .step .step-container .step-content .form-control label, main section#register #register-content #register-form .form-control label, main section#login #login-content #login-form .form-control label {
   font-size: 1.4rem;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
   color: #141414;
 }
-main section#register #register-content #register-form .form-control .form-input, main section#login #login-content #login-form .form-control .form-input {
+main section#request #request-content .step .step-container .step-content .form-control .form-input, main section#register #register-content #register-form .form-control .form-input, main section#login #login-content #login-form .form-control .form-input {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -43,7 +43,7 @@ main section#register #register-content #register-form .form-control .form-input
   padding: 1.5rem 2rem;
   border-radius: 1rem;
 }
-main section#register #register-content #register-form .form-control .form-input input, main section#login #login-content #login-form .form-control .form-input input {
+main section#request #request-content .step .step-container .step-content .form-control .form-input input, main section#register #register-content #register-form .form-control .form-input input, main section#login #login-content #login-form .form-control .form-input input, main section#request #request-content .step .step-container .step-content .form-control .form-input textarea, main section#register #register-content #register-form .form-control .form-input textarea, main section#login #login-content #login-form .form-control .form-input textarea, main section#request #request-content .step .step-container .step-content .form-control .form-input select, main section#register #register-content #register-form .form-control .form-input select, main section#login #login-content #login-form .form-control .form-input select {
   width: 100%;
   border: none;
   outline: none;
@@ -51,15 +51,19 @@ main section#register #register-content #register-form .form-control .form-input
   font-weight: 600;
   color: #141414;
 }
-main section#register #register-content #register-form .form-control .form-input input::-moz-placeholder, main section#login #login-content #login-form .form-control .form-input input::-moz-placeholder {
+main section#request #request-content .step .step-container .step-content .form-control .form-input input::-moz-placeholder, main section#register #register-content #register-form .form-control .form-input input::-moz-placeholder, main section#login #login-content #login-form .form-control .form-input input::-moz-placeholder, main section#request #request-content .step .step-container .step-content .form-control .form-input textarea::-moz-placeholder, main section#register #register-content #register-form .form-control .form-input textarea::-moz-placeholder, main section#login #login-content #login-form .form-control .form-input textarea::-moz-placeholder, main section#request #request-content .step .step-container .step-content .form-control .form-input select::-moz-placeholder, main section#register #register-content #register-form .form-control .form-input select::-moz-placeholder, main section#login #login-content #login-form .form-control .form-input select::-moz-placeholder {
   color: #999CAD;
 }
-main section#register #register-content #register-form .form-control .form-input input::placeholder, main section#login #login-content #login-form .form-control .form-input input::placeholder {
+main section#request #request-content .step .step-container .step-content .form-control .form-input input::placeholder, main section#register #register-content #register-form .form-control .form-input input::placeholder, main section#login #login-content #login-form .form-control .form-input input::placeholder, main section#request #request-content .step .step-container .step-content .form-control .form-input textarea::placeholder, main section#register #register-content #register-form .form-control .form-input textarea::placeholder, main section#login #login-content #login-form .form-control .form-input textarea::placeholder, main section#request #request-content .step .step-container .step-content .form-control .form-input select::placeholder, main section#register #register-content #register-form .form-control .form-input select::placeholder, main section#login #login-content #login-form .form-control .form-input select::placeholder {
   color: #999CAD;
 }
-main section#register #register-content #register-form .form-control .form-input i, main section#login #login-content #login-form .form-control .form-input i {
+main section#request #request-content .step .step-container .step-content .form-control .form-input i, main section#register #register-content #register-form .form-control .form-input i, main section#login #login-content #login-form .form-control .form-input i {
   font-size: 1.6rem;
   color: #999CAD;
+}
+main section#request #request-content .step .step-container .step-content .form-control .form-input textarea, main section#register #register-content #register-form .form-control .form-input textarea, main section#login #login-content #login-form .form-control .form-input textarea {
+  height: 25rem;
+  resize: none;
 }
 
 main section#register #register-content #register-navigation {
@@ -68,7 +72,7 @@ main section#register #register-content #register-navigation {
   border-radius: 1rem;
 }
 
-main section#home #home-button #home-line hr {
+main section#request #request-content .step#count .step-container .step-content hr, main section#home #home-button #home-line hr {
   width: 100%;
   height: 0.1rem;
   border: none;
@@ -671,6 +675,262 @@ main section#business header #header-menu i {
   font-size: 2.75rem;
   color: #141414;
 }
+main section#request {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 3rem;
+}
+main section#request #request-situation {
+  overflow: hidden;
+  background-color: #FFF;
+  border-radius: 2rem;
+  padding: 0.3rem;
+}
+main section#request #request-situation #request-progress {
+  width: 0%;
+  height: 0.7rem;
+  border-radius: 2rem;
+  background-color: #FF6000;
+  transition: width 0.75s ease-out;
+}
+main section#request #request-content {
+  position: relative;
+}
+main section#request #request-content .step {
+  overflow: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #EFF2F9;
+  display: none;
+}
+main section#request #request-content .step:first-child {
+  display: block;
+}
+main section#request #request-content .step .step-container {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+main section#request #request-content .step .step-container .step-content {
+  position: relative;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+main section#request #request-content .step .step-container .step-content .step-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 97;
+  width: 100%;
+  height: 100%;
+  background-color: #EFF2F9;
+}
+main section#request #request-content .step .step-container .step-content .step-loading .loading-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main section#request #request-content .step .step-container .step-content .step-loading .loading-content i {
+  font-size: 3rem;
+  color: #999CAD;
+}
+main section#request #request-content .step .step-container .step-content .option {
+  width: 100%;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: #FFF;
+  transition: background-color 0.3s ease;
+}
+main section#request #request-content .step .step-container .step-content .option.active {
+  background-color: #FF6000;
+}
+main section#request #request-content .step .step-container .step-content .option.active p {
+  color: #FFF;
+}
+main section#request #request-content .step .step-container .step-content .option p {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  color: #141414;
+  transition: color 0.3s ease;
+}
+main section#request #request-content .step#category .step-container .step-content .option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+main section#request #request-content .step#category .step-container .step-content .option.active .option-icon {
+  background-color: #FFF;
+}
+main section#request #request-content .step#category .step-container .step-content .option.active .option-icon i {
+  color: #FF6000;
+}
+main section#request #request-content .step#category .step-container .step-content .option .option-icon {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FF6000;
+  transition: background-color 0.3s ease;
+}
+main section#request #request-content .step#category .step-container .step-content .option .option-icon i {
+  font-size: 3rem;
+  color: #FFF;
+  transition: color 0.3s ease;
+}
+main section#request #request-content .step#count .step-container {
+  grid-template-rows: auto 1fr auto;
+}
+main section#request #request-content .step#count .step-container .step-content .option {
+  background-color: transparent;
+  padding: 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+main section#request #request-content .step#count .step-container .step-content .option .option-button button {
+  width: 4.6rem;
+  height: 4.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  background-color: #FF6000;
+  color: #FFF;
+  border: none;
+  display: flex;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+  border: 0.3rem solid #FF6000;
+  background-color: #FFF;
+  color: #141414;
+  padding: 1.5rem;
+  font-size: 1.6rem;
+  border: 0.15rem solid #E0DEF7;
+  color: #999CAD;
+}
+main section#request #request-content .step#count .step-container .step-content .option .option-button button.active {
+  opacity: 1;
+}
+main section#request #request-content .step#count .step-container .step-content .option .option-button button i {
+  font-size: 1.6rem;
+  color: #999CAD;
+}
+main section#request #request-content .step#count .step-container .step-content .option .option-count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+}
+main section#request #request-content .step#count .step-container .step-content .option .option-count h3 {
+  font-size: 3.25rem;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  color: #141414;
+}
+main section#request #request-content .step#count .step-container .step-content .option .option-count h4 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  color: #141414;
+}
+main section#request #request-content .step#count .step-container .step-content .option .option-count p {
+  font-size: 1.4rem;
+}
+main section#request #request-content .step#count .step-container .step-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+main section#request #request-content .step#count .step-container .step-info p {
+  font-size: 1.4rem;
+}
+main section#request #request-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+main section#request #request-button button#prev {
+  cursor: pointer;
+  width: 100%;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  background-color: #FF6000;
+  color: #FFF;
+  border: none;
+  display: flex;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+  border: 0.3rem solid #FF6000;
+  background-color: #FFF;
+  color: #141414;
+  padding: 1.5rem;
+  font-size: 1.6rem;
+  border: 0.15rem solid #E0DEF7;
+}
+main section#request #request-button button#prev.active {
+  opacity: 1;
+}
+main section#request #request-button button#prev.small {
+  width: initial;
+  padding: 1.5rem 2rem;
+}
+main section#request #request-button button#prev.small i {
+  display: block;
+}
+main section#request #request-button button#prev.small p {
+  display: none;
+}
+main section#request #request-button button#prev i, main section#request #request-button button#prev p {
+  color: #999CAD;
+}
+main section#request #request-button button#prev i {
+  display: none;
+}
+main section#request #request-button button#next {
+  cursor: pointer;
+  width: 100%;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  background-color: #FF6000;
+  color: #FFF;
+  border: none;
+  display: flex;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+  opacity: 0.4;
+  padding: 1.5rem;
+  font-size: 1.6rem;
+}
+main section#request #request-button button#next.active {
+  opacity: 1;
+}
+
 /*#endregion*/
 /*#region Responsive Codes*/
 @media screen and (max-width: 425px) {

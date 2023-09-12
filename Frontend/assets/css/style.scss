@@ -23,7 +23,7 @@ $border: 0.15rem solid #E0DEF7;
     gap: 1rem;
     margin-bottom: 3rem;
 
-    h1{
+    h1,h2{
         font-size: 3rem;
         font-weight: 700;
         font-family: 'Montserrat', sans-serif;
@@ -59,7 +59,7 @@ $border: 0.15rem solid #E0DEF7;
         padding: 1.5rem 2rem;
         border-radius: 1rem;
 
-        input{
+        input,textarea,select{
             width: 100%;
             border: none;
             outline: none;
@@ -75,6 +75,11 @@ $border: 0.15rem solid #E0DEF7;
         i{
             font-size: 1.6rem;
             color: $text;
+        }
+
+        textarea{
+            height: 25rem;
+            resize: none;
         }
     }
 }
@@ -744,6 +749,271 @@ main{
 
         #business-content{
 
+        }
+    }
+
+    section#request{
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: 3rem;
+
+        #request-situation{
+            overflow: hidden;
+            background-color: $white;
+            border-radius: 2rem;
+            padding: 0.3rem;
+
+            #request-progress{
+                width: 0%;
+                height: 0.7rem;
+                border-radius: 2rem;
+                background-color: $primary;
+                transition: width 0.75s ease-out;
+            }
+        }
+        
+        #request-content{
+            position: relative;
+
+            .step{
+                overflow: auto;
+                position: absolute;
+                top: 0; left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: $background;
+                display: none;
+
+                &:first-child{
+                    display: block;
+                }
+
+                .step-container{
+                    height: 100%;
+                    display: grid;
+                    grid-template-rows: auto 1fr;
+
+                    .step-title{
+                        @extend %title;
+                    }
+    
+                    .step-content{
+                        position: relative;
+                        overflow-y: scroll;
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 2rem;
+                        
+                        .step-loading{
+                            position: absolute;
+                            top: 0; left: 0;
+                            z-index: 97;
+                            width: 100%;
+                            height: 100%;
+                            background-color: $background;
+
+                            .loading-content{
+                                width: 100%;
+                                height: 100%;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+
+                                i{
+                                    font-size: 3rem;
+                                    color: $text;
+                                }
+                            }
+                        }
+    
+                        .option{
+                            width: 100%;
+                            padding: 2rem;
+                            border-radius: 1rem;
+                            background-color: $white;
+                            transition: background-color 0.3s ease;
+    
+                            &.active{
+                                background-color: $primary;
+    
+                                p{
+                                    color: $white;
+                                }
+                            }
+                            
+                            p{
+                                font-size: 1.6rem;
+                                font-weight: 700;
+                                font-family: 'Montserrat', sans-serif;
+                                color: $black;
+                                transition: color 0.3s ease;
+                            }
+                        }
+
+                        .form-control{
+                            @extend %input;
+                        }
+                    }
+                }
+
+                &#category{
+                    .step-container{
+                        .step-content{
+                            .option{
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                gap: 1.5rem;
+        
+                                &.active{
+                                    .option-icon{
+                                        background-color: $white;
+        
+                                        i{
+                                            color: $primary;
+                                        }
+                                    }
+                                }
+        
+                                .option-icon{
+                                    width: 8rem;
+                                    height: 8rem;
+                                    border-radius: 50%;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    background-color: $primary;
+                                    transition: background-color 0.3s ease;
+        
+                                    i{
+                                        font-size: 3rem;
+                                        color: $white;
+                                        transition: color 0.3s ease;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &#count{
+                    .step-container{
+                        grid-template-rows: auto 1fr auto;
+
+                        .step-content{
+                            .option{
+                                background-color: transparent;
+                                padding: 0;
+                                display: grid;
+                                grid-template-columns: auto 1fr auto;
+                                align-items: center;
+
+                                .option-button{
+                                    button{
+                                        width: 4.6rem;
+                                        height: 4.6rem;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        @include button(false, secondary, false);
+                                        border: $border;
+                                        color: $text;
+
+                                        i{
+                                            font-size: 1.6rem;
+                                            color: $text;
+                                        }
+                                    }
+                                }
+
+                                .option-count{
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    text-align: center;
+                                    gap: 0.5rem;
+
+                                    h3{
+                                        font-size: 3.25rem;
+                                        font-weight: 700;
+                                        font-family: 'Montserrat', sans-serif;
+                                        color: $black;
+                                    }
+
+                                    h4{
+                                        font-size: 1.6rem;
+                                        font-weight: 700;
+                                        font-family: 'Montserrat', sans-serif;
+                                        color: $black;
+                                    }
+
+                                    p{
+                                        @extend %text;
+                                        font-size: 1.4rem;
+                                    }
+                                }
+                            }
+
+                            hr{
+                                @extend %line;
+                            }
+                        }
+
+                        .step-info{
+                            width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            gap: 0.5rem;
+
+                            p{
+                                @extend %text;
+                                font-size: 1.4rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #request-button{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+
+            button{
+                &#prev{
+                    @include button(false, secondary, false);
+                    border: $border;
+
+                    &.small{
+                        width: initial;
+                        padding: 1.5rem 2rem;
+
+                        i{
+                            display: block;
+                        }
+                        p{
+                            display: none;
+                        }
+                    }
+                    
+                    i,p{
+                        color: $text;
+                    }
+
+                    i{
+                        display: none;
+                    }
+                }
+                &#next{
+                    @include button(true, primary, false);
+                }
+            }
         }
     }
 }

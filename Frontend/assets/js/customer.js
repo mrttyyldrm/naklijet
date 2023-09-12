@@ -13,7 +13,6 @@ $(document).ready(function(){
                 }
                 else{
                     //Ajax Data Request with JWT Token
-                    alert("AJAX Başarıyla Yüklenebilir");
                     $("#loading").fadeOut();
                 }
             },
