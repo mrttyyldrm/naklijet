@@ -778,3 +778,6 @@ C:\Users\Onur\Desktop\Transportathon en son durum\Transportathon\JwtUser.API\Jwt
 C:\Users\Onur\Desktop\Transportathon en son durum\Transportathon\JwtUser.API\JwtUser.API\obj\Debug\net7.0\JwtUser.API.csproj.CopyComplete
 C:\Users\Onur\Desktop\Transportathon en son durum\Transportathon\JwtUser.API\JwtUser.API\obj\Debug\net7.0\JwtUser.API.genruntimeconfig.cache
 C:\Users\Onur\Desktop\Transportathon en son durum\Transportathon\JwtUser.API\JwtUser.API\obj\Debug\net7.0\ref\JwtUser.API.dll
+C:\Users\Onur\Desktop\Transportathon en son durum\Transportathon\JwtUser.API\JwtUser.API\bin\Debug\net7.0\Scrutor.dll
+C:\Users\Onur\Desktop\Transportathon en son durum\Transportathon\JwtUser.API\JwtUser.API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.dll
+C:\Users\Onur\Desktop\Transportathon en son durum\Transportathon\JwtUser.API\JwtUser.API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll

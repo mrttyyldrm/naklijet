@@ -74,6 +74,10 @@
               "target": "Package",
               "version": "[6.5.0, )"
             },
+            "Swashbuckle.AspNetCore.Filters": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
             "Swashbuckle.AspNetCore.Newtonsoft": {
               "target": "Package",
               "version": "[6.5.0, )"

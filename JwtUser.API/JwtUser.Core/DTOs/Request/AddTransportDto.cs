@@ -14,8 +14,9 @@ namespace JwtUser.Core.DTOs.Request
 
         public string Directions { get; set; }      //adres tarifi
 
-        public int itemCount { get; set; }
-        public int packageCount { get; set; }
+        public int bigitemCount { get; set; }
+        public int miditemCount { get; set; }
+        public int smallitemCount { get; set; }
 
 
         public int StreetId { get; set; }

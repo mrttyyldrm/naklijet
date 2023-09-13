@@ -27,6 +27,7 @@ namespace JwtUser.Repository.Context
         public DbSet<Appellation> Appellations { get; set; }
         public DbSet<Application> Applications { get; set; }
         public DbSet<Personal> Personals { get; set; }
+        public DbSet<Message> Messages { get; set; }
         public DbSet<AppPersonel> AppPersonels { get; set; }
     }
 

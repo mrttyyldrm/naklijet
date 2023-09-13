@@ -134,3 +134,37 @@ C:\Users\Onur\Desktop\Transportathon en son durum\Transportathon\JwtUser.API\Jwt
 C:\Users\Onur\Desktop\Transportathon en son durum\Transportathon\JwtUser.API\JwtUser.Service\obj\Debug\net7.0\refint\JwtUser.Service.dll
 C:\Users\Onur\Desktop\Transportathon en son durum\Transportathon\JwtUser.API\JwtUser.Service\obj\Debug\net7.0\JwtUser.Service.pdb
 C:\Users\Onur\Desktop\Transportathon en son durum\Transportathon\JwtUser.API\JwtUser.Service\obj\Debug\net7.0\ref\JwtUser.Service.dll
+C:\Users\sekii\Source\Repos\TechcareerTransportathon0\JwtUser.API\JwtUser.Service\bin\Debug\net7.0\JwtUser.Service.deps.json
+C:\Users\sekii\Source\Repos\TechcareerTransportathon0\JwtUser.API\JwtUser.Service\bin\Debug\net7.0\JwtUser.Service.dll
+C:\Users\sekii\Source\Repos\TechcareerTransportathon0\JwtUser.API\JwtUser.Service\bin\Debug\net7.0\JwtUser.Service.pdb
+C:\Users\sekii\Source\Repos\TechcareerTransportathon0\JwtUser.API\JwtUser.Service\bin\Debug\net7.0\JwtUser.Core.dll
+C:\Users\sekii\Source\Repos\TechcareerTransportathon0\JwtUser.API\JwtUser.Service\bin\Debug\net7.0\JwtUser.Repository.dll
+C:\Users\sekii\Source\Repos\TechcareerTransportathon0\JwtUser.API\JwtUser.Service\bin\Debug\net7.0\JwtUser.Repository.pdb
+C:\Users\sekii\Source\Repos\TechcareerTransportathon0\JwtUser.API\JwtUser.Service\bin\Debug\net7.0\JwtUser.Core.pdb
+C:\Users\sekii\Source\Repos\TechcareerTransportathon0\JwtUser.API\JwtUser.Service\obj\Debug\net7.0\JwtUser.Service.csproj.AssemblyReference.cache
+C:\Users\sekii\Source\Repos\TechcareerTransportathon0\JwtUser.API\JwtUser.Service\obj\Debug\net7.0\JwtUser.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sekii\Source\Repos\TechcareerTransportathon0\JwtUser.API\JwtUser.Service\obj\Debug\net7.0\JwtUser.Service.AssemblyInfoInputs.cache
+C:\Users\sekii\Source\Repos\TechcareerTransportathon0\JwtUser.API\JwtUser.Service\obj\Debug\net7.0\JwtUser.Service.AssemblyInfo.cs
+C:\Users\sekii\Source\Repos\TechcareerTransportathon0\JwtUser.API\JwtUser.Service\obj\Debug\net7.0\JwtUser.Service.csproj.CoreCompileInputs.cache
+C:\Users\sekii\Source\Repos\TechcareerTransportathon0\JwtUser.API\JwtUser.Service\obj\Debug\net7.0\JwtUser.Service.csproj.CopyComplete
+C:\Users\sekii\Source\Repos\TechcareerTransportathon0\JwtUser.API\JwtUser.Service\obj\Debug\net7.0\JwtUser.Service.dll
+C:\Users\sekii\Source\Repos\TechcareerTransportathon0\JwtUser.API\JwtUser.Service\obj\Debug\net7.0\refint\JwtUser.Service.dll
+C:\Users\sekii\Source\Repos\TechcareerTransportathon0\JwtUser.API\JwtUser.Service\obj\Debug\net7.0\JwtUser.Service.pdb
+C:\Users\sekii\Source\Repos\TechcareerTransportathon0\JwtUser.API\JwtUser.Service\obj\Debug\net7.0\ref\JwtUser.Service.dll
+C:\Users\sekii\OneDrive\Masaüstü\GitHubProject\Transportathon\JwtUser.API\JwtUser.Service\bin\Debug\net7.0\JwtUser.Service.deps.json
+C:\Users\sekii\OneDrive\Masaüstü\GitHubProject\Transportathon\JwtUser.API\JwtUser.Service\bin\Debug\net7.0\JwtUser.Service.dll
+C:\Users\sekii\OneDrive\Masaüstü\GitHubProject\Transportathon\JwtUser.API\JwtUser.Service\bin\Debug\net7.0\JwtUser.Service.pdb
+C:\Users\sekii\OneDrive\Masaüstü\GitHubProject\Transportathon\JwtUser.API\JwtUser.Service\bin\Debug\net7.0\JwtUser.Core.dll
+C:\Users\sekii\OneDrive\Masaüstü\GitHubProject\Transportathon\JwtUser.API\JwtUser.Service\bin\Debug\net7.0\JwtUser.Repository.dll
+C:\Users\sekii\OneDrive\Masaüstü\GitHubProject\Transportathon\JwtUser.API\JwtUser.Service\bin\Debug\net7.0\JwtUser.Repository.pdb
+C:\Users\sekii\OneDrive\Masaüstü\GitHubProject\Transportathon\JwtUser.API\JwtUser.Service\bin\Debug\net7.0\JwtUser.Core.pdb
+C:\Users\sekii\OneDrive\Masaüstü\GitHubProject\Transportathon\JwtUser.API\JwtUser.Service\obj\Debug\net7.0\JwtUser.Service.csproj.AssemblyReference.cache
+C:\Users\sekii\OneDrive\Masaüstü\GitHubProject\Transportathon\JwtUser.API\JwtUser.Service\obj\Debug\net7.0\JwtUser.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sekii\OneDrive\Masaüstü\GitHubProject\Transportathon\JwtUser.API\JwtUser.Service\obj\Debug\net7.0\JwtUser.Service.AssemblyInfoInputs.cache
+C:\Users\sekii\OneDrive\Masaüstü\GitHubProject\Transportathon\JwtUser.API\JwtUser.Service\obj\Debug\net7.0\JwtUser.Service.AssemblyInfo.cs
+C:\Users\sekii\OneDrive\Masaüstü\GitHubProject\Transportathon\JwtUser.API\JwtUser.Service\obj\Debug\net7.0\JwtUser.Service.csproj.CoreCompileInputs.cache
+C:\Users\sekii\OneDrive\Masaüstü\GitHubProject\Transportathon\JwtUser.API\JwtUser.Service\obj\Debug\net7.0\JwtUser.Service.csproj.CopyComplete
+C:\Users\sekii\OneDrive\Masaüstü\GitHubProject\Transportathon\JwtUser.API\JwtUser.Service\obj\Debug\net7.0\JwtUser.Service.dll
+C:\Users\sekii\OneDrive\Masaüstü\GitHubProject\Transportathon\JwtUser.API\JwtUser.Service\obj\Debug\net7.0\refint\JwtUser.Service.dll
+C:\Users\sekii\OneDrive\Masaüstü\GitHubProject\Transportathon\JwtUser.API\JwtUser.Service\obj\Debug\net7.0\JwtUser.Service.pdb
+C:\Users\sekii\OneDrive\Masaüstü\GitHubProject\Transportathon\JwtUser.API\JwtUser.Service\obj\Debug\net7.0\ref\JwtUser.Service.dll

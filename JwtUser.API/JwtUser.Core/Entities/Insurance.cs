@@ -9,7 +9,7 @@ namespace JwtUser.Core.Entities
 {
     public class Insurance : BaseEntity
     {
-        public int Price { get; set; }
+        public bool isWant { get; set; }
 
 
         [System.Text.Json.Serialization.JsonIgnore]

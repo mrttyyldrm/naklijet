@@ -11,6 +11,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.Filters;
 using System;
 using System.Reflection;
 using System.Text;
@@ -42,6 +44,9 @@ builder.Services.AddScoped(typeof(IHowCarryRepository), typeof(HowCarryRepositor
 
 builder.Services.AddScoped<ITownService, TownService>();
 builder.Services.AddScoped(typeof(ITownRepository), typeof(TownRepository));
+
+builder.Services.AddScoped<IMessageService, MessageService>();
+builder.Services.AddScoped(typeof(IMessageRepository), typeof(MessageRepository));
 
 builder.Services.AddScoped<IStreetService, StreetService>();
 builder.Services.AddScoped(typeof(IStreetRepository), typeof(StreetRepository));
@@ -99,8 +104,18 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+    {
+        Description = "Standard Authorization header using the Bearer scheme (\"bearer {token}\")",
+        In = ParameterLocation.Header,
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey
+    });
 
+    options.OperationFilter<SecurityRequirementsOperationFilter>();
+});
 
 builder.Services.AddCors(opt =>
 {

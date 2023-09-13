@@ -21,7 +21,7 @@ namespace JwtUser.Service.Mapping
             CreateMap<Application, AddApplicationDto>().ReverseMap();
             CreateMap<Application, GetListApplicationDto>().ReverseMap();
             CreateMap<Transport, AddTransportCityDto>().ReverseMap();
-
+            CreateMap<Message, AddMessageDto>().ReverseMap();
         }
     }
 }

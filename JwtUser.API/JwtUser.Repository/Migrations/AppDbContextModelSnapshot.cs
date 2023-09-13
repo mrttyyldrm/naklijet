@@ -185,6 +185,33 @@ namespace JwtUser.Repository.Migrations
                     b.ToTable("HowCarries");
                 });
 
+            modelBuilder.Entity("JwtUser.Core.Entities.Message", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FromId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime?>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ToId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FromId");
+
+                    b.ToTable("Messages");
+                });
+
             modelBuilder.Entity("JwtUser.Core.Entities.Personal", b =>
                 {
                     b.Property<int>("Id")
@@ -592,6 +619,15 @@ namespace JwtUser.Repository.Migrations
                         .HasForeignKey("CompanyId");
 
                     b.Navigation("Company");
+                });
+
+            modelBuilder.Entity("JwtUser.Core.Entities.Message", b =>
+                {
+                    b.HasOne("JwtUser.Core.Entities.AppUser", "From")
+                        .WithMany()
+                        .HasForeignKey("FromId");
+
+                    b.Navigation("From");
                 });
 
             modelBuilder.Entity("JwtUser.Core.Entities.Personal", b =>

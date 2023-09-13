@@ -18,41 +18,41 @@ namespace JwtUser.Core.Entities
         #region overrides
 
 
-        //[JsonIgnore]
-        //public override bool EmailConfirmed { get; set; }
+        [JsonIgnore]
+        public override bool EmailConfirmed { get; set; }
 
-        //[JsonIgnore]
-        //public override bool TwoFactorEnabled { get; set; }
+        [JsonIgnore]
+        public override bool TwoFactorEnabled { get; set; }
 
-        //[JsonIgnore]
-        //public override string PhoneNumber { get; set; }
+        [JsonIgnore]
+        public override string PhoneNumber { get; set; }
 
-        //[JsonIgnore]
-        //public override bool PhoneNumberConfirmed { get; set; }
-
+        [JsonIgnore]
+        public override bool PhoneNumberConfirmed { get; set; }
+        
         //[JsonIgnore]
         //public override string PasswordHash { get; set; }
 
         //[JsonIgnore]
         //public override string SecurityStamp { get; set; }
 
-        //[JsonIgnore]
-        //public override bool LockoutEnabled { get; set; }
+        [JsonIgnore]
+        public override bool LockoutEnabled { get; set; }
 
-        //[JsonIgnore]
-        //public override string NormalizedUserName { get; set; }
+        [JsonIgnore]
+        public override string NormalizedUserName { get; set; }
 
-        //[JsonIgnore]
-        //public override string NormalizedEmail { get; set; }
+        [JsonIgnore]
+        public override string NormalizedEmail { get; set; }
 
-        //[JsonIgnore]
-        //public override DateTimeOffset? LockoutEnd { get; set; }
+        [JsonIgnore]
+        public override DateTimeOffset? LockoutEnd { get; set; }
 
-        //[JsonIgnore]
-        //public override string ConcurrencyStamp { get; set; }
+        [JsonIgnore]
+        public override string ConcurrencyStamp { get; set; }
 
-        //[JsonIgnore]
-        //public override int AccessFailedCount { get; set; }
+        [JsonIgnore]
+        public override int AccessFailedCount { get; set; }
 
         #endregion
 
@@ -61,6 +61,9 @@ namespace JwtUser.Core.Entities
         
         [JsonIgnore]
         public ICollection<Application> Applications { get; set; }
+        
+        //[JsonIgnore]
+        //public ICollection<Message>? Messages { get; set; }
 
     }
 }

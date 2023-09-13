@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Sk3cYhoU4xcjiX0Yh5Xbhpk34IvK7wZQoIzRKvmmbBFjduJ2BSwM8TRlnfLxl7UhbiGOGeIiG0wm74nHwbpsdg==",
+  "dgSpecHash": "RsVy1A4I5rKmdlVJR2hyUUuVinNTP8OwAhU4wT+7KYqzDb7yDV96ddI47vv2CNMAyrBrMbWG7P4Wg3/WfYvaLQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Onur\\Desktop\\Transportathon en son durum\\Transportathon\\JwtUser.API\\JwtUser.API\\JwtUser.API.csproj",
   "expectedPackageFiles": [
@@ -58,7 +58,10 @@
     "C:\\Users\\Onur\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\Onur\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\Onur\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
+    "C:\\Users\\Onur\\.nuget\\packages\\scrutor\\3.3.0\\scrutor.3.3.0.nupkg.sha512",
     "C:\\Users\\Onur\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "C:\\Users\\Onur\\.nuget\\packages\\swashbuckle.aspnetcore.filters\\7.0.11\\swashbuckle.aspnetcore.filters.7.0.11.nupkg.sha512",
+    "C:\\Users\\Onur\\.nuget\\packages\\swashbuckle.aspnetcore.filters.abstractions\\7.0.11\\swashbuckle.aspnetcore.filters.abstractions.7.0.11.nupkg.sha512",
     "C:\\Users\\Onur\\.nuget\\packages\\swashbuckle.aspnetcore.newtonsoft\\6.5.0\\swashbuckle.aspnetcore.newtonsoft.6.5.0.nupkg.sha512",
     "C:\\Users\\Onur\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\Onur\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
