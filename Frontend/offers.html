@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="tr-TR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NakliJET | Kullanıcı Paneli</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <main>
+        <div id="overlay"></div>
+        <div id="loading"></div>
+        <div id="error"></div>
+        <div id="success"></div>
+        <section id="customer">
+            <header>
+                <div id="header-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <div id="header-button">
+                    <a href="request.html">Talep Oluştur</a>
+                </div>
+            </header>
+            <div id="customer-content">
+                <!--AJAX Loads-->
+                <div id="offers">
+                    <div id="offers-title">
+                        <h2>Teklifler</h2>
+                        <p>Talebine uygun teklifleri inceleyebilirsin.</p>
+                    </div>
+                    <div id="offer-content">
+                        <div id="offer-card">
+                            <div id="card-title">
+                                <div id="card-user">
+                                    <h2>Özyaman LTD.</h2>
+                                    <p>@ozyamanltd</p>
+                                </div>
+                                <div id="card-money">10.000<i class="fa-solid fa-turkish-lira-sign"></i></div>
+                            </div>
+                            <div id="card-content">
+                                <div id="car">
+                                    <i class="fa-light fa-truck"></i><span>Araç: </span>Ford Transit 
+                                </div>
+                                <div id="employe">
+                                    <i class="fa-light fa-user-group"></i><span>Personel: </span> 1 Şoför & 4 Hamal
+                                </div>
+                                <div id="date">
+                                    <i class="fa-regular fa-clock"></i><span>Teslim Tarihi: </span> 16 Eylül 2023
+                                </div>
+                                <div id="line"></div>
+                                <div id="card-features">
+                                    <div id="offer-detail">
+                                        <button>Sipariş Detayı</button>
+                                    </div>
+                                    <div id="features-buttons">
+                                        <button><i class="fa-regular fa-eye-slash"></i></button>
+                                        <button><i class="fa-regular fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="offer-card">
+                            <div id="card-title">
+                                <div id="card-user">
+                                    <h2>Özyaman LTD.</h2>
+                                    <p>@ozyamanltd</p>
+                                </div>
+                                <div id="card-money">10.000<i class="fa-solid fa-turkish-lira-sign"></i></div>
+                            </div>
+                            <div id="card-content">
+                                <div id="car">
+                                    <i class="fa-light fa-truck"></i><span>Araç: </span>Ford Transit 
+                                </div>
+                                <div id="employe">
+                                    <i class="fa-light fa-user-group"></i><span>Personel: </span> 1 Şoför & 4 Hamal
+                                </div>
+                                <div id="date">
+                                    <i class="fa-regular fa-clock"></i><span>Teslim Tarihi: </span> 16 Eylül 2023
+                                </div>
+                                <div id="line"></div>
+                                <div id="card-features">
+                                    <div id="offer-detail">
+                                        <button>Sipariş Detayı</button>
+                                    </div>
+                                    <div id="features-buttons">
+                                        <button><i class="fa-regular fa-eye-slash"></i></button>
+                                        <button><i class="fa-regular fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="offer-card">
+                            <div id="card-title">
+                                <div id="card-user">
+                                    <h2>Özyaman LTD.</h2>
+                                    <p>@ozyamanltd</p>
+                                </div>
+                                <div id="card-money">10.000<i class="fa-solid fa-turkish-lira-sign"></i></div>
+                            </div>
+                            <div id="card-content">
+                                <div id="car">
+                                    <i class="fa-light fa-truck"></i><span>Araç: </span>Ford Transit 
+                                </div>
+                                <div id="employe">
+                                    <i class="fa-light fa-user-group"></i><span>Personel: </span> 1 Şoför & 4 Hamal
+                                </div>
+                                <div id="date">
+                                    <i class="fa-regular fa-clock"></i><span>Teslim Tarihi: </span> 16 Eylül 2023
+                                </div>
+                                <div id="line"></div>
+                                <div id="card-features">
+                                    <div id="offer-detail">
+                                        <button>Sipariş Detayı</button>
+                                    </div>
+                                    <div id="features-buttons">
+                                        <button><i class="fa-regular fa-eye-slash"></i></button>
+                                        <button><i class="fa-regular fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <aside>
+            <div id="aside-content">
+                <div id="aside-title">
+                    <div id="aside-logo">
+                        <img src="assets/img/logo.png" alt="logo">
+                    </div>
+                    <i class="fa-regular fa-left-from-line"></i>
+                </div>
+                <div id="aside-menu">
+                    <nav>
+                        <ul>
+                            <li class="hidden">
+                                <div class="aside-icon">
+                                    <i class="fa-regular fa-id-badge"></i>
+                                </div>
+                                <p>Hesabım</p>
+                                <span>Yakında</span>
+                            </li>
+                            <li class="active">
+                                <div class="aside-icon">
+                                    <i class="fa-regular fa-bag-shopping"></i>
+                                </div>
+                                <p>Siparişlerim</p>
+                            </li>
+                            <li>
+                                <div class="aside-icon">
+                                    <i class="fa-regular fa-square-star"></i>
+                                </div>
+                                <p>Taleplerim</p>
+                            </li>
+                            <li>
+                                <div class="aside-icon">
+                                    <i class="fa-regular fa-messages"></i>
+                                </div>
+                                <p>Mesajlarım</p>
+                            </li>
+                            <li class="hidden">
+                                <div class="aside-icon">
+                                    <i class="fa-regular fa-list-check"></i>
+                                </div>
+                                <p>Listelerim</p>
+                                <span>Yakında</span>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div id="aside-logout">
+                <div id="logout-icon">
+                    <i class="fa-regular fa-right-from-bracket"></i>
+                </div>
+                <p>Çıkış Yap</p>
+            </div>
+        </aside>
+    </main>
+
+    <!--FontAwesome CDN-->
+    <script src="https://kit.fontawesome.com/193131ac84.js" crossorigin="anonymous"></script>
+    <!--jQuery CDN-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+    <script src="assets/js/customer.js"></script>
+    <script src="assets/js/components.js"></script>
+</body>
+</html>
