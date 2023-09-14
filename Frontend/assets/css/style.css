@@ -1,12 +1,12 @@
 /*#region Component Codes*/
-main section#request #request-content .step#count .step-container .step-info p, main section#request #request-content .step#count .step-container .step-content .option .option-count p, main section#register #register-button p, main section#login #login-button p, main section#home #home-button #home-line p, main aside #aside-logout p, main aside #aside-content #aside-menu nav ul li p, main section#request #request-content .step .step-container .step-title p, main section#register #register-content #register-title p, main section#login #login-content #login-title p, main section#home #home-content #home-title p, main #error #error-container #error-content #error-title p, main #success #success-container #success-content #success-title p {
+main section#request #request-content .step#count .step-container .step-info p, main section#request #request-content .step#count .step-container .step-content .option .option-count p, main section#register #register-button p, main section#login #login-button p, main section#home #home-button #home-line p, main aside #aside-logout p, main aside #aside-content #aside-menu nav ul li p, main section#request #request-content .step .step-container .step-title p, main section#customer #rating #rating-title p, main section#customer #customer-content #offers #offers-title p, main section#customer #customer-content #request-list #request-list-title p, main section#customer #customer-content #order #order-title p, main section#register #register-content #register-title p, main section#login #login-content #login-title p, main section#home #home-content #home-title p, main #error #error-container #error-content #error-title p, main #success #success-container #success-content #success-title p {
   font-size: 1.6rem;
   font-weight: 600;
   font-family: "Quicksand", sans-serif;
   color: #999CAD;
 }
 
-main section#request #request-content .step .step-container .step-title, main section#register #register-content #register-title, main section#login #login-content #login-title, main section#home #home-content #home-title, main #error #error-container #error-content #error-title, main #success #success-container #success-content #success-title {
+main section#request #request-content .step .step-container .step-title, main section#customer #rating #rating-title, main section#customer #customer-content #offers #offers-title, main section#customer #customer-content #request-list #request-list-title, main section#customer #customer-content #order #order-title, main section#register #register-content #register-title, main section#login #login-content #login-title, main section#home #home-content #home-title, main #error #error-container #error-content #error-title, main #success #success-container #success-content #success-title {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,7 +14,7 @@ main section#request #request-content .step .step-container .step-title, main se
   gap: 1rem;
   margin-bottom: 3rem;
 }
-main section#request #request-content .step .step-container .step-title h1, main section#register #register-content #register-title h1, main section#login #login-content #login-title h1, main section#home #home-content #home-title h1, main #error #error-container #error-content #error-title h1, main #success #success-container #success-content #success-title h1, main section#request #request-content .step .step-container .step-title h2, main section#register #register-content #register-title h2, main section#login #login-content #login-title h2, main section#home #home-content #home-title h2, main #error #error-container #error-content #error-title h2, main #success #success-container #success-content #success-title h2 {
+main section#request #request-content .step .step-container .step-title h1, main section#customer #rating #rating-title h1, main section#customer #customer-content #offers #offers-title h1, main section#customer #customer-content #request-list #request-list-title h1, main section#customer #customer-content #order #order-title h1, main section#register #register-content #register-title h1, main section#login #login-content #login-title h1, main section#home #home-content #home-title h1, main #error #error-container #error-content #error-title h1, main #success #success-container #success-content #success-title h1, main section#request #request-content .step .step-container .step-title h2, main section#customer #rating #rating-title h2, main section#customer #customer-content #offers #offers-title h2, main section#customer #customer-content #request-list #request-list-title h2, main section#customer #customer-content #order #order-title h2, main section#register #register-content #register-title h2, main section#login #login-content #login-title h2, main section#home #home-content #home-title h2, main #error #error-container #error-content #error-title h2, main #success #success-container #success-content #success-title h2 {
   font-size: 3rem;
   font-weight: 700;
   font-family: "Montserrat", sans-serif;
@@ -72,7 +72,7 @@ main section#register #register-content #register-navigation {
   border-radius: 1rem;
 }
 
-main section#request #request-content .step#count .step-container .step-content hr, main section#home #home-button #home-line hr {
+main section#request #request-content .step#count .step-container .step-content hr, main section#customer #customer-content #offers #offer-content #offer-card #card-content #line, main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #line, main section#customer #customer-content #order #order-content #order-card #card-content #line, main section#home #home-button #home-line hr {
   width: 100%;
   height: 0.1rem;
   border: none;
@@ -653,6 +653,672 @@ main section#customer header #header-button a {
   padding: 1.5rem 4rem;
 }
 main section#customer header #header-button a.active {
+  opacity: 1;
+}
+main section#customer #customer-content #order #order-title {
+  text-align: left;
+}
+main section#customer #customer-content #order #order-title h2 {
+  width: 100%;
+}
+main section#customer #customer-content #order #order-title p {
+  width: 100%;
+}
+main section#customer #customer-content #order #order-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+main section#customer #customer-content #order #order-content #order-card #card-title {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  width: 100%;
+  height: 6rem;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #FF6000;
+}
+main section#customer #customer-content #order #order-content #order-card #card-title #help-center {
+  display: flex;
+  gap: 0.5rem;
+  color: #FFF;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+main section#customer #customer-content #order #order-content #order-card #card-title #help-center i {
+  font-size: 2rem;
+}
+main section#customer #customer-content #order #order-content #order-card #card-title #card-money {
+  color: #FFF;
+  font-size: 2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+main section#customer #customer-content #order #order-content #order-card #card-title #card-money i {
+  font-size: 1.6rem;
+}
+main section#customer #customer-content #order #order-content #order-card #card-content {
+  background-color: #FFF;
+  padding: 2rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+main section#customer #customer-content #order #order-content #order-card #card-content #location {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #999CAD;
+}
+main section#customer #customer-content #order #order-content #order-card #card-content #location i {
+  color: #FF6000;
+  font-size: 1.6rem;
+}
+main section#customer #customer-content #order #order-content #order-card #card-content #content-title h2 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #141414;
+}
+main section#customer #customer-content #order #order-content #order-card #card-content #car {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #999CAD;
+}
+main section#customer #customer-content #order #order-content #order-card #card-content #car span {
+  color: #141414;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+main section#customer #customer-content #order #order-content #order-card #card-content #car i {
+  font-size: 1.6rem;
+  color: #FF6000;
+}
+main section#customer #customer-content #order #order-content #order-card #card-content #employe {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #999CAD;
+}
+main section#customer #customer-content #order #order-content #order-card #card-content #employe span {
+  color: #141414;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+main section#customer #customer-content #order #order-content #order-card #card-content #employe i {
+  font-size: 1.6rem;
+  color: #FF6000;
+}
+main section#customer #customer-content #order #order-content #order-card #card-content #date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #999CAD;
+}
+main section#customer #customer-content #order #order-content #order-card #card-content #date span {
+  color: #141414;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+main section#customer #customer-content #order #order-content #order-card #card-content #date i {
+  color: #FF6000;
+  font-size: 1.6rem;
+}
+main section#customer #customer-content #order #order-content #order-card #card-content #card-features {
+  display: flex;
+  justify-content: space-between;
+}
+main section#customer #customer-content #order #order-content #order-card #card-content #card-features #card-user h2 {
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+main section#customer #customer-content #order #order-content #order-card #card-content #card-features #card-user p {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+main section#customer #customer-content #order #order-content #order-card #card-content #card-features #order-detail button {
+  cursor: pointer;
+  width: 100%;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  background-color: #FF6000;
+  color: #FFF;
+  border: none;
+  display: flex;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+}
+main section#customer #customer-content #order #order-content #order-card #card-content #card-features #order-detail button.active {
+  opacity: 1;
+}
+main section#customer #customer-content #request-list #request-list-title {
+  text-align: left;
+}
+main section#customer #customer-content #request-list #request-list-title h2 {
+  width: 100%;
+}
+main section#customer #customer-content #request-list #request-list-title p {
+  width: 100%;
+}
+main section#customer #customer-content #request-list #request-list-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-title {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  width: 100%;
+  height: 6rem;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #FF6000;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-title #card-user {
+  color: #FFF;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-title #card-user h2 {
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-title #card-user p {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-title #card-title-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-title #card-title-buttons button {
+  background-color: #FF6000;
+  width: 4rem;
+  height: 4rem;
+  border: 0.1rem solid #FFF;
+  border-radius: 1rem;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-title #card-title-buttons button i {
+  font-size: 1.8rem;
+  color: #FFF;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content {
+  background-color: #FFF;
+  padding: 2rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #location {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #999CAD;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #location i {
+  color: #FF6000;
+  font-size: 1.6rem;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #content-title h2 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #141414;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #content-text {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #999CAD;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #weight {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #999CAD;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #weight span {
+  color: #141414;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #weight i {
+  font-size: 1.6rem;
+  color: #FF6000;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #insurance {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #999CAD;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #insurance span {
+  color: #141414;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #insurance i {
+  font-size: 1.6rem;
+  color: #FF6000;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #package {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #999CAD;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #package span {
+  color: #141414;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #package i {
+  color: #FF6000;
+  font-size: 1.6rem;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #carrying {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #999CAD;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #carrying span {
+  color: #141414;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #carrying i {
+  color: #FF6000;
+  font-size: 1.6rem;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #furnitures {
+  width: 100%;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #furnitures #package-type {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #furnitures #package-type #big-package {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #furnitures #package-type #big-package h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #furnitures #package-type #big-package .box {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+  background-color: #FF6000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #furnitures #package-type #big-package .box p {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #FFF;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #furnitures #package-type #medium-package {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #furnitures #package-type #medium-package h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #furnitures #package-type #medium-package .box {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+  background-color: #FF6000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #furnitures #package-type #medium-package .box p {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #FFF;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #furnitures #package-type #small-package {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #furnitures #package-type #small-package h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #furnitures #package-type #small-package .box {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+  background-color: #FF6000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #furnitures #package-type #small-package .box p {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #FFF;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #card-features {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #card-features #offer-number p {
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #card-features #offer-number p i {
+  color: #FF6000;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #card-features #offer-detail button {
+  cursor: pointer;
+  width: 100%;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  background-color: #FF6000;
+  color: #FFF;
+  border: none;
+  display: flex;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+}
+main section#customer #customer-content #request-list #request-list-content #request-list-card #card-content #card-features #offer-detail button.active {
+  opacity: 1;
+}
+main section#customer #customer-content #offers #offers-title {
+  text-align: left;
+}
+main section#customer #customer-content #offers #offers-title h2 {
+  width: 100%;
+}
+main section#customer #customer-content #offers #offers-title p {
+  width: 100%;
+}
+main section#customer #customer-content #offers #offer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+main section#customer #customer-content #offers #offer-content #offer-card #card-title {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  width: 100%;
+  height: 6rem;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #FF6000;
+}
+main section#customer #customer-content #offers #offer-content #offer-card #card-title #card-user {
+  color: #FFF;
+}
+main section#customer #customer-content #offers #offer-content #offer-card #card-title #card-user h2 {
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+main section#customer #customer-content #offers #offer-content #offer-card #card-title #card-user p {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+main section#customer #customer-content #offers #offer-content #offer-card #card-title #card-money {
+  color: #FFF;
+  font-size: 2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+main section#customer #customer-content #offers #offer-content #offer-card #card-title #card-money i {
+  font-size: 1.6rem;
+}
+main section#customer #customer-content #offers #offer-content #offer-card #card-content {
+  background-color: #FFF;
+  padding: 2rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+main section#customer #customer-content #offers #offer-content #offer-card #card-content #location {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #999CAD;
+}
+main section#customer #customer-content #offers #offer-content #offer-card #card-content #location i {
+  color: #FF6000;
+  font-size: 1.6rem;
+}
+main section#customer #customer-content #offers #offer-content #offer-card #card-content #content-title h2 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #141414;
+}
+main section#customer #customer-content #offers #offer-content #offer-card #card-content #car {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #999CAD;
+}
+main section#customer #customer-content #offers #offer-content #offer-card #card-content #car span {
+  color: #141414;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+main section#customer #customer-content #offers #offer-content #offer-card #card-content #car i {
+  font-size: 1.6rem;
+  color: #FF6000;
+}
+main section#customer #customer-content #offers #offer-content #offer-card #card-content #employe {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #999CAD;
+}
+main section#customer #customer-content #offers #offer-content #offer-card #card-content #employe span {
+  color: #141414;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+main section#customer #customer-content #offers #offer-content #offer-card #card-content #employe i {
+  font-size: 1.6rem;
+  color: #FF6000;
+}
+main section#customer #customer-content #offers #offer-content #offer-card #card-content #date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #999CAD;
+}
+main section#customer #customer-content #offers #offer-content #offer-card #card-content #date span {
+  color: #141414;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+main section#customer #customer-content #offers #offer-content #offer-card #card-content #date i {
+  color: #FF6000;
+  font-size: 1.6rem;
+}
+main section#customer #customer-content #offers #offer-content #offer-card #card-content #card-features {
+  display: flex;
+  justify-content: space-between;
+}
+main section#customer #customer-content #offers #offer-content #offer-card #card-content #card-features #offer-detail button {
+  cursor: pointer;
+  width: 100%;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  background-color: #FF6000;
+  color: #FFF;
+  border: none;
+  display: flex;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+}
+main section#customer #customer-content #offers #offer-content #offer-card #card-content #card-features #offer-detail button.active {
+  opacity: 1;
+}
+main section#customer #customer-content #offers #offer-content #offer-card #card-content #card-features #features-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+main section#customer #customer-content #offers #offer-content #offer-card #card-content #card-features #features-buttons button {
+  background-color: #FFF;
+  width: 4rem;
+  height: 4rem;
+  border: 0.1rem solid #FF6000;
+  border-radius: 1rem;
+}
+main section#customer #customer-content #offers #offer-content #offer-card #card-content #card-features #features-buttons button i {
+  font-size: 1.8rem;
+  color: #FF6000;
+}
+main section#customer #rating {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  height: 100%;
+  width: 100%;
+}
+main section#customer #rating #rating-stars {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+main section#customer #rating #rating-stars ul li {
+  display: inline-block;
+}
+main section#customer #rating #rating-stars ul li i {
+  font-size: 3rem;
+  color: #FFB700;
+}
+main section#customer #rating #success-box {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main section#customer #rating #success-box #text-message {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  font-size: 3rem;
+  font-weight: 900;
+}
+main section#customer #rating #rating-input {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FFF;
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+}
+main section#customer #rating #rating-input input, main section#customer #rating #rating-input textarea, main section#customer #rating #rating-input select {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #141414;
+}
+main section#customer #rating #rating-input input::-moz-placeholder, main section#customer #rating #rating-input textarea::-moz-placeholder, main section#customer #rating #rating-input select::-moz-placeholder {
+  color: #999CAD;
+}
+main section#customer #rating #rating-input input::placeholder, main section#customer #rating #rating-input textarea::placeholder, main section#customer #rating #rating-input select::placeholder {
+  color: #999CAD;
+}
+main section#customer #rating #rating-input i {
+  font-size: 1.6rem;
+  color: #999CAD;
+}
+main section#customer #rating #rating-input textarea {
+  height: 20rem;
+  resize: none;
+}
+main section#customer #rating #rating-button button {
+  cursor: pointer;
+  width: 100%;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  background-color: #FF6000;
+  color: #FFF;
+  border: none;
+  display: flex;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+  padding: 1.5rem;
+  font-size: 1.6rem;
+}
+main section#customer #rating #rating-button button.active {
   opacity: 1;
 }
 main section#business {
