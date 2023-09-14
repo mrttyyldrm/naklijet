@@ -719,208 +719,212 @@ main{
             }
         }
         #customer-content{
-            #order{
-                // display: flex;
-                // flex-direction: column;
-                // gap: 3rem;
-                #order-title{
-                    @extend %title;
-                    text-align: left;
-                    h2{
-                        width: 100%;
-                    }
-                    p{
-                        width: 100%;
-                    }
-                }
-                #order-content{
-                    display: flex;
-                    flex-direction: column;
-                    gap: 3rem;
-                    #order-card{  
-                        #card-title{
-                            border-top-left-radius:1rem ;
-                            border-top-right-radius:1rem ;
-                            width: 100%;
-                            height: 6rem;
-                            padding: 1rem 2rem;
-                            display: flex;
-                            align-items: center;
-                            justify-content: space-between;
-                            background-color: $primary;
-                            #help-center{
-                                display: flex;
-                                gap: .5rem;
-                                color: $white;
-                                font-size: 1.8rem;
-                                font-weight: 600;
-                                i{
-                                    font-size: 2rem;
-                                }
-                            }
-                            #card-money{
-                                color: $white;
-                                font-size: 2rem;
-                                font-weight: 600;
-                                display: flex;
-                                align-items: center;
-                                gap: .5rem;
-                                i{
-                                    font-size: 1.6rem;
-                                }
-                            }
-                        }
-                        #card-content{
-                            background-color: $white;
-                            padding: 2rem;
-                            border-bottom-left-radius: 1rem;
-                            border-bottom-right-radius: 1rem;
-                            display: flex;
-                            flex-direction: column;
-                            gap: 1.5rem;
-                            #location{
-                                display: flex;
-                                gap:.5rem;
-                                font-size: 1.4rem;
-                                font-weight: 600;
-                                color: $text;
-                                i{
-                                    color: $primary;
-                                    font-size: 1.6rem;
-                                }
-                            }
-                            #content-title{
-                                h2{
-                                font-size: 1.8rem;
-                                font-weight: 900;
-                                color: $black;
-                                }
-                            }
-                            #car{
-                                display: flex;
-                                align-items: center;
-                                gap:.5rem;
-                                font-size: 1.4rem;
-                                font-weight: 600;
-                                color: $text;
-                                span{
-                                    color: $black;
-                                    font-size: 1.6rem;
-                                    font-weight: 700;
-                                }
-                                i{
-                                    font-size: 1.6rem;
-                                    color: $primary;
-                                }
-                            }
-                            #employe{
-                                display: flex;
-                                align-items: center;
-                                gap:.5rem;
-                                font-size: 1.4rem;
-                                font-weight: 600;
-                                color: $text;
-                                span{
-                                    color: $black;
-                                    font-size: 1.6rem;
-                                    font-weight: 700;
-                                }
-                                i{  
-                                    font-size: 1.6rem;
-                                    color: $primary;
-                                }
-                            }
-                            #date{
-                                display: flex;
-                                align-items: center;
-                                gap:.5rem;
-                                font-size: 1.4rem;
-                                font-weight: 600;
-                                color: $text;
-                                span{
-                                    color: $black;
-                                    font-size: 1.6rem;
-                                    font-weight: 700;
-                                }
-                                i{
-                                    color: $primary;
-                                    font-size: 1.6rem;
-                                }
-                            }
-                            #line{
-                                @extend %line;
-                            }
-                            #card-features{
-                                display: flex;
-                                justify-content: space-between;
-                                #card-user{
-                                    h2{
-                                        font-weight: 700;
-                                        font-size: 1.6rem;
-                                    }
-                                    p{
-                                        font-weight: 600;
-                                        font-size: 1.2rem;
-                                    }
-                                }
-                                #order-detail{
-                                    button{
-                                        @include button(false,primary,true)
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            // #order{
+            //     // display: flex;
+            //     // flex-direction: column;
+            //     // gap: 3rem;
+            //     #order-title{
+            //         @extend %title;
+            //         text-align: left;
+            //         h2{
+            //             width: 100%;
+            //         }
+            //         p{
+            //             width: 100%;
+            //         }
+            //     }
+            //     #order-content{
+            //         display: flex;
+            //         flex-direction: column;
+            //         gap: 3rem;
+            //         #order-card{  
+            //             #card-title{
+            //                 border-top-left-radius:1rem ;
+            //                 border-top-right-radius:1rem ;
+            //                 width: 100%;
+            //                 height: 6rem;
+            //                 padding: 1rem 2rem;
+            //                 display: flex;
+            //                 align-items: center;
+            //                 justify-content: space-between;
+            //                 background-color: $primary;
+            //                 #help-center{
+            //                     display: flex;
+            //                     gap: .5rem;
+            //                     color: $white;
+            //                     font-size: 1.8rem;
+            //                     font-weight: 600;
+            //                     i{
+            //                         font-size: 2rem;
+            //                     }
+            //                 }
+            //                 #card-money{
+            //                     color: $white;
+            //                     font-size: 2rem;
+            //                     font-weight: 600;
+            //                     display: flex;
+            //                     align-items: center;
+            //                     gap: .5rem;
+            //                     i{
+            //                         font-size: 1.6rem;
+            //                     }
+            //                 }
+            //             }
+            //             #card-content{
+            //                 background-color: $white;
+            //                 padding: 2rem;
+            //                 border-bottom-left-radius: 1rem;
+            //                 border-bottom-right-radius: 1rem;
+            //                 display: flex;
+            //                 flex-direction: column;
+            //                 gap: 1.5rem;
+            //                 #location{
+            //                     display: flex;
+            //                     gap:.5rem;
+            //                     font-size: 1.4rem;
+            //                     font-weight: 600;
+            //                     color: $text;
+            //                     i{
+            //                         color: $primary;
+            //                         font-size: 1.6rem;
+            //                     }
+            //                 }
+            //                 #content-title{
+            //                     h2{
+            //                     font-size: 1.8rem;
+            //                     font-weight: 900;
+            //                     color: $black;
+            //                     }
+            //                 }
+            //                 #car{
+            //                     display: flex;
+            //                     align-items: center;
+            //                     gap:.5rem;
+            //                     font-size: 1.4rem;
+            //                     font-weight: 600;
+            //                     color: $text;
+            //                     span{
+            //                         color: $black;
+            //                         font-size: 1.6rem;
+            //                         font-weight: 700;
+            //                     }
+            //                     i{
+            //                         font-size: 1.6rem;
+            //                         color: $primary;
+            //                     }
+            //                 }
+            //                 #employe{
+            //                     display: flex;
+            //                     align-items: center;
+            //                     gap:.5rem;
+            //                     font-size: 1.4rem;
+            //                     font-weight: 600;
+            //                     color: $text;
+            //                     span{
+            //                         color: $black;
+            //                         font-size: 1.6rem;
+            //                         font-weight: 700;
+            //                     }
+            //                     i{  
+            //                         font-size: 1.6rem;
+            //                         color: $primary;
+            //                     }
+            //                 }
+            //                 #date{
+            //                     display: flex;
+            //                     align-items: center;
+            //                     gap:.5rem;
+            //                     font-size: 1.4rem;
+            //                     font-weight: 600;
+            //                     color: $text;
+            //                     span{
+            //                         color: $black;
+            //                         font-size: 1.6rem;
+            //                         font-weight: 700;
+            //                     }
+            //                     i{
+            //                         color: $primary;
+            //                         font-size: 1.6rem;
+            //                     }
+            //                 }
+            //                 #line{
+            //                     @extend %line;
+            //                 }
+            //                 #card-features{
+            //                     display: flex;
+            //                     justify-content: space-between;
+            //                     #card-user{
+            //                         h2{
+            //                             font-weight: 700;
+            //                             font-size: 1.6rem;
+            //                         }
+            //                         p{
+            //                             font-weight: 600;
+            //                             font-size: 1.2rem;
+            //                         }
+            //                     }
+            //                     #order-detail{
+            //                         button{
+            //                             @include button(false,primary,true)
+            //                         }
+            //                     }
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
 
-            #request-list{
-                #request-list-title{
+            article#claims{
+                #claims-title{
                     @extend %title;
                     text-align: left;
-                    h2{
-                        width: 100%;
-                    }
-                    p{
-                        width: 100%;
-                    }
+                    align-items: flex-start;
                 }
-                #request-list-content{
+                #claims-content{
                     display: flex;
                     flex-direction: column;
+                    align-items: center;
                     gap: 3rem;
-                    #request-list-card{  
-                        #card-title{
-                            border-top-left-radius:1rem ;
-                            border-top-right-radius:1rem ;
-                            width: 100%;
-                            height: 6rem;
+
+                    .claim{  
+                        width: 100%;
+
+                        .claim-title{
+                            border-radius: 1rem 1rem 0 0;
                             padding: 1rem 2rem;
-                            display: flex;
-                            align-items: center;
-                            justify-content: space-between;
                             background-color: $primary;
-                            #card-user{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            .claim-user{
                                 color: $white;
+
                                 h2{
-                                    font-weight: 700;
-                                    font-size: 1.6rem;
+                                    font-size: 1.8rem;
+                                    font-weight: 800;
+                                    margin-bottom: 0.25rem;
                                 }
+
                                 p{
+                                    font-size: 1.4rem;
                                     font-weight: 600;
-                                    font-size: 1.2rem;
                                 }
                             }
-                            #card-title-buttons{
+
+                            .claim-button{
                                 display: flex;
+                                justify-content: flex-end;
                                 align-items: center;
-                                gap: .5rem;
+                                gap: 0.8rem;
+
                                 button{
-                                    background-color: $primary;
-                                    width: 4rem;
-                                    height: 4rem;
-                                    border: .1rem solid $white;
+                                    background-color: transparent;
+                                    width: 4.5rem;
+                                    height: 4.5rem;
+                                    border: 0.2rem solid $white;
                                     border-radius: 1rem;
+
                                     i{
                                         font-size: 1.8rem;
                                         color: $white;
@@ -928,370 +932,252 @@ main{
                                 }
                             }
                         }
-                        #card-content{
+
+                        .claim-content{
+                            overflow: hidden;
                             background-color: $white;
                             padding: 2rem;
-                            border-bottom-left-radius: 1rem;
-                            border-bottom-right-radius: 1rem;
+                            border-radius: 0 0 1rem 1rem;
                             display: flex;
                             flex-direction: column;
                             gap: 1.5rem;
-                            #location{
+
+                            .claim-data{
                                 display: flex;
-                                gap:.5rem;
-                                font-size: 1.4rem;
-                                font-weight: 600;
-                                color: $text;
-                                i{
-                                    color: $primary;
-                                    font-size: 1.6rem;
-                                }
-                            }
-                            #content-title{
-                                h2{
-                                font-size: 1.8rem;
-                                font-weight: 900;
-                                color: $black;
-                                }
-                            }
-                            #content-text{
-                                display: flex;
+                                justify-content: flex-start;
                                 align-items: center;
-                                font-size: 1.4rem;
-                                font-weight: 600;
-                                color: $text;
+                                gap: 0.6rem;
+
+                                .claim-icon{
+                                    width: 2.25rem;
+                                    height: 2.25rem;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+
+                                    i{
+                                        color: $primary;
+                                        font-size: 1.8rem;
+                                    }
+                                }
+
+                                h4{
+                                    font-size: 1.4rem;
+                                    font-weight: 800;
+                                    color: $black;
+                                }
+
+                                p{
+                                    @extend %text;
+                                    font-size: 1.4rem;
+                                }
                                 
                             }
-                            #weight{
-                                display: flex;
-                                align-items: center;
-                                gap:.5rem;
-                                font-size: 1.4rem;
-                                font-weight: 600;
-                                color: $text;
-                                span{
-                                    color: $black;
-                                    font-size: 1.6rem;
+
+                            .claim-info{
+                                h3{
+                                    font-size: 1.8rem;
                                     font-weight: 700;
-                                }
-                                i{
-                                    font-size: 1.6rem;
-                                    color: $primary;
-                                }
-                            }
-                            #insurance{
-                                display: flex;
-                                align-items: center;
-                                gap:.5rem;
-                                font-size: 1.4rem;
-                                font-weight: 600;
-                                color: $text;
-                                span{
+                                    font-family: 'Montserrat', sans-serif;
                                     color: $black;
-                                    font-size: 1.6rem;
-                                    font-weight: 700;
+                                    margin-bottom: 1rem;
                                 }
-                                i{  
-                                    font-size: 1.6rem;
-                                    color: $primary;
-                                }
-                            }
-                            #package{
-                                display: flex;
-                                align-items: center;
-                                gap:.5rem;
-                                font-size: 1.4rem;
-                                font-weight: 600;
-                                color: $text;
-                                span{
-                                    color: $black;
-                                    font-size: 1.6rem;
-                                    font-weight: 700;
-                                }
-                                i{
-                                    color: $primary;
-                                    font-size: 1.6rem;
+
+                                p{
+                                    @extend %text;
+                                    font-size: 1.4rem;
                                 }
                             }
-                            #carrying{
-                                display: flex;
-                                align-items: center;
-                                gap:.5rem;
-                                font-size: 1.4rem;
-                                font-weight: 600;
-                                color: $text;
-                                span{
-                                    color: $black;
-                                    font-size: 1.6rem;
-                                    font-weight: 700;
-                                }
-                                i{
-                                    color: $primary;
-                                    font-size: 1.6rem;
-                                }
-                            }
-                            #line{
-                                @extend %line;
-                            }
-                            #furnitures{
+
+                            .claim-packets{
                                 width: 100%;
-                                #package-type{
+                                display: grid;
+                                grid-template-columns: repeat(3, 1fr);
+                                align-items: center;
+
+                                .packet{
                                     display: flex;
+                                    flex-direction: column;
                                     align-items: center;
-                                    justify-content: space-between;
-                                    #big-package{
+                                    text-align: center;
+                                    gap: 1rem;
+
+                                    .packet-count{
+                                        width: 4rem;
+                                        height: 4rem;
+                                        border-radius: 0.6rem;
+                                        background-color: $primary;
                                         display: flex;
-                                        flex-direction: column;
-                                        justify-content: space-between;
+                                        justify-content: center;
                                         align-items: center;
-                                        gap: 1rem;
-                                        h2{
-                                            font-size: 1.4rem;
-                                            font-weight: 700;
-                                            text-align: center;
+
+                                        p{
+                                            font-size: 1.8rem;
+                                            font-weight: 800;
+                                            color: $white;
                                         }
-                                        .box{
-                                            width: 4rem;
-                                            height: 4rem;
-                                            border-radius: 1rem;
-                                            background-color: $primary;
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center;
-                                            
-                                            p{  
-                                                font-size: 1.6rem;
-                                                font-weight: 700;
-                                                color: $white;
-                                            }
-                                        }
+
                                     }
-                                    #medium-package{
-                                        display: flex;
-                                        flex-direction: column;
-                                        justify-content: space-between;
-                                        align-items: center;
-                                        gap: 1rem;
-                                        h2{
-                                            font-size: 1.4rem;
-                                            font-weight: 700;
-                                            text-align: center;
-                                        }
-                                        .box{
-                                            width: 4rem;
-                                            height: 4rem;
-                                            border-radius: 1rem;
-                                            background-color: $primary;
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center;
-                                            p{  
-                                                font-size: 1.6rem;
-                                                font-weight: 700;
-                                                color: $white;
-                                            }                                            }
-                                    }
-                                    
-                                    #small-package{
-                                        display: flex;
-                                        flex-direction: column;
-                                        justify-content: space-between;
-                                        align-items: center;
-                                        gap: 1rem;
-                                        h2{
-                                            font-size: 1.4rem;
-                                            font-weight: 700;
-                                            text-align: center;
-                                        }
-                                        .box{
-                                            width: 4rem;
-                                            height: 4rem;
-                                            border-radius: 1rem;
-                                            background-color: $primary;
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center;
-                                            
-                                            p{  
-                                                font-size: 1.6rem;
-                                                font-weight: 700;
-                                                color: $white;
-                                            }
-                                        }
+
+                                    h4{
+                                        font-size: 1.4rem;
+                                        font-weight: 800;
+                                        color: $black;
                                     }
                                 }
                             }
-                            #card-features{
+
+                            .claim-features{
+                                width: 100%;
                                 display: flex;
                                 justify-content: space-between;
                                 align-items: center;
-                                #offer-number{
+
+                                .claim-offers{
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    align-items: center;
+                                    gap: 1rem;
+
+                                    i{
+                                        font-size: 2rem;
+                                        color: $primary;
+                                    }
+
                                     p{
-                                        font-weight: 600;
-                                        font-size: 1.8rem;
-                                        i{
-                                            color: $primary;
-                                        }
+                                        font-size: 1.6rem;
+                                        font-weight: 800;
+                                        color: $black; 
                                     }
                                 }
-                                #offer-detail{
+
+                                .claim-button{
                                     button{
-                                        @include button(false,primary,true)
+                                        @include button(false, primary, true);
                                     }
                                 }
+                            }
+
+                            hr{
+                                @extend %line;
                             }
                         }
                     }
                 }
             }
 
-            #offers{
+            article#offers{
                 #offers-title{
                     @extend %title;
                     text-align: left;
-                    h2{
-                        width: 100%;
-                    }
-                    p{
-                        width: 100%;
-                    }
+                    align-items: flex-start;
                 }
-                #offer-content{
+                #offers-content{
                     display: flex;
                     flex-direction: column;
+                    align-items: center;
                     gap: 3rem;
-                    #offer-card{  
-                        #card-title{
-                            border-top-left-radius:1rem ;
-                            border-top-right-radius:1rem ;
-                            width: 100%;
-                            height: 6rem;
+
+                    .offer{  
+                        width: 100%;
+
+                        .offer-title{
+                            border-radius: 1rem 1rem 0 0;
                             padding: 1rem 2rem;
-                            display: flex;
-                            align-items: center;
-                            justify-content: space-between;
                             background-color: $primary;
-                            #card-user{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            .offer-company{
                                 color: $white;
+
                                 h2{
-                                    font-weight: 700;
-                                    font-size: 1.6rem;
+                                    font-size: 1.8rem;
+                                    font-weight: 800;
+                                    margin-bottom: 0.25rem;
                                 }
+
                                 p{
+                                    font-size: 1.4rem;
                                     font-weight: 600;
-                                    font-size: 1.2rem;
                                 }
                             }
-                            #card-money{
-                                color: $white;
-                                font-size: 2rem;
-                                font-weight: 600;
-                                display: flex;
-                                align-items: center;
-                                gap: .5rem;
-                                i{
-                                    font-size: 1.6rem;
+
+                            .offer-price{
+                                p{
+                                    font-size: 2rem;
+                                    font-weight: 800;
+                                    color: $white;
                                 }
                             }
                         }
-                        #card-content{
+
+                        .offer-content{
+                            overflow: hidden;
                             background-color: $white;
                             padding: 2rem;
-                            border-bottom-left-radius: 1rem;
-                            border-bottom-right-radius: 1rem;
+                            border-radius: 0 0 1rem 1rem;
                             display: flex;
                             flex-direction: column;
                             gap: 1.5rem;
-                            #location{
+
+                            .offer-data{
                                 display: flex;
-                                gap:.5rem;
-                                font-size: 1.4rem;
-                                font-weight: 600;
-                                color: $text;
-                                i{
-                                    color: $primary;
-                                    font-size: 1.6rem;
-                                }
-                            }
-                            #content-title{
-                                h2{
-                                font-size: 1.8rem;
-                                font-weight: 900;
-                                color: $black;
-                                }
-                            }
-                            #car{
-                                display: flex;
+                                justify-content: flex-start;
                                 align-items: center;
-                                gap:.5rem;
-                                font-size: 1.4rem;
-                                font-weight: 600;
-                                color: $text;
-                                span{
-                                    color: $black;
-                                    font-size: 1.6rem;
-                                    font-weight: 700;
-                                }
-                                i{
-                                    font-size: 1.6rem;
-                                    color: $primary;
-                                }
-                            }
-                            #employe{
-                                display: flex;
-                                align-items: center;
-                                gap:.5rem;
-                                font-size: 1.4rem;
-                                font-weight: 600;
-                                color: $text;
-                                span{
-                                    color: $black;
-                                    font-size: 1.6rem;
-                                    font-weight: 700;
-                                }
-                                i{  
-                                    font-size: 1.6rem;
-                                    color: $primary;
-                                }
-                            }
-                            #date{
-                                display: flex;
-                                align-items: center;
-                                gap:.5rem;
-                                font-size: 1.4rem;
-                                font-weight: 600;
-                                color: $text;
-                                span{
-                                    color: $black;
-                                    font-size: 1.6rem;
-                                    font-weight: 700;
-                                }
-                                i{
-                                    color: $primary;
-                                    font-size: 1.6rem;
-                                }
-                            }
-                            #line{
-                                @extend %line;
-                            }
-                            #card-features{
-                                display: flex;
-                                justify-content: space-between;
-                                #offer-detail{
-                                    button{
-                                        @include button(false,primary,true)
+                                gap: 0.6rem;
+
+                                .offer-icon{
+                                    width: 2.25rem;
+                                    height: 2.25rem;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+
+                                    i{
+                                        color: $primary;
+                                        font-size: 1.8rem;
                                     }
                                 }
-                                #features-buttons{
+
+                                h4{
+                                    font-size: 1.4rem;
+                                    font-weight: 800;
+                                    color: $black;
+                                }
+
+                                p{
+                                    @extend %text;
+                                    font-size: 1.4rem;
+                                }
+                                
+                            }
+
+                            .offer-features{
+                                width: 100%;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+
+                                button.offer-detail{
+                                    @include button(false, primary, true);
+                                    width: initial;
+                                }
+
+                                .offer-buttons{
                                     display: flex;
+                                    justify-content: flex-end;
                                     align-items: center;
-                                    gap: .5rem;
+                                    gap: 0.8rem;
+    
                                     button{
-                                        background-color: $white;
-                                        width: 4rem;
-                                        height: 4rem;
-                                        border: .1rem solid $primary;
+                                        background-color: transparent;
+                                        width: 4.5rem;
+                                        height: 4.5rem;
+                                        border: 0.2rem solid $primary;
                                         border-radius: 1rem;
+    
                                         i{
                                             font-size: 1.8rem;
                                             color: $primary;
@@ -1299,90 +1185,94 @@ main{
                                     }
                                 }
                             }
+
+                            hr{
+                                @extend %line;
+                            }
                         }
                     }
                 }
             }
         }
         
-        #rating{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            gap: 2rem;
-            height: 100%;
-            width: 100%;
-            #rating-title{
-                @extend %title;
-            }
-            #rating-stars{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 2rem;
-                ul{
-                    li{
-                        display: inline-block;
-                        i{
-                            font-size: 3rem;
-                            color: $star; 
-                        }
-                    }
-                }
-            }
-            #success-box{
-                width: 100%;
-                height: 5rem;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                #text-message{
-                    text-align: center;
-                    width: 100%;
-                    height: 100%;
-                    font-size: 3rem;
-                    font-weight: 900;
-                }
-            }
-            #rating-input{
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                background-color: $white;
-                padding: 1.5rem 2rem;
-                border-radius: 1rem;
+        // #rating{
+        //     display: flex;
+        //     flex-direction: column;
+        //     justify-content: space-between;
+        //     gap: 2rem;
+        //     height: 100%;
+        //     width: 100%;
+        //     #rating-title{
+        //         @extend %title;
+        //     }
+        //     #rating-stars{
+        //         display: flex;
+        //         flex-direction: column;
+        //         align-items: center;
+        //         justify-content: center;
+        //         gap: 2rem;
+        //         ul{
+        //             li{
+        //                 display: inline-block;
+        //                 i{
+        //                     font-size: 3rem;
+        //                     color: $star; 
+        //                 }
+        //             }
+        //         }
+        //     }
+        //     #success-box{
+        //         width: 100%;
+        //         height: 5rem;
+        //         display: flex;
+        //         justify-content: center;
+        //         align-items: center;
+        //         #text-message{
+        //             text-align: center;
+        //             width: 100%;
+        //             height: 100%;
+        //             font-size: 3rem;
+        //             font-weight: 900;
+        //         }
+        //     }
+        //     #rating-input{
+        //         width: 100%;
+        //         display: flex;
+        //         justify-content: space-between;
+        //         align-items: center;
+        //         background-color: $white;
+        //         padding: 1.5rem 2rem;
+        //         border-radius: 1rem;
         
-                input,textarea,select{
-                    width: 100%;
-                    border: none;
-                    outline: none;
-                    font-size: 1.6rem;
-                    font-weight: 600;
-                    color: $black;
+        //         input,textarea,select{
+        //             width: 100%;
+        //             border: none;
+        //             outline: none;
+        //             font-size: 1.6rem;
+        //             font-weight: 600;
+        //             color: $black;
         
-                    &::placeholder{
-                        color: $text;
-                    }
-                }
+        //             &::placeholder{
+        //                 color: $text;
+        //             }
+        //         }
         
-                i{
-                    font-size: 1.6rem;
-                    color: $text;
-                }
+        //         i{
+        //             font-size: 1.6rem;
+        //             color: $text;
+        //         }
         
-                textarea{
-                    height: 20rem;
-                    resize: none;
-                }
-            }
-            #rating-button{
-                button{
-                    @include button(false,primary ,false )
-                }
-            }
-        }
+        //         textarea{
+        //             height: 20rem;
+        //             resize: none;
+        //         }
+        //     }
+        //     #rating-button{
+        //         button{
+        //             @include button(false,primary ,false )
+        //         }
+        //     }
+        // }
     }
 
     section#business{
@@ -1409,7 +1299,197 @@ main{
         }
 
         #business-content{
+            article#ads{
+                #ads-title{
+                    @extend %title;
+                    text-align: left;
+                    align-items: flex-start;
+                }
+                #ads-content{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 3rem;
 
+                    .ad{  
+                        width: 100%;
+
+                        .ad-title{
+                            border-radius: 1rem 1rem 0 0;
+                            padding: 1rem 2rem;
+                            background-color: $primary;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            .ad-user{
+                                color: $white;
+
+                                h2{
+                                    font-size: 1.8rem;
+                                    font-weight: 800;
+                                    margin-bottom: 0.25rem;
+                                }
+
+                                p{
+                                    font-size: 1.4rem;
+                                    font-weight: 600;
+                                }
+                            }
+
+                            .ad-button{
+                                display: flex;
+                                justify-content: flex-end;
+                                align-items: center;
+                                gap: 0.8rem;
+
+                                button{
+                                    background-color: transparent;
+                                    width: 4.5rem;
+                                    height: 4.5rem;
+                                    border: 0.2rem solid $white;
+                                    border-radius: 1rem;
+
+                                    i{
+                                        font-size: 1.8rem;
+                                        color: $white;
+                                    }
+                                }
+                            }
+                        }
+
+                        .ad-content{
+                            overflow: hidden;
+                            background-color: $white;
+                            padding: 2rem;
+                            border-radius: 0 0 1rem 1rem;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 1.5rem;
+
+                            .ad-data{
+                                display: flex;
+                                justify-content: flex-start;
+                                align-items: center;
+                                gap: 0.6rem;
+
+                                .ad-icon{
+                                    width: 2.25rem;
+                                    height: 2.25rem;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+
+                                    i{
+                                        color: $primary;
+                                        font-size: 1.8rem;
+                                    }
+                                }
+
+                                h4{
+                                    font-size: 1.4rem;
+                                    font-weight: 800;
+                                    color: $black;
+                                }
+
+                                p{
+                                    @extend %text;
+                                    font-size: 1.4rem;
+                                }
+                                
+                            }
+
+                            .ad-info{
+                                h3{
+                                    font-size: 1.8rem;
+                                    font-weight: 700;
+                                    font-family: 'Montserrat', sans-serif;
+                                    color: $black;
+                                    margin-bottom: 1rem;
+                                }
+
+                                p{
+                                    @extend %text;
+                                    font-size: 1.4rem;
+                                }
+                            }
+
+                            .ad-packets{
+                                width: 100%;
+                                display: grid;
+                                grid-template-columns: repeat(3, 1fr);
+                                align-items: center;
+
+                                .packet{
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    text-align: center;
+                                    gap: 1rem;
+
+                                    .packet-count{
+                                        width: 4rem;
+                                        height: 4rem;
+                                        border-radius: 0.6rem;
+                                        background-color: $primary;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+
+                                        p{
+                                            font-size: 1.8rem;
+                                            font-weight: 800;
+                                            color: $white;
+                                        }
+
+                                    }
+
+                                    h4{
+                                        font-size: 1.4rem;
+                                        font-weight: 800;
+                                        color: $black;
+                                    }
+                                }
+                            }
+
+                            .ad-features{
+                                width: 100%;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+
+                                .ad-offers{
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    align-items: center;
+                                    gap: 1rem;
+
+                                    i{
+                                        font-size: 2rem;
+                                        color: $primary;
+                                    }
+
+                                    p{
+                                        font-size: 1.6rem;
+                                        font-weight: 800;
+                                        color: $black; 
+                                    }
+                                }
+
+                                .ad-button{
+                                    button{
+                                        @include button(false, primary, true);
+                                    }
+                                }
+                            }
+
+                            hr{
+                                @extend %line;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 

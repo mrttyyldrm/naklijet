@@ -1,5 +1,5 @@
+$("#loading").show();
 $(document).ready(function () {
-    $("#loading").fadeIn();
     setTimeout(function(){
         $.ajax({
             url: "https://api.bsp-academy.com/isLogged",
@@ -26,13 +26,13 @@ $(document).ready(function () {
         });
     }, 1000);
 
-    let category, type, from, to, situation, packaging, insurance, description;
+    let category, type, from, to, carrying, packaging, insurance, description, selectedCity;
     let count = {
         big: 0,
         mid: 0,
         small: 0
     };
-
+    
     let queue = 1;
     let progress = 100 / ($(".step").length);
     $("#request-progress").css("width", (progress * queue) + "%");
@@ -50,6 +50,9 @@ $(document).ready(function () {
                 $(".step#from .step-loading").fadeOut();
 
                 $(".step#from .option").click(function () {
+                    if(category == "false"){
+                        selectedCity = $(this).attr("data");
+                    }
                     $(this).siblings(".option").removeClass("active");
                     $(this).addClass("active");
                     cityID = $(this).attr("data");
@@ -122,85 +125,142 @@ $(document).ready(function () {
     function toLocations(){
         let cityID, townID, streetID;
         $(".step#to .step-content .option").remove();
-        $.ajax({
-            url: "https://api.bsp-academy.com/city",
-            type: "GET",
-            success: function (cities) {
-                for (let city of cities) {
-                    $(".step#to .step-content").append(`<div class="option" data="${city.id}"><p>${city.name}</p></div>`);
-                }
-                $(".step#to .step-loading").fadeOut();
 
-                $(".step#to .option").click(function () {
-                    $(this).siblings(".option").removeClass("active");
-                    $(this).addClass("active");
-                    cityID = $(this).attr("data");
-                    $(".step#to .step-loading").fadeIn();
-                    setTimeout(function () {
-                        $.ajax({
-                            url: "https://api.bsp-academy.com/town?id=" + cityID,
-                            type: "GET",
-                            success: function (towns) {
-                                $(".step#to .step-content .option").remove();
-                                for (let town of towns) {
-                                    $(".step#to .step-content").append(`<div class="option" data="${town.id}"><p>${town.name}</p></div>`);
+        if(category == "false"){
+            $.ajax({
+                url: "https://api.bsp-academy.com/town?id=" + selectedCity,
+                type: "GET",
+                success: function (towns) {
+                    $(".step#to .step-content .option").remove();
+                    for (let town of towns) {
+                        $(".step#to .step-content").append(`<div class="option" data="${town.id}"><p>${town.name}</p></div>`);
+                    }
+                    $(".step#to .step-loading").fadeOut();
+
+                    $(".step#to .option").click(function () {
+                        $(this).siblings(".option").removeClass("active");
+                        $(this).addClass("active");
+                        townID = $(this).attr("data");
+                        $(".step#to .step-loading").fadeIn();
+                        setTimeout(function () {
+                            $.ajax({
+                                url: "https://api.bsp-academy.com/street?id=" + townID,
+                                type: "GET",
+                                success: function (streets) {
+                                    $(".step#to .step-content .option").remove();
+                                    for (street of streets) {
+                                        $(".step#to .step-content").append(`<div class="option" data="${street.id}"><p>${street.name}</p></div>`);
+                                    }
+                                    $(".step#to .step-loading").fadeOut();
+
+                                    $(".step#to .option").click(function () {
+                                        $(this).siblings(".option").removeClass("active");
+                                        $(this).addClass("active");
+                                        to = $(this).attr("data");
+                                        $("#next").addClass("active");
+                                    });
+                                },
+                                error: function () {
+                                    $("#error-title h1").text("Hata");
+                                    $("#error-title p").text("Lütfen daha sonra tekrar deneyiniz.");
+                                    $("#error-button a").attr("href", "index.html");
+                                    $("#error").fadeIn();
+                                    $(".form-input input").val("");
                                 }
-                                $(".step#to .step-loading").fadeOut();
-
-                                $(".step#to .option").click(function () {
-                                    $(this).siblings(".option").removeClass("active");
-                                    $(this).addClass("active");
-                                    townID = $(this).attr("data");
-                                    $(".step#to .step-loading").fadeIn();
-                                    setTimeout(function () {
-                                        $.ajax({
-                                            url: "https://api.bsp-academy.com/street?id=" + townID,
-                                            type: "GET",
-                                            success: function (streets) {
-                                                $(".step#to .step-content .option").remove();
-                                                for (street of streets) {
-                                                    $(".step#to .step-content").append(`<div class="option" data="${street.id}"><p>${street.name}</p></div>`);
+                            });
+                        }, 750);
+                    });
+                },
+                error: function () {
+                    $("#error-title h1").text("Hata");
+                    $("#error-title p").text("Lütfen daha sonra tekrar deneyiniz.");
+                    $("#error-button a").attr("href", "index.html");
+                    $("#error").fadeIn();
+                    $(".form-input input").val("");
+                }
+            });
+        }
+        else{
+            $.ajax({
+                url: "https://api.bsp-academy.com/city",
+                type: "GET",
+                success: function (cities) {
+                    for (let city of cities) {
+                        $(".step#to .step-content").append(`<div class="option" data="${city.id}"><p>${city.name}</p></div>`);
+                    }
+                    $(".step#to .step-loading").fadeOut();
+    
+                    $(".step#to .option").click(function () {
+                        $(this).siblings(".option").removeClass("active");
+                        $(this).addClass("active");
+                        cityID = $(this).attr("data");
+                        $(".step#to .step-loading").fadeIn();
+                        setTimeout(function () {
+                            $.ajax({
+                                url: "https://api.bsp-academy.com/town?id=" + cityID,
+                                type: "GET",
+                                success: function (towns) {
+                                    $(".step#to .step-content .option").remove();
+                                    for (let town of towns) {
+                                        $(".step#to .step-content").append(`<div class="option" data="${town.id}"><p>${town.name}</p></div>`);
+                                    }
+                                    $(".step#to .step-loading").fadeOut();
+    
+                                    $(".step#to .option").click(function () {
+                                        $(this).siblings(".option").removeClass("active");
+                                        $(this).addClass("active");
+                                        townID = $(this).attr("data");
+                                        $(".step#to .step-loading").fadeIn();
+                                        setTimeout(function () {
+                                            $.ajax({
+                                                url: "https://api.bsp-academy.com/street?id=" + townID,
+                                                type: "GET",
+                                                success: function (streets) {
+                                                    $(".step#to .step-content .option").remove();
+                                                    for (street of streets) {
+                                                        $(".step#to .step-content").append(`<div class="option" data="${street.id}"><p>${street.name}</p></div>`);
+                                                    }
+                                                    $(".step#to .step-loading").fadeOut();
+    
+                                                    $(".step#to .option").click(function () {
+                                                        $(this).siblings(".option").removeClass("active");
+                                                        $(this).addClass("active");
+                                                        to = $(this).attr("data");
+                                                        $("#next").addClass("active");
+                                                    });
+                                                },
+                                                error: function () {
+                                                    $("#error-title h1").text("Hata");
+                                                    $("#error-title p").text("Lütfen daha sonra tekrar deneyiniz.");
+                                                    $("#error-button a").attr("href", "index.html");
+                                                    $("#error").fadeIn();
+                                                    $(".form-input input").val("");
                                                 }
-                                                $(".step#to .step-loading").fadeOut();
-
-                                                $(".step#to .option").click(function () {
-                                                    $(this).siblings(".option").removeClass("active");
-                                                    $(this).addClass("active");
-                                                    to = $(this).attr("data");
-                                                    $("#next").addClass("active");
-                                                });
-                                            },
-                                            error: function () {
-                                                $("#error-title h1").text("Hata");
-                                                $("#error-title p").text("Lütfen daha sonra tekrar deneyiniz.");
-                                                $("#error-button a").attr("href", "index.html");
-                                                $("#error").fadeIn();
-                                                $(".form-input input").val("");
-                                            }
-                                        });
-                                    }, 750);
-                                });
-                            },
-                            error: function () {
-                                $("#error-title h1").text("Hata");
-                                $("#error-title p").text("Lütfen daha sonra tekrar deneyiniz.");
-                                $("#error-button a").attr("href", "index.html");
-                                $("#error").fadeIn();
-                                $(".form-input input").val("");
-                            }
-                        });
-                    }, 750);
-
-                });
-            },
-            error: function () {
-                $("#error-title h1").text("Hata");
-                $("#error-title p").text("Lütfen daha sonra tekrar deneyiniz.");
-                $("#error-button a").attr("href", "index.html");
-                $("#error").fadeIn();
-                $(".form-input input").val("");
-            }
-        });
+                                            });
+                                        }, 750);
+                                    });
+                                },
+                                error: function () {
+                                    $("#error-title h1").text("Hata");
+                                    $("#error-title p").text("Lütfen daha sonra tekrar deneyiniz.");
+                                    $("#error-button a").attr("href", "index.html");
+                                    $("#error").fadeIn();
+                                    $(".form-input input").val("");
+                                }
+                            });
+                        }, 750);
+    
+                    });
+                },
+                error: function () {
+                    $("#error-title h1").text("Hata");
+                    $("#error-title p").text("Lütfen daha sonra tekrar deneyiniz.");
+                    $("#error-button a").attr("href", "index.html");
+                    $("#error").fadeIn();
+                    $(".form-input input").val("");
+                }
+            });
+        }
     }
 
     $("#next").click(function () {
@@ -251,7 +311,7 @@ $(document).ready(function () {
                             "miditemCount": count.mid,
                             "smallitemCount": count.small,
                             "streetId": from,
-                            "howCarryId": situation,
+                            "howCarryId": carrying,
                             "isPackageHelpers": packaging==='true',
                             "isInsurances": insurance==='true',
                             "appUserId": "string",
@@ -300,7 +360,7 @@ $(document).ready(function () {
         }, 500);
 
         if (queue == 0) {
-            location.href = "index.html";
+            location.href = "customer.html";
         }
         else if (queue == 1) {
             $("#prev").removeClass("small");
@@ -339,8 +399,8 @@ $(document).ready(function () {
         $(this).addClass("active");
     });
 
-    $("#situation .option").click(function () {
-        situation = $(this).attr("data");
+    $("#carrying .option").click(function () {
+        carrying = $(this).attr("data");
         $("#next").addClass("active");
         $(this).siblings(".option").removeClass("active");
         $(this).addClass("active");

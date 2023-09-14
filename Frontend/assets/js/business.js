@@ -1,5 +1,5 @@
+$("#loading").show();
 $(document).ready(function(){
-    $("#loading").fadeIn();
     $.ajax({
         url: "https://api.bsp-academy.com/isLogged",
         type: "GET",
@@ -12,8 +12,6 @@ $(document).ready(function(){
                 location.href = "customer.html";
             }
             else{
-                //Ajax Data Request with JWT Token
-                alert("AJAX Başarıyla Yüklenebilir");
                 $("#loading").fadeOut();
             }
         },
@@ -41,6 +39,17 @@ $(document).ready(function(){
         if(!$(this).hasClass("active") && !$(this).hasClass("hidden")){
             $("#aside-menu nav ul li").removeClass("active");
             $(this).addClass("active");
+            let page = $(this).attr("content");
+            $("#loading").fadeIn();
+
+            setTimeout(function(){
+                $("#overlay").fadeOut(500);
+                $("aside").removeClass("active");
+            }, 300);
+
+            setTimeout(function(){
+                $("#business-content").load(page + ".html");
+            }, 750);
         }
     });
 
