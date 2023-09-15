@@ -39,8 +39,8 @@ namespace JwtUser.Core.Entities
         [JsonIgnore]
         public override bool LockoutEnabled { get; set; }
 
-        [JsonIgnore]
-        public override string NormalizedUserName { get; set; }
+        //[JsonIgnore]
+        //public override string NormalizedUserName { get; set; }
 
         [JsonIgnore]
         public override string NormalizedEmail { get; set; }

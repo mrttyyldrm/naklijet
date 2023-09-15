@@ -28,7 +28,6 @@ namespace JwtUser.Repository.Repositories
                 Date = x.Timestamp,
                 FromId = x.FromId,
                 ToId = x.ToId,
-                // 'situation' alanını ekleyerek koşullara göre değer atayın
                 Situation = x.FromId == userid ? "outgoing" : "incoming"
             }).ToList<object>();
 
@@ -42,7 +41,7 @@ namespace JwtUser.Repository.Repositories
                 .Include(x => x.From)
                 .GroupBy(x=>x.FromId)
                 .Select(group=>group.OrderByDescending(x=>x.Timestamp).FirstOrDefault())
-                .ToListAsync();
+                .ToListAsync()!;
         }
 
         //public async Task<List<Message>> GetMessages(string userid, string companyid)

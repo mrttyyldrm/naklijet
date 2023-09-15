@@ -9,5 +9,6 @@ namespace JwtUser.Core.Repositories
 {
     public interface IPersonalRepository : IGenericRepository<Personal>
     {
+        Task<List<Dictionary<string, object>>> GetCompanyCarPersonel(string id);
     }
 }

@@ -17,5 +17,10 @@ namespace JwtUser.Service.Services
         {
             _personalRepository = personalRepository;
         }
+
+        public async Task<List<Dictionary<string, object>>> GetCompanyCarPersonel(string id)
+        {
+            return await _personalRepository.GetCompanyCarPersonel(id);
+        }
     }
 }

@@ -3,6 +3,7 @@ using JwtUser.Core.DTOs.Request;
 using JwtUser.Core.DTOs.Response;
 using JwtUser.Core.Entities;
 using JwtUser.Core.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -11,6 +12,8 @@ namespace JwtUser.API.Controllers
 {
     [Route("[controller]")]
     [ApiController]
+    [Authorize]
+
     public class PersonalsController : ControllerBase
     {
         private readonly IMapper _mapper;
@@ -56,7 +59,7 @@ namespace JwtUser.API.Controllers
 
             return Ok();
         }
-
+        
         [HttpDelete]
         public async Task<IActionResult> DeletePersonal(int id)
         {
@@ -65,6 +68,15 @@ namespace JwtUser.API.Controllers
              _personalService.Remove(hasPpersonal);
 
             return Ok();
+        }
+
+
+        [HttpGet]
+        [Route("GetCrew")]
+        public async Task<IActionResult> GetCrew() 
+        {
+            var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            return Ok(await _personalService.GetCompanyCarPersonel(userId)); 
         }
     }
 }

@@ -10,12 +10,15 @@ namespace JwtUser.Core.Repositories
 {
     public interface IApplicationRepository : IGenericRepository<Application>
     {
-        Task<List<Application>> GetApplicationswithRelations(int id);
 
         public decimal Updaterating(int id, int rate);
         public decimal AverageRate(string id);
 
+        public void ConfirmTransport(int id);
+
         public int GetTransportApplicationCount(int id);
+        Task<List<Dictionary<string, object>>> GetApplicationsWithRATE(int id);
+        Task<List<Application>> GetCompanyCarPersonel(string id);
 
     }
 }

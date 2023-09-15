@@ -56,5 +56,7 @@ namespace JwtUser.Core.Entities
 
 
         public bool isIntercity  {get; set;}
+
+        public int Weight { get; set; }
     }
 }

@@ -20,29 +20,55 @@ namespace JwtUser.Repository.Repositories
         public decimal AverageRate(string id)
         {
             var count = _dbContext.Applications.Where(x => x.IsSuccess == true && x.Rate != null && x.CompanyId == id).Count();
-            return (decimal)_dbContext.Applications.Where(x => x.IsSuccess == true && x.Rate != null && x.CompanyId==id).Sum(x => x.Rate)/count;
+            var rate = (decimal)_dbContext.Applications.Where(x => x.IsSuccess == true && x.Rate != null && x.CompanyId == id).Sum(x => x.Rate) / count;
+            return rate;
         }
 
-        public async Task<List<Application>> GetApplicationswithRelations(int id)
+        public async Task<List<Dictionary<string, object>>> GetApplicationsWithRATE(int id)
         {
-            return await _dbContext.Applications.Where(x => x.TransportId == id).Include(x => x.Transports).ThenInclude(x => x.Category)
-                 .Include(x => x.Transports)
-                    .ThenInclude(x => x.ToStreet).ThenInclude(x=>x.Towns).ThenInclude(x=>x.City)
-                     .Include(x => x.Transports).ThenInclude(x => x.Street).ThenInclude(x => x.Towns).ThenInclude(x => x.City)
-                .Include(x => x.Transports)
-                    .ThenInclude(x => x.HowCarries)
-                .Include(x => x.Company)
-                .Include(x => x.Cars)
-                .Include(x => x.AppPersonels)
-                    .ThenInclude(x => x.Personals)
-                .ToListAsync();
+            var applications = await _dbContext.Applications
+         .Where(x => x.TransportId == id)
+         .Include(x => x.Company)
+         .Include(x => x.Cars)
+         .Include(x => x.AppPersonels)
+             .ThenInclude(x => x.Personals)
+                 .ThenInclude(x => x.Appellation)
+         .ToListAsync();
 
-            //var applications = await _dbContext.Applications
-            //        .FromSqlInterpolated($"exec apppersoneldata{id}")
-            //        .ToListAsync();
+            var results = new List<Dictionary<string, object>>();
 
-            //return applications;
+            foreach (var application in applications)
+            {
+                string compId = application.CompanyId;
+                decimal rate = CalculateRate(compId); // Burada rate hesaplanmalı (CalculateRate metodunun nasıl çalıştığını bilmiyorum)
+
+                var result = new Dictionary<string, object>
+                 {
+                        { "application", application },
+                        { "rate", rate }
+                };
+
+                results.Add(result);
+            }
+
+            return results;
         }
+
+        private decimal CalculateRate(string companyId)
+        {
+            var count = _dbContext.Applications
+                .Where(x => x.IsSuccess == true && x.Rate != null && x.CompanyId == companyId)
+                .Count();
+
+            var rateSum = _dbContext.Applications
+                .Where(x => x.IsSuccess == true && x.Rate != null && x.CompanyId == companyId)
+                .Sum(x => x.Rate);
+
+            var rate = Math.Floor((decimal)(rateSum / count * 10)!) / 10;
+
+            return rate;
+        }
+
 
 
         public int GetTransportApplicationCount(int id)
@@ -53,11 +79,28 @@ namespace JwtUser.Repository.Repositories
         public decimal Updaterating(int id, int rate)
         {
             var application = _dbContext.Applications.FirstOrDefault(x => x.Id == id);
-            
-                application.Rate = rate; // Price alanını rate ile güncelle
-                _dbContext.SaveChanges(); // Değişiklikleri kaydet
-                return (decimal)application.Rate; // Güncellenen Price değerini geri dön
-            
+
+            application!.Rate = rate;
+            _dbContext.SaveChanges();
+            return (decimal)application.Rate;
+
+        }
+
+        public void ConfirmTransport(int id)
+        {
+            var application = _dbContext.Applications.FirstOrDefault(x => x.Id == id);
+            application!.IsSuccess = true;
+            _dbContext.SaveChanges();
+        }
+
+        public async Task<List<Application>> GetCompanyCarPersonel(string id)
+        {
+            return await _dbContext.Applications
+                .Where(x => x.CompanyId == id)
+                .Include(x => x.Cars)
+                .Include(x => x.AppPersonels)
+                    .ThenInclude(x => x.Personals).ThenInclude(x=>x.Appellation)
+                .ToListAsync();
         }
     }
 }

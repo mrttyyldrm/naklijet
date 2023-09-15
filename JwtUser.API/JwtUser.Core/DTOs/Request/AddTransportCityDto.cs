@@ -38,6 +38,7 @@ namespace JwtUser.Core.DTOs.Request
         public int? ToStreetId { get; set; }
 
         public bool isIntercity { get; set; }
+        public int Weight { get; set; }
 
     }
 }
