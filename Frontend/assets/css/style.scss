@@ -361,6 +361,22 @@ $border: 0.15rem solid #E0DEF7;
 
                 .swipe-title{
                     @extend %title;
+
+                    .swipe-icon{
+                        margin-top: 0.5rem;
+                        width: 8rem;
+                        height: 8rem;
+                        background-color: $primary;
+                        border-radius: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        i{
+                            font-size: 3rem;
+                            color: $white;
+                        }
+                    }
                 }
     
                 .swipe-content{
@@ -1128,7 +1144,6 @@ main{
                                     @extend %text;
                                     font-size: 1.4rem;
                                 }
-                                
                             }
 
                             .claim-info{
@@ -1652,6 +1667,163 @@ main{
                 }
                 #ads-swipe{
                     @extend %swipe;
+                }
+            }
+
+            article#crew{
+                #crew-title{
+                    @extend %title;
+                    text-align: left;
+                    align-items: flex-start;
+                    flex-wrap: wrap;
+                    
+                    p{
+                        margin-bottom: 2rem;
+                    }
+
+                    #crew-navigation{
+                        width: 100%;
+                        padding: 1rem;
+                        border-radius: 1rem;
+                        background-color: $white;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        gap: 1rem;
+
+                        button{
+                            @include button(false, primary, false);
+                        }
+                    }
+                }
+
+                #crew-content{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 3rem;
+
+                    .crew-group{
+                        width: 100%;
+                        @extend %box;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1.5rem;
+
+                        h2{
+                            font-size: 1.6rem;
+                            font-weight: 700;
+                            color: $black;
+                            margin-bottom: 0.5rem;
+                        }
+
+                        .member{  
+                            width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 1.5rem;
+    
+                            .member-title{
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                margin-bottom: 0.5rem;
+    
+                                .member-info{
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    align-items: center;
+                                    gap: 1rem;
+    
+                                    .member-icon{
+                                        width: 4.5rem;
+                                        height: 4.5rem;
+                                        border-radius: 0.6rem;
+                                        background-color: $primary;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+
+                                        i{
+                                            font-size: 1.8rem;
+                                            color: $white;
+                                        }
+                                    }
+
+                                    h3{
+                                        font-size: 1.6rem;
+                                        font-weight: 700;
+                                        font-family: 'Montserrat', sans-serif;
+                                        color: $black;
+                                    }
+                                }
+    
+                                button{
+                                    background-color: transparent;
+                                    width: 4.5rem;
+                                    height: 4.5rem;
+                                    border: 0.2rem solid $primary;
+                                    border-radius: 1rem;
+    
+                                    i{
+                                        font-size: 1.8rem;
+                                        color: $primary;
+                                    }
+                                }
+                            }
+    
+                            .member-data{
+                                display: flex;
+                                justify-content: flex-start;
+                                align-items: center;
+                                gap: 0.6rem;
+
+                                .data-icon{
+                                    width: 2.25rem;
+                                    height: 2.25rem;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+
+                                    i{
+                                        color: $primary;
+                                        font-size: 1.8rem;
+                                    }
+                                }
+
+                                h4{
+                                    font-size: 1.4rem;
+                                    font-weight: 800;
+                                    color: $black;
+                                }
+
+                                p{
+                                    @extend %text;
+                                    font-size: 1.4rem;
+                                }
+                            }
+                        }
+
+                        hr{
+                            @extend %line;
+                        }
+                    }
+                }
+
+                #vehicle-swipe, #member-swipe{
+                    @extend %swipe;
+
+                    #swipe-content{
+                        .swipe{
+                            display: block;
+                        }
+                    }
+
+                    #swipe-button{
+                        button{
+                            @include button(true, primary, false);
+                        }
+                    }
                 }
             }
         }

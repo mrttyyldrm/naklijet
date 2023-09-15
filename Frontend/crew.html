@@ -1,0 +1,153 @@
+<article id="crew">
+    <div id="crew-title">
+        <h1>Filo Yönetimi</h1>
+        <p>Filo ve personel işlemleriniz hakkında değişiklikleri buradan gerçekleştirebilirsiniz.</p>
+        <div id="crew-navigation">
+            <button id="add-vehicle">Araç Ekle</button>
+            <button id="add-member">Personel Ekle</button>
+        </div>
+    </div>
+    <div id="crew-content">
+        <div class="crew-group" id="vehicle">
+            <h2>Araç Bilgileri</h2>
+            <div class="member vehicle">
+                <div class="member-title">
+                    <div class="member-info">
+                        <div class="member-icon">
+                            <i class="fa-regular fa-truck-container"></i>
+                        </div>
+                        <h3></h3>
+                    </div>
+                    <button class="vehicle-delete"><i class="fa-regular fa-trash-can"></i></button>
+                </div>
+                <div class="member-data">
+                    <div class="data-icon">
+                        <i class="fa-regular fa-keyboard"></i>
+                    </div>
+                    <h4>Plaka:</h4>
+                    <p></p>
+                </div>
+                <div class="member-data">
+                    <div class="data-icon">
+                        <i class="fa-regular fa-square-dashed"></i>
+                    </div>
+                    <h4>Kapasite:</h4>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <div class="crew-group" id="driver">
+            <h2>Şoför Bilgileri</h2>
+            <div class="member driver">
+                <div class="member-title">
+                    <div class="member-info">
+                        <div class="member-icon">
+                            <i class="fa-regular fa-steering-wheel"></i>
+                        </div>
+                        <h3></h3>
+                    </div>
+                    <button class="member-delete"><i class="fa-regular fa-trash-can"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="crew-group" id="worker">
+            <h2>Personel Bilgileri</h2>
+            <div class="member worker">
+                <div class="member-title">
+                    <div class="member-info">
+                        <div class="member-icon">
+                            <i class="fa-regular fa-user-group"></i>
+                        </div>
+                        <h3></h3>
+                    </div>
+                    <button class="member-delete"><i class="fa-regular fa-trash-can"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="vehicle-swipe">
+        <div id="swipe-content">
+            <div class="swipe">
+                <div class="swipe-container">
+                    <div class="swipe-title">
+                        <div class="swipe-icon">
+                            <i class="fa-regular fa-truck-container"></i>
+                        </div>
+                        <h2>Araç Ekle</h2>
+                    </div>
+                    <div class="swipe-content">
+                        <div class="form-control">
+                            <label for="brand">Araç Marka</label>
+                            <div class="form-input">
+                                <input type="text" id="brand" placeholder="Marka Giriniz">
+                            </div>
+                        </div>
+                        <div class="form-control">
+                            <label for="model">Araç Model</label>
+                            <div class="form-input">
+                                <input type="text" id="model" placeholder="Model Giriniz">
+                            </div>
+                        </div>
+                        <div class="form-control">
+                            <label for="plate">Plaka</label>
+                            <div class="form-input">
+                                <input type="text" id="plate" placeholder="Plaka Giriniz">
+                            </div>
+                        </div>
+                        <div class="form-control">
+                            <label for="capacity">Kapasite</label>
+                            <div class="form-input">
+                                <input type="text" id="capacity" placeholder="Kapasite Giriniz">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="swipe-button">
+            <button id="save-vehicle">Kaydet</button>
+        </div>
+    </div>
+    <div id="member-swipe">
+        <div id="swipe-content">
+            <div class="swipe">
+                <div class="swipe-container">
+                    <div class="swipe-title">
+                        <div class="swipe-icon">
+                            <i class="fa-regular fa-user-group"></i>
+                        </div>
+                        <h2>Personel Ekle</h2>
+                    </div>
+                    <div class="swipe-content">
+                        <div class="form-control">
+                            <label for="name">Ad</label>
+                            <div class="form-input">
+                                <input type="text" id="name" placeholder="Ad Giriniz">
+                            </div>
+                        </div>
+                        <div class="form-control">
+                            <label for="surname">Soyad</label>
+                            <div class="form-input">
+                                <input type="text" id="surname" placeholder="Soyad Giriniz">
+                            </div>
+                        </div>
+                        <div class="form-control">
+                            <label for="appellation">Ünvan</label>
+                            <div class="form-input">
+                                <select name="appellation" id="appellation">
+                                    <option value="1">Şoför</option>
+                                    <option value="2">Hamal</option>
+                                </select>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="swipe-button">
+                <button id="save-member">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</article>
+<script src="assets/js/crew.js"></script>
