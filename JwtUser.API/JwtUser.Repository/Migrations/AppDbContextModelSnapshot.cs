@@ -312,6 +312,9 @@ namespace JwtUser.Repository.Migrations
                     b.Property<int?>("ToStreetId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Weight")
+                        .HasColumnType("int");
+
                     b.Property<int>("bigitemCount")
                         .HasColumnType("int");
 

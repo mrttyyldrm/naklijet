@@ -35,6 +35,7 @@ namespace JwtUser.API.Controllers
             return Ok(values);            
         }
 
+        [Authorize]
         [HttpGet]
         [Route("GetTransportsList")]
         public async Task<IActionResult> GetListTransportsTest()
@@ -43,7 +44,7 @@ namespace JwtUser.API.Controllers
             return Ok(values);
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost("NewTransport")]
         public async Task<IActionResult> AddTransportCity(AddTransportCityDto transportCityDto)
         {
@@ -52,7 +53,7 @@ namespace JwtUser.API.Controllers
             var transport = _mapper.Map<Transport>(transportCityDto);
 
             transport.AppUserId = userId;
-            //transport.AppUserId = "6e7c54f8-bc2c-403f-907c-2b3545f8247d";
+            transport.Weight = transport.bigitemCount*8 + transport.miditemCount*4 + transport.smallitemCount*1;
 
             await _transportService.AddAsync(transport);
             return Ok("Data success add");
@@ -72,7 +73,7 @@ namespace JwtUser.API.Controllers
         }
 
 
-
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> RemoveTransport(int id)
         {

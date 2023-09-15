@@ -16,27 +16,67 @@ namespace JwtUser.Repository.Repositories
         {
         }
 
-        public async Task<List<Transport>> GetTransportswithRelations()
+        public async Task<List<Dictionary<string, object>>> GetTransportswithRelations()
         {
-            return await _dbContext.Transports
+            var values = await _dbContext.Transports
                 .Include(x => x.HowCarries)
                 .Include(x => x.AppUser)
                 .Include(x => x.Category)
-                .Include(x => x.ToStreet).ThenInclude(x=>x.Towns).ThenInclude(x=>x.City)
+                .Include(x => x.ToStreet).ThenInclude(x => x.Towns).ThenInclude(x => x.City)
                 .Include(x => x.Street).ThenInclude(x => x.Towns).ThenInclude(x => x.City)
                 .Include(x => x.Street).ToListAsync();
+
+
+            var results = new List<Dictionary<string, object>>();
+
+            foreach (var transport in values)
+            {
+                int transportId = transport.Id;
+                int getOffers = _dbContext.Applications.Where(x => x.TransportId == transportId).Count();
+
+                var result = new Dictionary<string, object>
+                {
+                     { "transport", transport },
+                     { "offers", getOffers }
+                };
+
+                results.Add(result);
+            }
+
+            return results;
+
         }
 
-        public async Task<List<Transport>> GetUserTransportList(string id)
+        public async Task<List<Dictionary<string, object>>> GetUserTransportList(string id)
         {
-            return await _dbContext.Transports
+            var values = await _dbContext.Transports
                 .Where(x => x.AppUserId == id)
-                .Include(x => x.HowCarries)                
+                .Include(x => x.HowCarries)
                 .Include(x => x.Category)
                 .Include(x => x.AppUser)
                 .Include(x => x.ToStreet).ThenInclude(x => x.Towns).ThenInclude(x => x.City)
                 .Include(x => x.Street).ThenInclude(x => x.Towns).ThenInclude(x => x.City)
                 .Include(x => x.Street).ToListAsync();
+
+
+            var results = new List<Dictionary<string, object>>();
+
+            foreach (var transport in values)
+            {
+                int transportId = transport.Id;
+                int getOffers = _dbContext.Applications.Where(x => x.TransportId == transportId).Count();
+
+                var result = new Dictionary<string, object>
+                {
+                     { "Transport", transport },
+                     { "offers", getOffers }
+                };
+
+                results.Add(result);
+            }
+
+            return results;
+
         }
     }
 }

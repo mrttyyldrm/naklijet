@@ -9,5 +9,7 @@ namespace JwtUser.Core.Services
 {
     public interface IPersonalService : IGenericService<Personal>
     {
+        Task<List<Dictionary<string, object>>> GetCompanyCarPersonel(string id);
+
     }
 }

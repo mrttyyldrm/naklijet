@@ -10,8 +10,9 @@ namespace JwtUser.Core.Repositories
     public interface ITransportRepository : IGenericRepository<Transport>
     {
 
-        Task<List<Transport>> GetTransportswithRelations();
-        Task<List<Transport>> GetUserTransportList(string id);
+        Task<List<Dictionary<string, object>>> GetTransportswithRelations();
+
+        Task<List<Dictionary<string, object>>> GetUserTransportList(string id);
 
     }
 }

@@ -10,8 +10,8 @@ namespace JwtUser.Core.Services
     public interface ITransportService : IGenericService<Transport>
     {
 
-        Task<List<Transport>> GetTransportswithRelations();
-        Task<List<Transport>> GetUserTransportList(string id);
+        Task<List<Dictionary<string, object>>> GetTransportswithRelations();
+        Task<List<Dictionary<string, object>>> GetUserTransportList(string id);
 
     }
 }

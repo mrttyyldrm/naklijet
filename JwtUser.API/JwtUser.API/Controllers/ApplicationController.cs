@@ -41,7 +41,7 @@ namespace JwtUser.API.Controllers
         [Route("GetRelations")]
         public async  Task<IActionResult> GetApplicationsWithRelations(int id)
         {
-            var values = await _applicationService.GetApplicationswithRelations(id);
+            var values = await _applicationService.GetApplicationsWithRATE(id);
             return Ok(values);
         }
 
@@ -63,7 +63,6 @@ namespace JwtUser.API.Controllers
 
             await _applicationService.AddAsync(application);
 
-            // Burada PersonalId'leri toplu olarak ekleyebilirsiniz.
             if (addApplicationDto.PersonalIds != null && addApplicationDto.PersonalIds.Any())
             {
                 var appPersonels = addApplicationDto.PersonalIds.Select(personalId => new AppPersonel
@@ -72,7 +71,7 @@ namespace JwtUser.API.Controllers
                     PersonalId = personalId
                 }).ToList();
 
-                await _appPersonelService.AddRangeAsync(appPersonels); // Servisinizde toplu ekleme işlemini desteklemelisiniz.
+                await _appPersonelService.AddRangeAsync(appPersonels); 
             }
 
             return Ok("Data success add");
@@ -102,6 +101,25 @@ namespace JwtUser.API.Controllers
         public IActionResult GetTransportApplicationCount(int id)
         {
             return Ok(_applicationService.GetTransportApplicationCount(id));
+        }
+
+        [HttpGet]
+        [Route("ConfirmTransport")]
+        public IActionResult ConfirmTransport(int id)
+        {
+            _applicationService.ConfirmTransport(id);
+            return Ok("Transport successfully confirmed");
+        }
+
+        [Authorize]
+        [HttpGet]
+        [Route("GetCrew")]
+        
+        public async Task<IActionResult> GetCrew()
+        {
+            var userId = _httpContextAccessor.HttpContext!.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            return Ok(await _applicationService.GetCompanyCarPersonel(userId)); 
         }
     }
 }

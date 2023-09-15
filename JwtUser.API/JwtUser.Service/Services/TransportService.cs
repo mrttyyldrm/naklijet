@@ -19,12 +19,14 @@ namespace JwtUser.Service.Services
             _transportRepository = transportRepository;
         }
 
-        public async Task<List<Transport>> GetTransportswithRelations()
+
+
+        public async Task<List<Dictionary<string, object>>> GetTransportswithRelations()
         {
             return await _transportRepository.GetTransportswithRelations();
         }
 
-        public async Task<List<Transport>> GetUserTransportList(string id)
+        public async Task<List<Dictionary<string, object>>> GetUserTransportList(string id)
         {
             return await _transportRepository.GetUserTransportList(id);
         }
