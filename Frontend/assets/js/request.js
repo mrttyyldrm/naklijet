@@ -1,21 +1,21 @@
 $("#loading").show();
 $(document).ready(function () {
-    setTimeout(function(){
+    setTimeout(function () {
         $.ajax({
             url: "https://api.bsp-academy.com/isLogged",
             type: "GET",
             headers: {
                 "Authorization": "bearer " + localStorage.getItem('token')
             },
-            success: function(data){
-                if(data == true){
+            success: function (data) {
+                if (data == true) {
                     location.href = "business.html";
                 }
-                else{
+                else {
                     $("#loading").fadeOut();
                 }
             },
-            error: function(){
+            error: function () {
                 $("#error-title h1").text("Oturum Zaman Aşımına Uğradı");
                 $("#error-title p").text("Panele erişmek için lütfen tekrar giriş yapınız.");
                 $("#error-button a").attr("href", "login.html");
@@ -32,11 +32,18 @@ $(document).ready(function () {
         mid: 0,
         small: 0
     };
-    
+
     let queue = 1;
     let progress = 100 / ($(".step").length);
     $("#request-progress").css("width", (progress * queue) + "%");
 
+    function showError() {
+        $("#error-title h1").text("Hata");
+        $("#error-title p").text("Lütfen daha sonra tekrar deneyiniz.");
+        $("#error-button a").attr("href", "index.html");
+        $("#error").fadeIn();
+        $(".form-input input").val("");
+    }
     function fromLocations() {
         let cityID, townID, streetID;
         $(".step#from .step-content .option").remove();
@@ -50,7 +57,7 @@ $(document).ready(function () {
                 $(".step#from .step-loading").fadeOut();
 
                 $(".step#from .option").click(function () {
-                    if(category == "false"){
+                    if (category == "false") {
                         selectedCity = $(this).attr("data");
                     }
                     $(this).siblings(".option").removeClass("active");
@@ -92,41 +99,29 @@ $(document).ready(function () {
                                                 });
                                             },
                                             error: function () {
-                                                $("#error-title h1").text("Hata");
-                                                $("#error-title p").text("Lütfen daha sonra tekrar deneyiniz.");
-                                                $("#error-button a").attr("href", "index.html");
-                                                $("#error").fadeIn();
-                                                $(".form-input input").val("");
+                                                showError();
                                             }
                                         });
                                     }, 750);
                                 });
                             },
                             error: function () {
-                                $("#error-title h1").text("Hata");
-                                $("#error-title p").text("Lütfen daha sonra tekrar deneyiniz.");
-                                $("#error-button a").attr("href", "index.html");
-                                $("#error").fadeIn();
-                                $(".form-input input").val("");
+                                showError();
                             }
                         });
                     }, 750);
                 });
             },
             error: function () {
-                $("#error-title h1").text("Hata");
-                $("#error-title p").text("Lütfen daha sonra tekrar deneyiniz.");
-                $("#error-button a").attr("href", "index.html");
-                $("#error").fadeIn();
-                $(".form-input input").val("");
+                showError();
             }
         });
     }
-    function toLocations(){
+    function toLocations() {
         let cityID, townID, streetID;
         $(".step#to .step-content .option").remove();
 
-        if(category == "false"){
+        if (category == "false") {
             $.ajax({
                 url: "https://api.bsp-academy.com/town?id=" + selectedCity,
                 type: "GET",
@@ -161,26 +156,18 @@ $(document).ready(function () {
                                     });
                                 },
                                 error: function () {
-                                    $("#error-title h1").text("Hata");
-                                    $("#error-title p").text("Lütfen daha sonra tekrar deneyiniz.");
-                                    $("#error-button a").attr("href", "index.html");
-                                    $("#error").fadeIn();
-                                    $(".form-input input").val("");
+                                    showError();
                                 }
                             });
                         }, 750);
                     });
                 },
                 error: function () {
-                    $("#error-title h1").text("Hata");
-                    $("#error-title p").text("Lütfen daha sonra tekrar deneyiniz.");
-                    $("#error-button a").attr("href", "index.html");
-                    $("#error").fadeIn();
-                    $(".form-input input").val("");
+                    showError();
                 }
             });
         }
-        else{
+        else {
             $.ajax({
                 url: "https://api.bsp-academy.com/city",
                 type: "GET",
@@ -189,7 +176,7 @@ $(document).ready(function () {
                         $(".step#to .step-content").append(`<div class="option" data="${city.id}"><p>${city.name}</p></div>`);
                     }
                     $(".step#to .step-loading").fadeOut();
-    
+
                     $(".step#to .option").click(function () {
                         $(this).siblings(".option").removeClass("active");
                         $(this).addClass("active");
@@ -205,7 +192,7 @@ $(document).ready(function () {
                                         $(".step#to .step-content").append(`<div class="option" data="${town.id}"><p>${town.name}</p></div>`);
                                     }
                                     $(".step#to .step-loading").fadeOut();
-    
+
                                     $(".step#to .option").click(function () {
                                         $(this).siblings(".option").removeClass("active");
                                         $(this).addClass("active");
@@ -221,7 +208,7 @@ $(document).ready(function () {
                                                         $(".step#to .step-content").append(`<div class="option" data="${street.id}"><p>${street.name}</p></div>`);
                                                     }
                                                     $(".step#to .step-loading").fadeOut();
-    
+
                                                     $(".step#to .option").click(function () {
                                                         $(this).siblings(".option").removeClass("active");
                                                         $(this).addClass("active");
@@ -230,34 +217,22 @@ $(document).ready(function () {
                                                     });
                                                 },
                                                 error: function () {
-                                                    $("#error-title h1").text("Hata");
-                                                    $("#error-title p").text("Lütfen daha sonra tekrar deneyiniz.");
-                                                    $("#error-button a").attr("href", "index.html");
-                                                    $("#error").fadeIn();
-                                                    $(".form-input input").val("");
+                                                    showError();
                                                 }
                                             });
                                         }, 750);
                                     });
                                 },
                                 error: function () {
-                                    $("#error-title h1").text("Hata");
-                                    $("#error-title p").text("Lütfen daha sonra tekrar deneyiniz.");
-                                    $("#error-button a").attr("href", "index.html");
-                                    $("#error").fadeIn();
-                                    $(".form-input input").val("");
+                                    showError();
                                 }
                             });
                         }, 750);
-    
+
                     });
                 },
                 error: function () {
-                    $("#error-title h1").text("Hata");
-                    $("#error-title p").text("Lütfen daha sonra tekrar deneyiniz.");
-                    $("#error-button a").attr("href", "index.html");
-                    $("#error").fadeIn();
-                    $(".form-input input").val("");
+                    showError();
                 }
             });
         }
@@ -265,10 +240,10 @@ $(document).ready(function () {
 
     $("#next").click(function () {
         if ($(this).hasClass("active")) {
-            if(queue <= $(".step").length -1){
+            if (queue <= $(".step").length - 1) {
                 queue++;
             }
-            
+
             $("#request-progress").css("width", (progress * queue) + "%");
             $(".step").fadeOut(500);
             setTimeout(function () {
@@ -312,13 +287,13 @@ $(document).ready(function () {
                             "smallitemCount": count.small,
                             "streetId": from,
                             "howCarryId": carrying,
-                            "isPackageHelpers": packaging==='true',
-                            "isInsurances": insurance==='true',
+                            "isPackageHelpers": packaging === 'true',
+                            "isInsurances": insurance === 'true',
                             "appUserId": "string",
                             "toStreetId": to,
-                            "isIntercity": category==='true'
+                            "isIntercity": category === 'true'
                         }),
-                        success: function(){
+                        success: function () {
                             $("#success-title h1").text("Talebiniz Oluşturuldu");
                             $("#success-title p").text("Talebiniz hakkındaki bilgileri Taleplerim sayfasından görebilirsiniz.");
                             $("#success-button a").attr("href", "customer.html");
@@ -326,7 +301,7 @@ $(document).ready(function () {
                             $("#success").fadeIn();
                             $("#loading").fadeOut();
                         },
-                        error: function(){
+                        error: function () {
                             $("#error-title h1").text("Talebiniz Oluşturulamadı");
                             $("#error-title p").text("Bir şeyler ters gitti. Lütfen daha sonra tekrar deneyiniz.");
                             $("#error-button a").attr("href", "index.html");
@@ -341,7 +316,7 @@ $(document).ready(function () {
                 $(this).text("Devam Et");
             }
             $(this).removeClass("active");
-            if($(".step#description textarea").val() != ""){
+            if ($(".step#description textarea").val() != "") {
                 $("#next").addClass("active");
             }
             if ($(".step[queue=" + queue + "] .step-content .option").hasClass("active")) {
@@ -371,7 +346,7 @@ $(document).ready(function () {
         else if (queue == 4) {
             toLocations();
         }
-        else if(queue == 5){
+        else if (queue == 5) {
             if ($("h3#big").text() != "0" || $("h3#mid").text() != "0" || $("h3#small").text() != "0") {
                 $("#next").addClass("active");
             }
@@ -447,7 +422,7 @@ $(document).ready(function () {
         if ($("h3#big").text() != "0" || $("h3#mid").text() != "0" || $("h3#small").text() != "0") {
             $("#next").addClass("active");
         }
-        else{
+        else {
             $("#next").removeClass("active");
         }
     });

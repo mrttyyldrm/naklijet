@@ -1,3 +1,12 @@
+function showError(){
+    $("#error-title h1").text("Hatalı İstek");
+    $("#error-title p").text("Talebiniz gerçekleştirilemedi. Lütfen daha sonra tekrar deneyiniz.");
+    $("#error-button a").attr("href", "customer.html");
+    $("#error-button a").text("Panele Dön");
+    $("#error").fadeIn();
+    $("#loading").fadeOut();
+}
+
 $.ajax({
     url: "https://api.bsp-academy.com/GetList",
     type: "GET",
@@ -182,12 +191,7 @@ $.ajax({
                             $("#loading").fadeOut();
                         },
                         error: function () {
-                            $("#error-title h1").text("Hatalı İstek");
-                            $("#error-title p").text("Talebiniz gerçekleştirilemedi. Lütfen daha sonra tekrar deneyiniz.");
-                            $("#error-button a").attr("href", "customer.html");
-                            $("#error-button a").text("Panele Dön");
-                            $("#error").fadeIn();
-                            $("#loading").fadeOut();
+                            showError();
                         }
                     });
                 });
@@ -195,11 +199,6 @@ $.ajax({
         });
     },
     error: function () {
-        $("#error-title h1").text("Hatalı İstek");
-        $("#error-title p").text("Talebiniz gerçekleştirilemedi. Lütfen daha sonra tekrar deneyiniz.");
-        $("#error-button a").attr("href", "customer.html");
-        $("#error-button a").text("Panele Dön");
-        $("#error").fadeIn();
-        $("#loading").fadeOut();
+        showError();
     }
 });

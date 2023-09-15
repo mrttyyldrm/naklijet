@@ -1,3 +1,6 @@
+let transportID, vehicle, driver, price, time, date;
+let workers = [];
+
 $.ajax({
     url: "https://api.bsp-academy.com/GetTransportsList",
     type: "GET",
@@ -5,7 +8,7 @@ $.ajax({
         "Authorization": "bearer " + localStorage.getItem('token')
     },
     success: function (ads) {
-        if(ads.length == 0){
+        if (ads.length == 0) {
             $(".ads").remove();
         }
         $.each(ads, function (i, ad) {
@@ -93,10 +96,74 @@ $.ajax({
                 newAd.find(".ad-small").text(ad.transport.smallitemCount);
                 newAd.find(".ad-offers p").text(ad.offers + " Teklif");
 
-                $("#ads-content").append(newAd);
+                $("#ads-content").prepend(newAd);
             }
         });
         $("#loading").fadeOut();
+
+        $(".give-offer").click(function () {
+            $("#overlay").fadeIn();
+            transportID = $(this).parent(".ad-button").parent(".ad-features").parent(".ad-content").parent(".ad").attr("data");
+
+            $.ajax({
+                url: "https://api.bsp-academy.com/Personals/GetCrew",
+                type: "GET",
+                headers: {
+                    "Authorization": "bearer " + localStorage.getItem('token')
+                },
+                success: function (crew) {
+                    for(let car of crew[0].Car){
+                        $("#vehicle .swipe-content").append(`<div class="swipe-option" data="${car.id}"><p>${car.brand} ${car.model}</p></div>`);
+                    }
+
+                    for(let person of crew[0].Personal){
+                        if(person.appellationId == 1){
+                            $("#driver .swipe-content").append(`<div class="swipe-option" data="${person.id}"><p>${person.name} ${person.surname}</p></div>`)
+                        }
+                        else{
+                            $("#worker .swipe-content").append(`<div class="swipe-option" data="${person.id}"><p>${person.name} ${person.surname}</p></div>`)
+                        }
+                    }
+
+                    $("#ads-swipe").addClass("active");
+                    $(".swipe-loading").fadeOut();
+
+                    $("#vehicle .swipe-option").click(function () {
+                        vehicle = parseInt($(this).attr("data"));
+                        $("#next").addClass("active");
+                        $(this).siblings(".swipe-option").removeClass("active");
+                        $(this).addClass("active");
+                    });
+                    
+                    $("#driver .swipe-option").click(function () {
+                        driver = parseInt($(this).attr("data"));
+                        $("#next").addClass("active");
+                        $(this).siblings(".swipe-option").removeClass("active");
+                        $(this).addClass("active");
+                    });
+                    
+                    $("#worker .swipe-option").click(function () {
+                        if ($(this).hasClass("active")) {
+                            workers = workers.filter(item => item !== parseInt($(this).attr("data")));
+                            $(this).removeClass("active");
+                        }
+                        else {
+                            workers.push(parseInt($(this).attr("data")));
+                            $(this).addClass("active");
+                            $("#next").addClass("active");
+                        }
+                    });
+                },
+                error: function () {
+                    $("#error-title h1").text("Teklif Gönderilemedi");
+                    $("#error-title p").text("Lütfen daha sonra tekrar deneyin.");
+                    $("#error-button a").attr("href", "business.html");
+                    $("#error-button a").text("Panele Dön");
+                    $("#error").fadeIn();
+                    $("#loading").fadeOut();
+                }
+            });
+        });
     },
     error: function () {
         $("#error-title h1").text("Hatalı İstek");
@@ -105,5 +172,122 @@ $.ajax({
         $("#error-button a").text("Panele Dön");
         $("#error").fadeIn();
         $("#loading").fadeOut();
+    }
+});
+
+let queue = 1;
+
+$("#prev").click(function () {
+    queue--;
+    $("#next").text("Devam Et");
+    $(".swipe").fadeOut(500);
+    setTimeout(function () {
+        $(".swipe[queue=" + queue + "]").fadeIn();
+    }, 500);
+
+    if (queue == 0) {
+        $("#ads-swipe").removeClass("active");
+        $("#overlay").fadeOut();
+    }
+    else if (queue == 1) {
+        $("#prev").removeClass("small");
+    }
+    else if (queue == 2) {
+    }
+    else if (queue == 3) {
+    }
+    else {
+        $("#prev").addClass("small");
+    }
+
+    if ($(".swipe[queue=" + queue + "] .swipe-content .swipe-option").hasClass("active")) {
+        $("#next").addClass("active");
+    }
+});
+
+$("#next").click(function () {
+    if ($(this).hasClass("active")) {
+        if (queue <= $(".swipe").length - 1) {
+            queue++;
+        }
+
+        $(".swipe").fadeOut(500);
+        setTimeout(function () {
+            $(".swipe[queue=" + queue + "]").fadeIn();
+        }, 750);
+
+        if (queue == 2) {
+            $("#prev").addClass("small");
+        }
+
+        $(this).removeClass("active");
+        if (queue == $(".swipe").length) {
+            if ($("#next").text() == "Devam Et") {
+                $(this).text("Onayla");
+            }
+            else {
+                $("#loading").fadeIn();
+                price = parseInt($("#service .swipe-price").val());
+                time = parseInt($("#service .swipe-time").val());
+                workers.push(vehicle);
+                date = new Date().toISOString();
+
+                $.ajax({
+                    url: "https://api.bsp-academy.com/Application",
+                    type: "POST",
+                    headers: {
+                        "Authorization": "bearer " + localStorage.getItem('token')
+                    },
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        "transportId": transportID,
+                        "carsId": vehicle,
+                        "companyTransportTime": time,
+                        "price": price,
+                        "personalIds": workers,
+                    }),
+                    success: function () {
+                        $("#ads-swipe").removeClass("active");
+                        $("#success-title h1").text("Teklif Gönderdildi");
+                        $("#success-title p").text("Teklifinize dair detayları Satışlarım penceresinden inceleyebilirsiniz...");
+                        $("#success-button a").attr("href", "business.html");
+                        $("#success-button a").text("Panele Dön");
+                        $("#success").fadeIn();
+                        $("#loading").fadeOut();
+                    },
+                    error: function () {
+                        $("#error-title h1").text("Teklif Gönderilemedi");
+                        $("#error-title p").text("Lütfen daha sonra tekrar deneyin.");
+                        $("#error-button a").attr("href", "business.html");
+                        $("#error-button a").text("Panele Dön");
+                        $("#error").fadeIn();
+                        $("#loading").fadeOut();
+                    }
+                });
+            }
+
+            if ($("#service .swipe-price").val() != "" && $("#service .swipe-time").val() != "") {
+                $("#next").addClass("active");
+            }
+            else {
+                $("#next").removeClass("active");
+            }
+        }
+        else {
+            $(this).text("Devam Et");
+        }
+    }
+});
+
+$("#overlay").click(function () {
+    $("#ads-swipe").removeClass("active");
+});
+
+$("#service input").keyup(function () {
+    if ($("#service .swipe-price").val() != "" && $("#service .swipe-time").val() != "") {
+        $("#next").addClass("active");
+    }
+    else {
+        $("#next").removeClass("active");
     }
 });

@@ -11,7 +11,7 @@
                     <p></p>
                 </div>
                 <div class="ad-button">
-                    <button class="ad-message"><i class="fa-regular fa-message-lines"></i></button>
+                    <button class="ad-message"><i class="fa-regular fa-message"></i></button>
                 </div>
             </div>
             <div class="ad-content">
@@ -81,10 +81,82 @@
                         <p></p>
                     </div>
                     <div class="ad-button">
-                        <button class="see-offers">Teklif Ver</button>
+                        <button class="give-offer">Teklif Ver</button>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div id="ads-swipe">
+        <div id="swipe-content">
+            <div class="swipe-loading">
+                <div class="loading-content">
+                    <i class="fa-regular fa-loader fa-spin"></i>
+                </div>
+            </div>
+            <div class="swipe" queue="1" id="vehicle">
+                <div class="swipe-container">
+                    <div class="swipe-title">
+                        <h2>Araç Seçimi</h2>
+                        <p>Taşıma teklifi yapacağınız aracı seçiniz.</p>
+                    </div>
+                    <div class="swipe-content">
+                        <div class="swipe-loading">
+                            <div class="loading-content">
+                                <i class="fa-regular fa-loader fa-spin"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swipe" queue="2" id="driver">
+                <div class="swipe-container">
+                    <div class="swipe-title">
+                        <h2>Şoför Seçimi</h2>
+                        <p>Taşıma teklifi yapacağınız şoförü seçiniz.</p>
+                    </div>
+                    <div class="swipe-content">
+                    </div>
+                </div>
+            </div>
+            <div class="swipe" queue="3" id="worker">
+                <div class="swipe-container">
+                    <div class="swipe-title">
+                        <h2>Personel Seçimi</h2>
+                        <p>Taşıma teklifi yapacağınız personeli seçiniz.</p>
+                    </div>
+                    <div class="swipe-content">
+                    </div>
+                </div>
+            </div>
+            <div class="swipe" queue="4" id="service">
+                <div class="swipe-container">
+                    <div class="swipe-title">
+                        <h2>Hizmet Teklifi</h2>
+                        <p>Hizmetiniz için fiyatlandırma ve teslim süresi bilgilerini giriniz.</p>
+                    </div>
+                    <div class="swipe-content">
+                        <div class="form-control">
+                            <label for="price">Fiyatlandırma</label>
+                            <div class="form-input">
+                                <input class="swipe-price" type="number" placeholder="Fiyatlandırma Giriniz">
+                            </div>
+                        </div>
+                        <div class="form-control">
+                            <label for="price">Teslim Süresi</label>
+                            <div class="form-input">
+                                <input class="swipe-time" type="number" placeholder="Teslim Süresi Giriniz">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="swipe-button">
+            <button id="prev"><i class="fa-regular fa-chevron-left"></i>
+                <p>İptal Et</p>
+            </button>
+            <button id="next">Devam Et</button>
         </div>
     </div>
 </article>

@@ -99,7 +99,7 @@ $border: 0.15rem solid #E0DEF7;
 }
 
 %aside{
-    z-index: 101;
+    z-index: 99;
     position: fixed;
     top: 0; left: -100%;
     height: 100%;
@@ -284,6 +284,163 @@ $border: 0.15rem solid #E0DEF7;
     }
 }
 
+%swipe{
+    z-index: 98;
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    background-color: $background;
+    width: 100%;
+    height: 75vh;
+    border-top: $border;
+    padding: 3rem 3rem 2rem 3rem;
+    border-radius: 2rem 2rem 0 0;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    gap: 2rem;
+    transition: bottom 0.5s ease;
+
+    &.active{
+        bottom: 0;
+    }
+
+    &::after{
+        content: "";
+        position: absolute;
+        top: 0.8rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 6rem;
+        height: 0.6rem;
+        background-color: #E5E6EB;
+        border-radius: 2rem;
+    }
+
+    #swipe-content{
+        position: relative;
+
+        .swipe-loading{
+            position: absolute;
+            top: 0; left: 0;
+            z-index: 97;
+            width: 100%;
+            height: 100%;
+            background-color: $background;
+
+            .loading-content{
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                i{
+                    font-size: 3rem;
+                    color: $text;
+                }
+            }
+        }
+
+        .swipe{
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: $background;
+            display: none;
+
+            &#vehicle{
+                display: block;
+            }
+
+            .swipe-container{
+                overflow: hidden;
+                height: 100%;
+                display: grid;
+                grid-template-rows: auto 1fr;
+
+                .swipe-title{
+                    @extend %title;
+                }
+    
+                .swipe-content{
+                    overflow: auto;
+                    overflow-y: scroll;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2rem;
+    
+                    .swipe-option{
+                        width: 100%;
+                        padding: 2rem;
+                        border-radius: 1rem;
+                        background-color: $white;
+                        transition: background-color 0.3s ease;
+    
+                        &.active{
+                            background-color: $primary;
+    
+                            p{
+                                color: $white;
+                            }
+                        }
+                        
+                        p{
+                            font-size: 1.6rem;
+                            font-weight: 700;
+                            font-family: 'Montserrat', sans-serif;
+                            color: $black;
+                            transition: color 0.3s ease;
+                        }
+                    }
+
+                    .form-control{
+                        @extend %input;
+                    }
+                }
+            }
+        }
+    }
+
+    #swipe-button{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+
+        button{
+            &#prev{
+                @include button(false, secondary, false);
+                border: $border;
+
+                &.small{
+                    width: initial;
+                    padding: 1.5rem 2rem;
+
+                    i{
+                        display: block;
+                    }
+                    p{
+                        display: none;
+                    }
+                }
+                
+                i,p{
+                    color: $text;
+                }
+
+                i{
+                    display: none;
+                }
+            }
+
+            &#next{
+                @include button(true, primary, false);
+            }
+        }
+    }
+}
+
 /*#endregion*/
 
 *{
@@ -318,7 +475,7 @@ main{
     /*#region Popups*/
 
     #overlay{
-        z-index: 100;
+        z-index: 97;
         position: fixed;
         top: 0; left: 0;
         width: 100%;
@@ -328,7 +485,7 @@ main{
     }
 
     #loading{
-        z-index: 98;
+        z-index: 99;
         position: fixed;
         top: 0; left: 0;
         width: 100%;
@@ -357,7 +514,7 @@ main{
     }
 
     #success{
-        z-index: 99;
+        z-index: 100;
         position: fixed;
         top: 0; left: 0;
         width: 100%;
@@ -406,7 +563,7 @@ main{
     }
 
     #error{
-        z-index: 99;
+        z-index: 100;
         position: fixed;
         top: 0; left: 0;
         width: 100%;
@@ -1192,6 +1349,10 @@ main{
                         }
                     }
                 }
+
+                #offers-swipe{
+                    @extend %swipe;
+                }
             }
         }
         
@@ -1489,6 +1650,9 @@ main{
                         }
                     }
                 }
+                #ads-swipe{
+                    @extend %swipe;
+                }
             }
         }
     }
@@ -1751,6 +1915,7 @@ main{
                         display: none;
                     }
                 }
+
                 &#next{
                     @include button(true, primary, false);
                 }
