@@ -120,7 +120,6 @@ function getCrew() {
 
             $(".vehicle-delete").click(function () {
                 $("#loading").fadeIn();
-                alert($(this).parent(".member-title").parent(".member").attr("data"));
                 $.ajax({
                     url: "https://api.bsp-academy.com/Cars?id=" + $(this).parent(".member-title").parent(".member").attr("data"),
                     type: "DELETE",

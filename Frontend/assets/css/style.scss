@@ -1453,7 +1453,17 @@ main{
 
     section#business{
         position: static;
+        min-height: 100%;
         padding-top: 12rem;
+
+        &.fixed{
+            position: fixed;
+
+            #business-content{
+                width: 100%;
+                height: 100%;
+            }
+        }
 
         header{
             position: fixed;
@@ -1823,6 +1833,203 @@ main{
                         button{
                             @include button(true, primary, false);
                         }
+                    }
+                }
+            }
+
+            article#messages{
+                height: 100%;
+
+                #messages-title{
+                    @extend %title;
+                    text-align: left;
+                    align-items: flex-start;
+                }
+
+                #messages-content{
+                    @extend %box;
+                    padding: 0;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 3rem;
+                    overflow: hidden;
+
+                    #messages-chats{
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+                        .chat{
+                            width: 100%;
+                            padding: 2rem;
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: center;
+                            gap: 1.5rem;
+                            transition: background-color 0.3s ease;
+
+                            &.active{
+                                background-color: $primary;
+
+                                .chat-profile{
+                                    background-color: $white;
+                                    
+                                    i{
+                                        color: $primary;
+                                    }
+                                }
+
+                                .chat-info{
+                                    h2,p{
+                                        color: $white;
+                                    }
+                                }
+                            }
+
+                            .chat-profile{
+                                width: 4.5rem;
+                                height: 4.5rem;
+                                flex-shrink: 0;
+                                background-color: $primary;
+                                border-radius: 1rem;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                transition-property: background-color,color;
+                                transition: 0.3s ease;
+
+                                i{
+                                    font-size: 1.8rem;
+                                    color: $white;
+                                }
+                            }
+
+                            .chat-info{
+                                display: flex;
+                                flex-direction: column;
+                                align-items: flex-start;
+                                gap: 0.4rem;
+
+                                h2{
+                                    font-size: 1.6rem;
+                                    font-weight: 600;
+                                    font-family: 'Montserrat', sans-serif;
+                                    color: $black;
+                                    transition: color 0.3s ease;
+                                }
+    
+                                p{
+                                    @extend %text;
+                                    font-size: 1.4rem;
+                                    transition: color 0.3s ease;
+                                }
+                            }
+                        }
+
+                        hr{
+                            @extend %line;
+                        }
+                    }
+                }
+            }
+
+            article#chat{
+                width: inherit;
+                height: inherit;
+                overflow: hidden;
+                display: grid;
+                grid-template-rows: auto 1fr auto;
+                background-color: $white;
+                border-radius: 1rem;
+
+                #chat-title{
+                    padding: 2rem;
+                    border-bottom: $border;
+
+                    h1{
+                        font-size: 2rem;
+                        font-weight: 600;
+                        font-family: 'Montserrat', sans-serif;
+                        color: $black;
+                    }
+                }
+
+                #chat-content{
+                    overflow: scroll;
+                    padding: 2rem;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 3rem;
+
+                    .message{
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.8rem;
+                        
+                        p{
+                            width: initial;
+                            padding: 1.6rem;
+                            font-size: 1.4rem;
+                            font-weight: 600;
+                            line-height: 1.6;
+                            color: $black;
+                            border-radius: 0 0.8rem 0.8rem 0.8rem;
+                        }
+
+                        span{
+                            @extend %text;
+                            font-size: 1.2rem;
+                        }
+
+                        &.incoming{
+                            align-items: flex-start;
+
+                            p{
+                                background-color: $background;
+                            }
+                        }
+
+                        &.outgoing{
+                            align-items: flex-end;
+
+                            p{
+                                background-color: rgba(255, 146, 81, 0.25);
+                            }
+                        }
+                    }
+                }
+
+                #chat-send{
+                    padding: 2rem;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    border-top: $border;
+                    gap: 2rem;
+
+                    textarea{
+                        width: 100%;
+                        height: 100%;
+                        overflow: scroll;
+                        border: none;
+                        outline: none;
+                        resize: none;
+                        @extend %text;
+                        font-size: 1.4rem;
+                        color: $black;
+
+                        &::placeholder{
+                            color: $text;
+                        }
+                    }
+
+                    button{
+                        @include button(false, primary, true);
+                        width: initial;
                     }
                 }
             }
