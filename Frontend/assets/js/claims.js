@@ -102,7 +102,7 @@ $.ajax({
                 newClaim.find(".claim-small").text(claim.Transport.smallitemCount);
                 newClaim.find(".claim-offers p").text(claim.offers + " Teklif");
 
-                $("#claims-content").append(newClaim);
+                $("#claims-content").prepend(newClaim);
             }
         });
         $("#loading").fadeOut();
@@ -185,7 +185,7 @@ $.ajax({
                                     newOffer.find(".offer-crew").text(driverCount + " Şoför & " + workerCount + " İşçi");
                                     newOffer.find(".offer-time").text(offer.application.companyTransportTime + " Gün");
     
-                                    $("#offers-content").append(newOffer);
+                                    $("#offers-content").prepend(newOffer);
                                 }
                             });
                             $("#loading").fadeOut();

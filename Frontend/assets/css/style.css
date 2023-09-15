@@ -1,12 +1,12 @@
 /*#region Component Codes*/
-main section#request #request-content .step#count .step-container .step-info p, main section#request #request-content .step#count .step-container .step-content .option .option-count p, main section#business #business-content article#ads #ads-content .ad .ad-content .ad-info p, main section#business #business-content article#ads #ads-content .ad .ad-content .ad-data p, main section#customer #customer-content article#offers #offers-content .offer .offer-content .offer-data p, main section#customer #customer-content article#claims #claims-content .claim .claim-content .claim-info p, main section#customer #customer-content article#claims #claims-content .claim .claim-content .claim-data p, main section#register #register-button p, main section#login #login-button p, main section#home #home-button #home-line p, main aside #aside-logout p, main aside #aside-content #aside-menu nav ul li p, main section#request #request-content .step .step-container .step-title p, main section#business #business-content article#ads #ads-title p, main section#customer #customer-content article#offers #offers-title p, main section#customer #customer-content article#claims #claims-title p, main section#register #register-content #register-title p, main section#login #login-content #login-title p, main section#home #home-content #home-title p, main #error #error-container #error-content #error-title p, main #success #success-container #success-content #success-title p, main section#business #business-content article#ads #ads-swipe #swipe-content .swipe .swipe-container .swipe-title p, main section#customer #customer-content article#offers #offers-swipe #swipe-content .swipe .swipe-container .swipe-title p {
+main section#request #request-content .step#count .step-container .step-info p, main section#request #request-content .step#count .step-container .step-content .option .option-count p, main section#business #business-content article#ads #ads-content .ad .ad-content .ad-info p, main section#business #business-content article#ads #ads-content .ad .ad-content .ad-data p, main section#customer #customer-content article#messages #messages-users #user-list .user .user-message p, main section#customer #customer-content article#offers #offers-content .offer .offer-content .offer-data p, main section#customer #customer-content article#claims #claims-content .claim .claim-content .claim-info p, main section#customer #customer-content article#claims #claims-content .claim .claim-content .claim-data p, main section#register #register-button p, main section#login #login-button p, main section#home #home-button #home-line p, main aside #aside-logout p, main aside #aside-content #aside-menu nav ul li p, main section#request #request-content .step .step-container .step-title p, main section#business #business-content article#ads #ads-title p, main section#customer #customer-content article#messages #messages-title p, main section#customer #customer-content article#offers #offers-title p, main section#customer #customer-content article#claims #claims-title p, main section#register #register-content #register-title p, main section#login #login-content #login-title p, main section#home #home-content #home-title p, main #error #error-container #error-content #error-title p, main #success #success-container #success-content #success-title p, main section#business #business-content article#ads #ads-swipe #swipe-content .swipe .swipe-container .swipe-title p, main section#customer #customer-content article#offers #offers-swipe #swipe-content .swipe .swipe-container .swipe-title p {
   font-size: 1.6rem;
   font-weight: 600;
   font-family: "Quicksand", sans-serif;
   color: #999CAD;
 }
 
-main section#request #request-content .step .step-container .step-title, main section#business #business-content article#ads #ads-title, main section#customer #customer-content article#offers #offers-title, main section#customer #customer-content article#claims #claims-title, main section#register #register-content #register-title, main section#login #login-content #login-title, main section#home #home-content #home-title, main #error #error-container #error-content #error-title, main #success #success-container #success-content #success-title, main section#business #business-content article#ads #ads-swipe #swipe-content .swipe .swipe-container .swipe-title, main section#customer #customer-content article#offers #offers-swipe #swipe-content .swipe .swipe-container .swipe-title {
+main section#request #request-content .step .step-container .step-title, main section#business #business-content article#ads #ads-title, main section#customer #customer-content article#messages #messages-title, main section#customer #customer-content article#offers #offers-title, main section#customer #customer-content article#claims #claims-title, main section#register #register-content #register-title, main section#login #login-content #login-title, main section#home #home-content #home-title, main #error #error-container #error-content #error-title, main #success #success-container #success-content #success-title, main section#business #business-content article#ads #ads-swipe #swipe-content .swipe .swipe-container .swipe-title, main section#customer #customer-content article#offers #offers-swipe #swipe-content .swipe .swipe-container .swipe-title {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,7 +14,7 @@ main section#request #request-content .step .step-container .step-title, main se
   gap: 1rem;
   margin-bottom: 3rem;
 }
-main section#request #request-content .step .step-container .step-title h1, main section#business #business-content article#ads #ads-title h1, main section#customer #customer-content article#offers #offers-title h1, main section#customer #customer-content article#claims #claims-title h1, main section#register #register-content #register-title h1, main section#login #login-content #login-title h1, main section#home #home-content #home-title h1, main #error #error-container #error-content #error-title h1, main #success #success-container #success-content #success-title h1, main section#business #business-content article#ads #ads-swipe #swipe-content .swipe .swipe-container .swipe-title h1, main section#customer #customer-content article#offers #offers-swipe #swipe-content .swipe .swipe-container .swipe-title h1, main section#request #request-content .step .step-container .step-title h2, main section#business #business-content article#ads #ads-title h2, main section#customer #customer-content article#offers #offers-title h2, main section#customer #customer-content article#claims #claims-title h2, main section#register #register-content #register-title h2, main section#login #login-content #login-title h2, main section#home #home-content #home-title h2, main #error #error-container #error-content #error-title h2, main #success #success-container #success-content #success-title h2, main section#business #business-content article#ads #ads-swipe #swipe-content .swipe .swipe-container .swipe-title h2, main section#customer #customer-content article#offers #offers-swipe #swipe-content .swipe .swipe-container .swipe-title h2 {
+main section#request #request-content .step .step-container .step-title h1, main section#business #business-content article#ads #ads-title h1, main section#customer #customer-content article#messages #messages-title h1, main section#customer #customer-content article#offers #offers-title h1, main section#customer #customer-content article#claims #claims-title h1, main section#register #register-content #register-title h1, main section#login #login-content #login-title h1, main section#home #home-content #home-title h1, main #error #error-container #error-content #error-title h1, main #success #success-container #success-content #success-title h1, main section#business #business-content article#ads #ads-swipe #swipe-content .swipe .swipe-container .swipe-title h1, main section#customer #customer-content article#offers #offers-swipe #swipe-content .swipe .swipe-container .swipe-title h1, main section#request #request-content .step .step-container .step-title h2, main section#business #business-content article#ads #ads-title h2, main section#customer #customer-content article#messages #messages-title h2, main section#customer #customer-content article#offers #offers-title h2, main section#customer #customer-content article#claims #claims-title h2, main section#register #register-content #register-title h2, main section#login #login-content #login-title h2, main section#home #home-content #home-title h2, main #error #error-container #error-content #error-title h2, main #success #success-container #success-content #success-title h2, main section#business #business-content article#ads #ads-swipe #swipe-content .swipe .swipe-container .swipe-title h2, main section#customer #customer-content article#offers #offers-swipe #swipe-content .swipe .swipe-container .swipe-title h2 {
   font-size: 3rem;
   font-weight: 700;
   font-family: "Montserrat", sans-serif;
@@ -66,13 +66,13 @@ main section#request #request-content .step .step-container .step-content .form-
   resize: none;
 }
 
-main section#register #register-content #register-navigation {
+main section#customer #customer-content article#messages #messages-users #messages-navigation, main section#register #register-content #register-navigation {
   padding: 2rem;
   background-color: #FFF;
   border-radius: 1rem;
 }
 
-main section#request #request-content .step#count .step-container .step-content hr, main section#business #business-content article#ads #ads-content .ad .ad-content hr, main section#customer #customer-content article#offers #offers-content .offer .offer-content hr, main section#customer #customer-content article#claims #claims-content .claim .claim-content hr, main section#home #home-button #home-line hr {
+main section#request #request-content .step#count .step-container .step-content hr, main section#business #business-content article#ads #ads-content .ad .ad-content hr, main section#customer #customer-content article#messages #messages-users hr, main section#customer #customer-content article#offers #offers-content .offer .offer-content hr, main section#customer #customer-content article#claims #claims-content .claim .claim-content hr, main section#home #home-button #home-line hr {
   width: 100%;
   height: 0.1rem;
   border: none;
@@ -1096,6 +1096,75 @@ main section#customer #customer-content article#offers #offers-content .offer .o
 main section#customer #customer-content article#offers #offers-content .offer .offer-content .offer-features .offer-buttons button i {
   font-size: 1.8rem;
   color: #FF6000;
+}
+main section#customer #customer-content article#messages #messages-title {
+  text-align: left;
+  align-items: flex-start;
+}
+main section#customer #customer-content article#messages #messages-users {
+  border-radius: 1rem;
+  background-color: #FFF;
+}
+main section#customer #customer-content article#messages #messages-users #messages-navigation {
+  overflow: hidden;
+  position: relative;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+main section#customer #customer-content article#messages #messages-users #messages-navigation button {
+  z-index: 1;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  background-color: #FF6000;
+  color: #FFF;
+  border: none;
+  display: flex;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+  opacity: 0.4;
+  opacity: 1;
+  border: 0.15rem solid #E0DEF7;
+  background-color: #FFF;
+  color: #999CAD;
+  padding: 1.5rem;
+  font-size: 1.6rem;
+  border: none;
+  background-color: transparent;
+  transition-property: color, background-color;
+  transition: 0.3s ease;
+}
+main section#customer #customer-content article#messages #messages-users #messages-navigation button.active {
+  opacity: 1;
+}
+main section#customer #customer-content article#messages #messages-users #messages-navigation button:last-child {
+  border: 0.15rem solid #E0DEF7;
+}
+main section#customer #customer-content article#messages #messages-users #messages-navigation button.active {
+  background-color: #FF6000;
+  color: #FFF;
+}
+main section#customer #customer-content article#messages #messages-users hr {
+  width: 100%;
+}
+main section#customer #customer-content article#messages #messages-users #user-list .user {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.8rem;
+  padding: 2rem;
+}
+main section#customer #customer-content article#messages #messages-users #user-list .user .user-title h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+main section#customer #customer-content article#messages #messages-users #user-list .user .user-message p {
+  font-size: 1.4rem;
 }
 main section#business {
   position: static;

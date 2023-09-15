@@ -1354,6 +1354,73 @@ main{
                     @extend %swipe;
                 }
             }
+            
+            article#messages{
+                #messages-title{
+                    @extend %title;
+                    text-align: left;
+                    align-items: flex-start;
+                }
+                #messages-users{
+                    border-radius: 1rem ;
+                    background-color: $white;
+
+                    #messages-navigation{
+                        overflow: hidden;
+                        position: relative;
+                        @extend %box;
+                        padding: 2rem;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        gap: 1rem;
+                        
+                        button{
+                            z-index: 1;
+                            @include button(true, soft, false);
+                            border: none;
+                            background-color: transparent;
+                            transition-property: color, background-color;
+                            transition: 0.3s ease;
+                            
+                            &:last-child{
+                                border: $border;
+                            }   
+                            
+                            &.active{
+                                background-color: $primary;
+                                color: $white;
+                            }
+                        }
+                    }
+                    hr{
+                        @extend %line;
+                        width: 100%
+                    }
+                    #user-list{
+                        .user{
+                            display: flex;
+                            flex-direction: column;
+                            align-items: start;
+                            gap: .8rem;
+                            padding: 2rem;
+                            
+                            .user-title{
+                                h2{
+                                    font-size: 1.6rem;
+                                    font-weight: 700;
+                                }
+                            }
+                            .user-message{
+                                p{
+                                    @extend %text;
+                                    font-size: 1.4rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
         
         // #rating{
