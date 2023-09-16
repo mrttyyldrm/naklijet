@@ -60,6 +60,7 @@ namespace JwtUser.API.Controllers
             application.IsSuccess = false;
             application.Rate = null;
             application.TransportTime = DateTime.Now.AddDays(application.CompanyTransportTime);
+            application.StatusId = 1;
 
             await _applicationService.AddAsync(application);
 
@@ -120,6 +121,39 @@ namespace JwtUser.API.Controllers
             var userId = _httpContextAccessor.HttpContext!.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
             return Ok(await _applicationService.GetCompanyCarPersonel(userId)); 
+        }
+
+
+        [Authorize]
+        [HttpGet]
+        [Route("ApprovalApplication")]
+        public async Task<IActionResult> GetApprovalApps()
+        {
+            var userId = _httpContextAccessor.HttpContext!.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            return Ok(await _applicationService.GetMyApprovalApplication(userId));
+
+        }
+
+        [Authorize]
+        [HttpGet]
+        [Route("UserApprovalApplication")]
+        public async Task<IActionResult> GetApprovalAppsForUser()
+        {
+            var userId = _httpContextAccessor.HttpContext!.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            return Ok(await _applicationService.GetMyApprovalApplicationForUser(userId));
+
+        }
+
+        [Authorize]
+        [HttpGet]
+        [Route("UpdateStatus")]
+        public IActionResult UpdateStatus(int id, int statusId)
+        {
+            _applicationService.UpdateStatus(id, statusId);
+            return Ok("Successfully updated !");
+
         }
     }
 }

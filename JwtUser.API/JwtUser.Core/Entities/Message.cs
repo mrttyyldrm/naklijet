@@ -11,6 +11,10 @@ namespace JwtUser.Core.Entities
     {
         public string? Content { get; set; }
         public DateTime? Timestamp { get; set; }
+
+
+        //Relations
+
         public string? FromId { get; set; }
         public AppUser? From { get; set; }
         public string? ToId { get; set; }

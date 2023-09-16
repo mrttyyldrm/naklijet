@@ -8,11 +8,14 @@ namespace JwtUser.Core.Entities
 {
     public class Adverts
     {
-        public int Id { get; set; }
+        public int Id { get; set; }      
+        public decimal? Price { get; set; }
+        public DateTime? Date { get; set; }
+
+
+        //Relations
         public AppUser? CompanyId { get; set; }
         public Transport? TransportId { get; set; }
         public Personal? PersonalId { get; set; }
-        public decimal? Price { get; set; }
-        public DateTime? Date { get; set; }
     }
 }

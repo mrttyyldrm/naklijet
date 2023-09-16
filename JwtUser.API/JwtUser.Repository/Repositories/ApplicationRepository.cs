@@ -64,7 +64,7 @@ namespace JwtUser.Repository.Repositories
                 .Where(x => x.IsSuccess == true && x.Rate != null && x.CompanyId == companyId)
                 .Sum(x => x.Rate);
 
-            var rate = Math.Floor((decimal)(rateSum / count * 10)!) / 10;
+            var rate = count > 0 ? Math.Floor((decimal)rateSum / count * 10) / 10 : 0;
 
             return rate;
         }
@@ -101,6 +101,51 @@ namespace JwtUser.Repository.Repositories
                 .Include(x => x.AppPersonels)
                     .ThenInclude(x => x.Personals).ThenInclude(x=>x.Appellation)
                 .ToListAsync();
+        }
+
+        public async Task<List<Application>> GetMyApprovalApplication(string id)
+        {
+              var applications = await _dbContext.Applications
+             .Where(x => x.CompanyId == id && x.IsSuccess==true)
+             .Include(x=>x.Transports.AppUser)
+             .Include(x=>x.Transports.Street.Towns.City)
+             .Include(x => x.Transports.ToStreet.Towns.City)
+             .Include(x=>x.Transports.Category)
+             .Include(x => x.Cars)
+             .Include(x => x.Statuses)
+             .Include(x => x.AppPersonels)
+                 .ThenInclude(x => x.Personals)
+                     .ThenInclude(x => x.Appellation)
+             .ToListAsync();
+
+
+            return applications;
+        }
+
+        public void UpdateStatus(int id, int statusId)
+        {
+            var application = _dbContext.Applications.FirstOrDefault(x => x.Id == id);
+            application!.StatusId= statusId;
+            _dbContext.SaveChanges();
+        }
+
+        public async Task<List<Application>> GetMyApprovalApplicationForUser(string id)
+        {
+            var applications = await _dbContext.Applications
+                         .Where(x => x.Transports.AppUserId == id && x.IsSuccess == true)
+                         .Include(x => x.Transports.Street.Towns.City)
+                         .Include(x => x.Transports.ToStreet.Towns.City)
+                         .Include(x => x.Transports.Category)
+                         .Include(x => x.Cars)
+                         .Include (x => x.Company)
+                         .Include(x => x.Statuses)
+                         .Include(x => x.AppPersonels)
+                             .ThenInclude(x => x.Personals)
+                                 .ThenInclude(x => x.Appellation)
+                         .ToListAsync();
+
+
+            return applications;
         }
     }
 }

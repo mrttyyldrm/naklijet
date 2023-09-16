@@ -12,6 +12,7 @@ namespace JwtUser.Core.Repositories
     {
 
         public decimal Updaterating(int id, int rate);
+        public void UpdateStatus(int id, int statusId);
         public decimal AverageRate(string id);
 
         public void ConfirmTransport(int id);
@@ -19,6 +20,8 @@ namespace JwtUser.Core.Repositories
         public int GetTransportApplicationCount(int id);
         Task<List<Dictionary<string, object>>> GetApplicationsWithRATE(int id);
         Task<List<Application>> GetCompanyCarPersonel(string id);
+        Task<List<Application>> GetMyApprovalApplication(string id);
+        Task<List<Application>> GetMyApprovalApplicationForUser(string id);
 
     }
 }

@@ -12,9 +12,11 @@ namespace JwtUser.Core.Entities
         public string Name { get; set; }
 
 
+
+        //Relations
+
         public int CityId { get; set; }
         
-        //[JsonIgnore]
         public City City { get; set; }
 
         [JsonIgnore]
