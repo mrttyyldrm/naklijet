@@ -1,3 +1,34 @@
+var data;
+
+function getMessages(comid, event){
+    $.ajax({
+        url: "https://api.bsp-academy.com/Message?comid=" + comid,
+        type: "GET",
+        headers: {
+            "Authorization": "bearer " + localStorage.getItem('token')
+        },
+        success: function (messages) {
+            data = messages;
+            event();
+        },
+        error: function () {
+            $("#error-title h1").text("Mesajlar Yüklenemedi");
+            $("#error-title p").text("Lütfen daha sonra tekrar deneyiniz.");
+            $("#error-button a").attr("href", page + ".html");
+            $("#error-button a").text("Panele Dön");
+            $("#error").fadeIn();
+            $("#loading").fadeOut();
+        }
+    });
+}
+
+var interval;
+function startGetMessages(comid, event){
+    interval = setInterval(function(){
+        getMessages(comid, event);
+    }, 5000);
+}
+
 $("#loading").show();
 $(document).ready(function(){
     $.ajax({
@@ -11,7 +42,9 @@ $(document).ready(function(){
                 location.href = "business.html";
             }
             else{
-                $("#loading").fadeOut();
+                $("#customer-content").load("orders.html", function(){
+                    $("#loading").fadeOut();
+                });
             }
         },
         error: function(){
@@ -47,7 +80,9 @@ $(document).ready(function(){
             }, 300);
 
             setTimeout(function(){
+                clearInterval(interval);
                 $("#customer-content").load(page + ".html");
+                $("section#customer").removeClass("fixed");
             }, 750);
         }
     });

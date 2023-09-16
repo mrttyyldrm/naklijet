@@ -151,7 +151,7 @@ $.ajax({
                                 if (i == 0) {
                                     $(".offer").find(".offer-company h2").text(offer.application.company.companyName);
                                     $(".offer").find(".offer-company p").text("@" + offer.application.company.userName);
-                                    $(".offer").find(".offer-price p").text(offer.application.price + " TL");
+                                    $(".offer").find(".offer-price p").text(offer.application.price + " ₺");
                                     $(".offer").find(".offer-vehicle").text(offer.application.cars.brand + " " + offer.application.cars.model);
                                     
                                     let driverCount=0, workerCount=0;
@@ -170,7 +170,7 @@ $.ajax({
                                     var newOffer = $(".offer").first().clone();
                                     newOffer.find(".offer-company h2").text(offer.application.company.companyName);
                                     newOffer.find(".offer-company p").text("@" + offer.application.company.userName);
-                                    newOffer.find(".offer-price p").text(offer.application.price + " TL");
+                                    newOffer.find(".offer-price p").text(offer.application.price + " ₺");
                                     newOffer.find(".offer-vehicle").text(offer.application.cars.brand + " " + offer.application.cars.model);
                                    
                                     let driverCount=0, workerCount=0;

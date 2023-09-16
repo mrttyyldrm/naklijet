@@ -403,7 +403,7 @@ $border: 0.15rem solid #E0DEF7;
                         background-color: $white;
                         transition: background-color 0.3s ease;
     
-                        &:hover,&.active{
+                        &.active{
                             background-color: $primary;
     
                             p{
@@ -681,11 +681,12 @@ main{
                 h1{
                     margin-bottom: 0.5rem;
 
-                    span{
+                    b{
+                        font-size: 3.75rem;
                         color: $primary;
-                        font-weight: bold;
+                        font-weight: 800;
+                        font-family: 'Montserrat', sans-serif;
                         font-style: italic;
-                        text-decoration: underline;
                     }
                 }
             }
@@ -694,7 +695,7 @@ main{
                 width: 100%;
 
                 a{
-                    @include button(true, primary, false);
+                    @include button(false, primary, false);
                 }
             }
         }
@@ -723,7 +724,9 @@ main{
             }
 
             a{
-                @include button(secondary);
+                @include button(false, secondary, false);
+                border: $border;
+                border-width: 0.25rem;
             }
         }
     }
@@ -913,160 +916,155 @@ main{
             }
         }
         #customer-content{
-            // #order{
-            //     // display: flex;
-            //     // flex-direction: column;
-            //     // gap: 3rem;
-            //     #order-title{
-            //         @extend %title;
-            //         text-align: left;
-            //         h2{
-            //             width: 100%;
-            //         }
-            //         p{
-            //             width: 100%;
-            //         }
-            //     }
-            //     #order-content{
-            //         display: flex;
-            //         flex-direction: column;
-            //         gap: 3rem;
-            //         #order-card{  
-            //             #card-title{
-            //                 border-top-left-radius:1rem ;
-            //                 border-top-right-radius:1rem ;
-            //                 width: 100%;
-            //                 height: 6rem;
-            //                 padding: 1rem 2rem;
-            //                 display: flex;
-            //                 align-items: center;
-            //                 justify-content: space-between;
-            //                 background-color: $primary;
-            //                 #help-center{
-            //                     display: flex;
-            //                     gap: .5rem;
-            //                     color: $white;
-            //                     font-size: 1.8rem;
-            //                     font-weight: 600;
-            //                     i{
-            //                         font-size: 2rem;
-            //                     }
-            //                 }
-            //                 #card-money{
-            //                     color: $white;
-            //                     font-size: 2rem;
-            //                     font-weight: 600;
-            //                     display: flex;
-            //                     align-items: center;
-            //                     gap: .5rem;
-            //                     i{
-            //                         font-size: 1.6rem;
-            //                     }
-            //                 }
-            //             }
-            //             #card-content{
-            //                 background-color: $white;
-            //                 padding: 2rem;
-            //                 border-bottom-left-radius: 1rem;
-            //                 border-bottom-right-radius: 1rem;
-            //                 display: flex;
-            //                 flex-direction: column;
-            //                 gap: 1.5rem;
-            //                 #location{
-            //                     display: flex;
-            //                     gap:.5rem;
-            //                     font-size: 1.4rem;
-            //                     font-weight: 600;
-            //                     color: $text;
-            //                     i{
-            //                         color: $primary;
-            //                         font-size: 1.6rem;
-            //                     }
-            //                 }
-            //                 #content-title{
-            //                     h2{
-            //                     font-size: 1.8rem;
-            //                     font-weight: 900;
-            //                     color: $black;
-            //                     }
-            //                 }
-            //                 #car{
-            //                     display: flex;
-            //                     align-items: center;
-            //                     gap:.5rem;
-            //                     font-size: 1.4rem;
-            //                     font-weight: 600;
-            //                     color: $text;
-            //                     span{
-            //                         color: $black;
-            //                         font-size: 1.6rem;
-            //                         font-weight: 700;
-            //                     }
-            //                     i{
-            //                         font-size: 1.6rem;
-            //                         color: $primary;
-            //                     }
-            //                 }
-            //                 #employe{
-            //                     display: flex;
-            //                     align-items: center;
-            //                     gap:.5rem;
-            //                     font-size: 1.4rem;
-            //                     font-weight: 600;
-            //                     color: $text;
-            //                     span{
-            //                         color: $black;
-            //                         font-size: 1.6rem;
-            //                         font-weight: 700;
-            //                     }
-            //                     i{  
-            //                         font-size: 1.6rem;
-            //                         color: $primary;
-            //                     }
-            //                 }
-            //                 #date{
-            //                     display: flex;
-            //                     align-items: center;
-            //                     gap:.5rem;
-            //                     font-size: 1.4rem;
-            //                     font-weight: 600;
-            //                     color: $text;
-            //                     span{
-            //                         color: $black;
-            //                         font-size: 1.6rem;
-            //                         font-weight: 700;
-            //                     }
-            //                     i{
-            //                         color: $primary;
-            //                         font-size: 1.6rem;
-            //                     }
-            //                 }
-            //                 #line{
-            //                     @extend %line;
-            //                 }
-            //                 #card-features{
-            //                     display: flex;
-            //                     justify-content: space-between;
-            //                     #card-user{
-            //                         h2{
-            //                             font-weight: 700;
-            //                             font-size: 1.6rem;
-            //                         }
-            //                         p{
-            //                             font-weight: 600;
-            //                             font-size: 1.2rem;
-            //                         }
-            //                     }
-            //                     #order-detail{
-            //                         button{
-            //                             @include button(false,primary,true)
-            //                         }
-            //                     }
-            //                 }
-            //             }
-            //         }
-            //     }
-            // }
+            article#orders{
+                #orders-title{
+                    @extend %title;
+                    text-align: left;
+                    align-items: flex-start;
+                }
+                #orders-content{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 3rem;
+
+                    .order{  
+                        width: 100%;
+
+                        .order-title{
+                            border-radius: 1rem 1rem 0 0;
+                            padding: 1.5rem 2rem;
+                            background-color: $primary;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            .order-status{
+                                display: flex;
+                                justify-content: flex-start;
+                                align-items: center;
+                                gap: 1rem;
+
+                                i{
+                                    font-size: 2rem;
+                                    color: $white;
+                                }
+
+                                p{
+                                    @extend %text;
+                                    color: $white;
+                                }
+                            }
+
+                            .order-price{
+                                p{
+                                    font-size: 2rem;
+                                    font-weight: 800;
+                                    color: $white;
+                                }
+                            }
+                        }
+
+                        .order-content{
+                            overflow: hidden;
+                            background-color: $white;
+                            padding: 2rem;
+                            border-radius: 0 0 1rem 1rem;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 1.5rem;
+
+                            .order-data{
+                                display: flex;
+                                justify-content: flex-start;
+                                align-items: center;
+                                gap: 0.6rem;
+
+                                .order-icon{
+                                    width: 2.25rem;
+                                    height: 2.25rem;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+
+                                    i{
+                                        color: $primary;
+                                        font-size: 1.8rem;
+                                    }
+                                }
+
+                                h4{
+                                    font-size: 1.4rem;
+                                    font-weight: 800;
+                                    color: $black;
+                                }
+
+                                p{
+                                    @extend %text;
+                                    font-size: 1.4rem;
+                                }
+                                
+                            }
+
+                            .order-info{
+                                h3{
+                                    font-size: 1.8rem;
+                                    font-weight: 700;
+                                    font-family: 'Montserrat', sans-serif;
+                                    color: $black;
+                                    margin-bottom: 1rem;
+                                }
+
+                                p{
+                                    @extend %text;
+                                    font-size: 1.4rem;
+                                }
+                            }
+
+                            .order-features{
+                                width: 100%;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+
+                                .order-user{
+                                    color: $black;
+
+                                    h2{
+                                        font-size: 1.8rem;
+                                        font-weight: 800;
+                                        margin-bottom: 0.25rem;
+                                    }
+
+                                    p{
+                                        font-size: 1.4rem;
+                                        font-weight: 600;
+                                    }
+                                }
+
+                                .order-button{
+                                    button{
+                                        @include button(false, primary, true);
+                                    }
+                                }
+                            }
+
+                            hr{
+                                @extend %line;
+                            }
+                        }
+                    }
+                }
+                #orders-swipe{
+                    @extend %swipe;
+
+                    #swipe-content{
+                        .swipe{
+                            display: block;
+                        }
+                    }
+                }
+            }
 
             article#claims{
                 #claims-title{
@@ -1113,6 +1111,7 @@ main{
                                 gap: 0.8rem;
 
                                 button{
+                                    cursor: pointer;
                                     background-color: transparent;
                                     width: 4.5rem;
                                     height: 4.5rem;
@@ -1733,7 +1732,7 @@ main{
                                 display: flex;
                                 justify-content: flex-start;
                                 align-items: center;
-                                gap: 0.8rem;
+                                gap: 1rem;
 
                                 i{
                                     font-size: 2rem;
@@ -1808,44 +1807,6 @@ main{
                                 p{
                                     @extend %text;
                                     font-size: 1.4rem;
-                                }
-                            }
-
-                            .sale-packets{
-                                width: 100%;
-                                display: grid;
-                                grid-template-columns: repeat(3, 1fr);
-                                align-items: center;
-
-                                .packet{
-                                    display: flex;
-                                    flex-direction: column;
-                                    align-items: center;
-                                    text-align: center;
-                                    gap: 1rem;
-
-                                    .packet-count{
-                                        width: 4rem;
-                                        height: 4rem;
-                                        border-radius: 0.6rem;
-                                        background-color: $primary;
-                                        display: flex;
-                                        justify-content: center;
-                                        align-items: center;
-
-                                        p{
-                                            font-size: 1.8rem;
-                                            font-weight: 800;
-                                            color: $white;
-                                        }
-
-                                    }
-
-                                    h4{
-                                        font-size: 1.4rem;
-                                        font-weight: 800;
-                                        color: $black;
-                                    }
                                 }
                             }
 
@@ -2527,6 +2488,7 @@ main{
                         }
     
                         .option{
+                            cursor: pointer;
                             width: 100%;
                             padding: 2rem;
                             border-radius: 1rem;
@@ -2720,7 +2682,7 @@ main{
 
 /*#region Responsive Codes*/
 
-@media screen and (min-width: 468px){
+@media screen and (min-width: 469px){
     %swipe{
         left: 50%;
         transform: translateX(-50%);
@@ -2761,9 +2723,19 @@ main{
                 transform: translate(-50%, -50%);
             }
         }
-
         section#login, section#register{
             gap: 3rem;
+        }
+
+        section#home{
+            background-color: transparent;
+            background-image: none;
+            border-radius: 1rem;
+            gap: 3rem;
+        }
+
+        section#request{
+            height: 84rem;
         }
 
         section#customer{

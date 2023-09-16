@@ -92,7 +92,7 @@ function getCrew() {
 
             $("#loading").fadeOut();
 
-
+            $(".member-delete").off("click");
             $(".member-delete").click(function () {
                 $("#loading").fadeIn();
                 $.ajax({
@@ -118,6 +118,7 @@ function getCrew() {
                 });
             });
 
+            $(".vehicle-delete").off("click");
             $(".vehicle-delete").click(function () {
                 $("#loading").fadeIn();
                 $.ajax({
