@@ -11,7 +11,6 @@ $(document).ready(function(){
                 location.href = "business.html";
             }
             else{
-                //Ajax Data Request with JWT Token
                 $("#loading").fadeOut();
             }
         },

@@ -1,4 +1,9 @@
-let comid;
+if (window.location.pathname.split("/").pop() == "customer.html") {
+    page = "customer";
+}
+else if (window.location.pathname.split("/").pop() == "business.html") {
+    page = "business";
+}
 
 $.ajax({
     url: "https://api.bsp-academy.com/Message/GetMyMessage",
@@ -7,7 +12,15 @@ $.ajax({
         "Authorization": "bearer " + localStorage.getItem('token')
     },
     success: function (chats) {
-        $("#loading").fadeOut();
+        let comid;
+        let page;
+
+        if (window.location.pathname.split("/").pop() == "customer.html") {
+            page = "customer";
+        }
+        else if (window.location.pathname.split("/").pop() == "business.html") {
+            page = "business";
+        }
         $.each(chats, function (i, chat) {
             if (i == 0) {
                 $(".chat").attr("data", chat.fromId);
@@ -22,7 +35,7 @@ $.ajax({
             else {
                 var newChat = $(".chat").first().clone();
 
-                newChat.attr("data", chat.id);
+                newChat.attr("data", chat.fromId);
                 newChat.find("h2").text(chat.from.name + " " + chat.from.surname);
                 if (chat.content.length > 25) {
                     $(".chat").find("p").text(chat.content.substring(0, 30) + " ...");
@@ -44,8 +57,8 @@ $.ajax({
                     $(this).addClass("active");
                     $("#loading").fadeIn();
 
-                    $("section#business").addClass("fixed");
-                    $("#business-content").load("chat.html", function () {
+                    $("section#" + page).addClass("fixed");
+                    $("#" + page + "-content").load("chat.html", function () {
                         setInterval(() => {
                             $("#chat-content .message").not(".message:first").remove();
                             $.ajax({
@@ -57,12 +70,15 @@ $.ajax({
                                 success: function (messages) {
                                     $("#chat-title h1").text(user);
                                     $.each(messages, function (i, message) {
+                                        console.log(message.text + " / " + message.situation);
                                         if (i == 0) {
                                             if (message.situation == "incoming") {
                                                 $(".message").addClass("incoming");
+                                                $(".message").removeClass("outgoing");
                                             }
-                                            else {
+                                            else if (message.situation == "outgoing") {
                                                 $(".message").addClass("outgoing");
+                                                $(".message").removeClass("incoming");
                                             }
                                             $(".message").find("p").text(message.text);
                                             $(".message").find("span").text(message.date.substring(11, 16));
@@ -72,9 +88,11 @@ $.ajax({
 
                                             if (message.situation == "incoming") {
                                                 newMessage.addClass("incoming");
+                                                newMessage.removeClass("outgoing");
                                             }
-                                            else {
+                                            else if (message.situation == "outgoing") {
                                                 newMessage.addClass("outgoing");
+                                                newMessage.removeClass("incoming");
                                             }
                                             newMessage.find("p").text(message.text);
                                             newMessage.find("span").text(message.date.substring(11, 16));
@@ -91,7 +109,7 @@ $.ajax({
                                 error: function () {
                                     $("#error-title h1").text("Mesajlar Yüklenemedi");
                                     $("#error-title p").text("Lütfen daha sonra tekrar deneyiniz.");
-                                    $("#error-button a").attr("href", "business.html");
+                                    $("#error-button a").attr("href", page + ".html");
                                     $("#error-button a").text("Panele Dön");
                                     $("#error").fadeIn();
                                     $("#loading").fadeOut();
@@ -100,48 +118,49 @@ $.ajax({
                         }, 5000);
 
                         $("#send").click(function () {
-                            if($(this).siblings("textarea").val() != ""){
+                            if ($(this).siblings("textarea").val() != "") {
                                 $("#chat-content").append(`<div class="message outgoing"><p>${$("#chat-send textarea").val()}</p><span>${new Date().getHours()}:${new Date().getMinutes()}</span></div>`);
-                            $(this).siblings("textarea").val("");
-                            $("#chat-content").animate({
-                                scrollTop: $(
-                                    '#chat-content').get(0).scrollHeight
-                            }, 0);
-                            if ($(this).children("textarea").val() != "") {
-                                $.ajax({
-                                    url: "https://api.bsp-academy.com/Message",
-                                    type: "POST",
-                                    contentType: "application/json",
-                                    headers: {
-                                        "Authorization": "bearer " + localStorage.getItem('token')
-                                    },
-                                    data: JSON.stringify({
-                                        "content": $("#chat-send textarea").val(),
-                                        "toId": comid,
-                                    }),
-                                    success: function () {
-                                    },
-                                    error: function () {
-                                        $("#error-title h1").text("Hata");
-                                        $("#error-title p").text("Bir şeyler yanlış gitti. Lütfen daha sonra tekrar deneyiniz.");
-                                        $("#error-button a").attr("href", "business.html");
-                                        $("#error-button a").text("Panele Dön");
-                                        $("#error").fadeIn();
-                                        $("#loading").fadeOut();
-                                    }
-                                });
-                            }
+                                $("#chat-content").animate({
+                                    scrollTop: $(
+                                        '#chat-content').get(0).scrollHeight
+                                }, 0);
+                                if ($(this).children("textarea").val() != "") {
+                                    $.ajax({
+                                        url: "https://api.bsp-academy.com/Message",
+                                        type: "POST",
+                                        contentType: "application/json",
+                                        headers: {
+                                            "Authorization": "bearer " + localStorage.getItem('token')
+                                        },
+                                        data: JSON.stringify({
+                                            "content": $("#chat-send textarea").val(),
+                                            "toId": comid,
+                                        }),
+                                        success: function () {
+                                        },
+                                        error: function () {
+                                            $("#error-title h1").text("Hata");
+                                            $("#error-title p").text("Bir şeyler yanlış gitti. Lütfen daha sonra tekrar deneyiniz.");
+                                            $("#error-button a").attr("href", page + ".html");
+                                            $("#error-button a").text("Panele Dön");
+                                            $("#error").fadeIn();
+                                            $("#loading").fadeOut();
+                                        }
+                                    });
+                                    $(this).siblings("textarea").val("");
+                                }
                             }
                         });
                     });
                 }
             })
         });
+        $("#loading").fadeOut();
     },
     error: function () {
         $("#error-title h1").text("Mesajlar Yüklenemedi");
         $("#error-title p").text("Lütfen daha sonra tekrar deneyiniz.");
-        $("#error-button a").attr("href", "business.html");
+        $("#error-button a").attr("href", page + ".html");
         $("#error-button a").text("Panele Dön");
         $("#error").fadeIn();
         $("#loading").fadeOut();

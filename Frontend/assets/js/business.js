@@ -12,7 +12,9 @@ $(document).ready(function(){
                 location.href = "customer.html";
             }
             else{
-                $("#loading").fadeOut();
+                $("#business-content").load("sales.html", function(){
+                    $("#loading").fadeOut();
+                });
             }
         },
         error: function(){

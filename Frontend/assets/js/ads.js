@@ -14,6 +14,7 @@ $.ajax({
         $.each(ads, function (i, ad) {
             if (i == 0) {
                 $(".ad").attr("data", ad.transport.id);
+                $(".ad").find(".ad-message").attr("data", ad.transport.appUserId);
                 $(".ad").find($(".ad-user h2")).text(ad.transport.appUser.name + " " + ad.transport.appUser.surname);
                 $(".ad").find($(".ad-user p")).text("@" + ad.transport.appUser.userName);
 
@@ -57,6 +58,7 @@ $.ajax({
                 var newAd = $(".ad").first().clone();
 
                 newAd.attr("data", ad.transport.id);
+                newAd.find(".ad-message").attr("data", ad.transport.appUserId);
                 newAd.find(".ad-user h2").text(ad.transport.appUser.name + " " + ad.transport.appUser.surname);
                 newAd.find(".ad-user p").text("@" + ad.transport.appUser.userName);
 
@@ -112,15 +114,15 @@ $.ajax({
                     "Authorization": "bearer " + localStorage.getItem('token')
                 },
                 success: function (crew) {
-                    for(let car of crew[0].Car){
+                    for (let car of crew[0].Car) {
                         $("#vehicle .swipe-content").append(`<div class="swipe-option" data="${car.id}"><p>${car.brand} ${car.model}</p></div>`);
                     }
 
-                    for(let person of crew[0].Personal){
-                        if(person.appellationId == 1){
+                    for (let person of crew[0].Personal) {
+                        if (person.appellationId == 1) {
                             $("#driver .swipe-content").append(`<div class="swipe-option" data="${person.id}"><p>${person.name} ${person.surname}</p></div>`)
                         }
-                        else{
+                        else {
                             $("#worker .swipe-content").append(`<div class="swipe-option" data="${person.id}"><p>${person.name} ${person.surname}</p></div>`)
                         }
                     }
@@ -134,14 +136,14 @@ $.ajax({
                         $(this).siblings(".swipe-option").removeClass("active");
                         $(this).addClass("active");
                     });
-                    
+
                     $("#driver .swipe-option").click(function () {
                         driver = parseInt($(this).attr("data"));
                         $("#next").addClass("active");
                         $(this).siblings(".swipe-option").removeClass("active");
                         $(this).addClass("active");
                     });
-                    
+
                     $("#worker .swipe-option").click(function () {
                         if ($(this).hasClass("active")) {
                             workers = workers.filter(item => item !== parseInt($(this).attr("data")));
@@ -164,11 +166,112 @@ $.ajax({
                 }
             });
         });
+
+        $(".ad-message").click(function () {
+            let appUserId = $(this).attr("data");
+            let user = $(this).parent(".ad-button").siblings(".ad-user").children("h2").text();
+            $("#loading").fadeIn();
+
+            $("section#business").addClass("fixed");
+            $("#business-content").load("chat.html", function () {
+                setInterval(() => {
+                    $("#chat-content .message").not(".message:first").remove();
+                    $.ajax({
+                        url: "https://api.bsp-academy.com/Message?comid=" + appUserId,
+                        type: "GET",
+                        headers: {
+                            "Authorization": "bearer " + localStorage.getItem('token')
+                        },
+                        success: function (messages) {
+                            $("#chat-title h1").text(user);
+                            $.each(messages, function (i, message) {
+                                if (i == 0) {
+                                    if (message.situation == "incoming") {
+                                        $(".message").addClass("incoming");
+                                        $(".message").removeClass("outgoing");
+                                    }
+                                    else if(message.situation == "outgoing"){
+                                        $(".message").addClass("outgoing");
+                                        $(".message").removeClass("incoming");
+                                    }
+                                    $(".message").find("p").text(message.text);
+                                    $(".message").find("span").text(message.date.substring(11, 16));
+                                }
+                                else {
+                                    var newMessage = $(".message").first().clone();
+
+                                    if (message.situation == "incoming") {
+                                        newMessage.addClass("incoming");
+                                        newMessage.removeClass("outgoing");
+                                    }
+                                    else if(message.situation == "outgoing"){
+                                        newMessage.addClass("outgoing");
+                                        newMessage.removeClass("incoming");
+                                    }
+                                    newMessage.find("p").text(message.text);
+                                    newMessage.find("span").text(message.date.substring(11, 16));
+
+                                    $("#chat-content").append(newMessage);
+                                }
+                            });
+                            $("#chat-content").animate({
+                                scrollTop: $(
+                                    '#chat-content').get(0).scrollHeight
+                            }, 0);
+                            $("#loading").fadeOut();
+                        },
+                        error: function () {
+                            $("#error-title h1").text("Mesajlar Yüklenemedi");
+                            $("#error-title p").text("Lütfen daha sonra tekrar deneyiniz.");
+                            $("#error-button a").attr("href", "business.html");
+                            $("#error-button a").text("Panele Dön");
+                            $("#error").fadeIn();
+                            $("#loading").fadeOut();
+                        }
+                    });
+                }, 5000);
+
+                $("#send").click(function () {
+                    if ($(this).siblings("textarea").val() != "") {
+                        $("#chat-content").append(`<div class="message outgoing"><p>${$("#chat-send textarea").val()}</p><span>${new Date().getHours()}:${new Date().getMinutes()}</span></div>`);
+                        $("#chat-content").animate({
+                            scrollTop: $(
+                                '#chat-content').get(0).scrollHeight
+                        }, 0);
+                        if ($(this).children("textarea").val() != "") {
+                            $.ajax({
+                                url: "https://api.bsp-academy.com/Message",
+                                type: "POST",
+                                contentType: "application/json",
+                                headers: {
+                                    "Authorization": "bearer " + localStorage.getItem('token')
+                                },
+                                data: JSON.stringify({
+                                    "content": $("#chat-send textarea").val(),
+                                    "toId": appUserId,
+                                }),
+                                success: function () {
+                                },
+                                error: function () {
+                                    $("#error-title h1").text("Hata");
+                                    $("#error-title p").text("Bir şeyler yanlış gitti. Lütfen daha sonra tekrar deneyiniz.");
+                                    $("#error-button a").attr("href", "business.html");
+                                    $("#error-button a").text("Panele Dön");
+                                    $("#error").fadeIn();
+                                    $("#loading").fadeOut();
+                                }
+                            });
+                            $(this).siblings("textarea").val("");
+                        }
+                    }
+                });
+            });
+        });
     },
     error: function () {
         $("#error-title h1").text("Hatalı İstek");
         $("#error-title p").text("Talebiniz gerçekleştirilemedi. Lütfen daha sonra tekrar deneyiniz.");
-        $("#error-button a").attr("href", "customer.html");
+        $("#error-button a").attr("href", "business.html");
         $("#error-button a").text("Panele Dön");
         $("#error").fadeIn();
         $("#loading").fadeOut();

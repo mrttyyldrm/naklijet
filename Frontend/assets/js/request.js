@@ -416,7 +416,7 @@ $(document).ready(function () {
         }
 
         count.big = parseInt($("h3#big").text());
-        count.mid = parseInt($("h3#small").text());
+        count.mid = parseInt($("h3#mid").text());
         count.small = parseInt($("h3#small").text());
 
         if ($("h3#big").text() != "0" || $("h3#mid").text() != "0" || $("h3#small").text() != "0") {

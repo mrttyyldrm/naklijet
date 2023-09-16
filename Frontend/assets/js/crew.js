@@ -166,6 +166,7 @@ $("button#add-member").click(function () {
 
 $("#overlay").click(function () {
     $("#vehicle-swipe").removeClass("active");
+    $("#member-swipe").removeClass("active");
 });
 
 $("#vehicle-swipe input").keypress(function () {
