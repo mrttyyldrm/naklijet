@@ -15,6 +15,8 @@ namespace JwtUser.Core.Entities
         public DateTime TransportTime { get; set; }
         public bool? IsSuccess { get; set; }
         public float? Rate { get; set; }
+        public string? CommentUser { get; set; }
+        public string? Comment { get; set; }
 
 
         //Relations

@@ -72,6 +72,12 @@ namespace JwtUser.Repository.Migrations
                     b.Property<int>("CarsId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CommentUser")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CompanyId")
                         .HasColumnType("nvarchar(450)");
 

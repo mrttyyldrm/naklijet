@@ -46,6 +46,16 @@ namespace JwtUser.API.Controllers
         }
 
 
+        [Authorize]
+        [HttpDelete]
+        [Route("DeleteApplication")]
+        public async Task<IActionResult> DeleteApps(int id)
+        {
+            var values = await _applicationService.GetByIdAsync(id);
+            _applicationService.Remove(values);
+            return Ok("Data successfully removed !");
+        }
+
        
 
         [Authorize]
@@ -53,6 +63,7 @@ namespace JwtUser.API.Controllers
         public async Task<IActionResult> AddApplication(AddApplicationDto addApplicationDto)
         {
             var userId = _httpContextAccessor.HttpContext!.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            //var userName = _httpContextAccessor.HttpContext!.User.FindFirst(ClaimTypes.Name).Value; 
 
             var application = _mapper.Map<Application>(addApplicationDto);
 
@@ -61,6 +72,7 @@ namespace JwtUser.API.Controllers
             application.Rate = null;
             application.TransportTime = DateTime.Now.AddDays(application.CompanyTransportTime);
             application.StatusId = 1;
+            //application.CommentUser = userName;
 
             await _applicationService.AddAsync(application);
 
@@ -81,11 +93,11 @@ namespace JwtUser.API.Controllers
        
         //[Authorize]
         [HttpPost]
-        [Route("UpdateTest")]
+        [Route("UpdateRate")]
         public  IActionResult UpdatApplication(int id, int rate)
         {
 
-            var values =  _applicationService.Updaterating(id,rate);
+            _applicationService.Updaterating(id,rate);
 
             return Ok("Data success add");
         }
@@ -153,6 +165,26 @@ namespace JwtUser.API.Controllers
         {
             _applicationService.UpdateStatus(id, statusId);
             return Ok("Successfully updated !");
+
+        }
+
+
+        [Authorize]
+        [HttpPost]
+        [Route("UpdateRates")]
+        public async Task<IActionResult> UpdateComment(int appId, int rate, string comment, UpdateApplicationDto applicationDto)
+        {
+            var userId = _httpContextAccessor.HttpContext!.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var userName = _httpContextAccessor.HttpContext!.User.FindFirst(ClaimTypes.Name).Value;
+
+            var application = await _applicationService.GetByIdAsync(appId);
+
+            application.Comment = comment;
+            application.Rate = rate;
+            application.CommentUser = userName;
+            _applicationService.Update(application);
+            return Ok("Data successfully updated");
+            
 
         }
     }

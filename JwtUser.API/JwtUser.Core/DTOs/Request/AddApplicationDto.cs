@@ -25,5 +25,6 @@ namespace JwtUser.Core.DTOs.Request
         public int? StatusId { get; set; }
 
 
+
     }
 }
