@@ -1203,6 +1203,9 @@ main section#customer #customer-content article#claims #claims-content {
 main section#customer #customer-content article#claims #claims-content .claim {
   width: 100%;
 }
+main section#customer #customer-content article#claims #claims-content .claim.passive .claim-title {
+  background-color: rgba(255, 96, 0, 0.5);
+}
 main section#customer #customer-content article#claims #claims-content .claim .claim-title {
   border-radius: 1rem 1rem 0 0;
   padding: 1rem 2rem;
@@ -1460,6 +1463,7 @@ main section#customer #customer-content article#offers #offers-content .offer .o
   gap: 0.8rem;
 }
 main section#customer #customer-content article#offers #offers-content .offer .offer-content .offer-features .offer-buttons button {
+  cursor: pointer;
   background-color: transparent;
   width: 4.5rem;
   height: 4.5rem;
@@ -1772,6 +1776,7 @@ main section#customer #customer-content article#messages #messages-content #mess
   align-items: center;
 }
 main section#customer #customer-content article#messages #messages-content #messages-chats .chat {
+  cursor: pointer;
   width: 100%;
   padding: 2rem;
   display: flex;

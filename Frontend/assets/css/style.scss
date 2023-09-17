@@ -1321,6 +1321,12 @@ main{
                     .claim{  
                         width: 100%;
 
+                        &.passive{
+                            .claim-title{
+                                background-color: rgba(255, 96, 0, 0.5);
+                            }
+                        }
+
                         .claim-title{
                             border-radius: 1rem 1rem 0 0;
                             padding: 1rem 2rem;
@@ -1604,6 +1610,7 @@ main{
                                     gap: 0.8rem;
     
                                     button{
+                                        cursor: pointer;
                                         background-color: transparent;
                                         width: 4.5rem;
                                         height: 4.5rem;
@@ -1961,6 +1968,7 @@ main{
                         align-items: center;
 
                         .chat{
+                            cursor: pointer;
                             width: 100%;
                             padding: 2rem;
                             display: flex;

@@ -119,7 +119,7 @@ function listOrders(orders) {
                             if($(this).hasClass("active")){
                                 if($("#rating-star h2").text() != "0.0" && $("#rating-comment textarea").val() != ""){
                                     $.ajax({
-                                        url: "https://api.bsp-academy.com/Application/UpdateRates",
+                                        url: "https://api.bsp-academy.com/Application/UpdateRates?appId=" + appId + "&rate=" + $("#rating-star h2").text().substring(0,1) + "&comment=" + $("#rating-comment textarea").val(),
                                         type: "POST",
                                         headers: {
                                             "Authorization": "bearer " + localStorage.getItem('token')

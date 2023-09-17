@@ -12,6 +12,12 @@ $(document).ready(function () {
             }
             $.each(claims, function (i, claim) {
                 if (i == 0) {
+                    if(claim.Transport.isShow == false){
+                        $(".claim").addClass("passive");
+                    }
+                    else{
+                        $(".claim").removeClass("passive");
+                    }
                     $(".claim").attr("data", claim.Transport.id);
                     $(".claim").find($(".claim-user h2")).text(claim.Transport.appUser.name + " " + claim.Transport.appUser.surname);
                     $(".claim").find($(".claim-user p")).text("@" + claim.Transport.appUser.userName);
@@ -55,6 +61,12 @@ $(document).ready(function () {
                 else {
                     var newClaim = $(".claim").first().clone();
 
+                    if(claim.Transport.isShow == false){
+                        newClaim.addClass("passive");
+                    }
+                    else{
+                        newClaim.removeClass("passive");
+                    }
                     newClaim.attr("data", claim.Transport.id);
                     newClaim.find(".claim-user h2").text(claim.Transport.appUser.name + " " + claim.Transport.appUser.surname);
                     newClaim.find(".claim-user p").text(claim.Transport.appUser.userName);
@@ -359,7 +371,7 @@ function seeOffers(id) {
                             }
 
                             $.each(detail.comments, function (i, comment) {
-                                if (comment.rate != null && comment.commentUser != nul && comment.rate != null) {
+                                if (comment.rate != null && comment.commentUser != null && comment.rate != null) {
                                     var newComment = $(".comment").first().clone();
                                     newComment.find("h3").text("@" + comment.commentUser);
                                     newComment.find("p").text(comment.comment);
@@ -375,7 +387,7 @@ function seeOffers(id) {
 
                             $("#accept-offer").click(function () {
                                 $.ajax({
-                                    url: "https://api.bsp-academy.com/Application/ConfirmTransport/?id=" + $(this).attr("data"),
+                                    url: "https://api.bsp-academy.com/Application/ConfirmTransport?id=" + $(this).attr("data"),
                                     type: "GET",
                                     headers: {
                                         "Authorization": "bearer " + localStorage.getItem('token')
