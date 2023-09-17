@@ -106,6 +106,7 @@ $(document).ready(function () {
 
             $(".give-offer").click(function () {
                 $("#overlay").fadeIn();
+                $(".swipe:first").fadeIn();
                 transportID = $(this).parent(".ad-button").parent(".ad-features").parent(".ad-content").parent(".ad").attr("data");
 
                 $.ajax({
@@ -173,6 +174,7 @@ $(document).ready(function () {
                 });
             });
 
+            $(".ad-message").off("click");
             $(".ad-message").click(function () {
                 let appUserId = $(this).attr("data");
                 let user = $(this).parent(".ad-button").siblings(".ad-user").children("p").text();
@@ -240,7 +242,7 @@ $(document).ready(function () {
     $("#prev").click(function () {
         queue--;
         $("#next").text("Devam Et");
-        $(".swipe").fadeOut(500);
+        $(".swipe").fadeOut();
         setTimeout(function () {
             $(".swipe[queue=" + queue + "]").fadeIn();
         }, 500);
@@ -248,6 +250,9 @@ $(document).ready(function () {
         if (queue == 0) {
             $("#ads-swipe").removeClass("active");
             $("#overlay").fadeOut();
+            $("#vehicle .swipe-option").remove();
+            $("#driver .swipe-option").remove();
+            $("#worker .swipe-option").remove();
         }
         else if (queue == 1) {
             $("#prev").removeClass("small");
@@ -340,6 +345,9 @@ $(document).ready(function () {
     });
 
     $("#overlay").click(function () {
+        $("#vehicle .swipe-option").remove();
+        $("#driver .swipe-option").remove();
+        $("#worker .swipe-option").remove();
         $("#ads-swipe").removeClass("active");
     });
 

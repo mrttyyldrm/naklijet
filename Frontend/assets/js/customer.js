@@ -42,9 +42,7 @@ $(document).ready(function(){
                 location.href = "business.html";
             }
             else{
-                $("#customer-content").load("orders.html", function(){
-                    $("#loading").fadeOut();
-                });
+                $("#customer-content").load("orders.html");
             }
         },
         error: function(){

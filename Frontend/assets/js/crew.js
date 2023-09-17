@@ -162,6 +162,7 @@ $("button#add-vehicle").click(function () {
 });
 $("button#add-member").click(function () {
     $("#member-swipe").addClass("active");
+    $("select#appellation").val(null);
     $("#overlay").fadeIn();
 });
 
@@ -170,91 +171,112 @@ $("#overlay").click(function () {
     $("#member-swipe").removeClass("active");
 });
 
-$("#vehicle-swipe input").keypress(function () {
+$("#vehicle-swipe input").keyup(function () {
     if ($("input#brand").val() != "" && $("input#model").val() != "" && $("input#plate").val() != "" && $("input#capacity").val() != "") {
         $("button#save-vehicle").addClass("active");
     }
+    else {
+        $("button#save-vehicle").removeClass("active");
+    }
 });
-$("#member-swipe input").keypress(function () {
-    if ($("input#name").val() != "" && $("input#surname").val()) {
+$("#member-swipe input").keyup(function () {
+    if ($("input#name").val() != "" && $("input#surname").val() != "" && $("select#appellation").val() != null) {
         $("button#save-member").addClass("active");
+    }
+    else {
+        $("button#save-member").removeClass("active");
+    }
+});
+
+$("#member-swipe select").change(function(){
+    if ($("input#name").val() != "" && $("input#surname").val() != "" && $("select#appellation").val() != null) {
+        $("button#save-member").addClass("active");
+    }
+    else {
+        $("button#save-member").removeClass("active");
     }
 });
 
 $("#save-vehicle").click(function () {
-    $("#loading").fadeIn();
-
-    $.ajax({
-        url: "https://api.bsp-academy.com/Cars",
-        type: "POST",
-        headers: {
-            "Authorization": "bearer " + localStorage.getItem('token')
-        },
-        contentType: "application/json",
-        data: JSON.stringify({
-            "brand": $("input#brand").val(),
-            "model": $("input#model").val(),
-            "plate": $("input#plate").val(),
-            "capacity": parseInt($("input#capacity").val()),
-        }),
-        success: function () {
-            $("#vehicle-swipe").removeClass("active");
-            $("#save-vehicle").removeClass("active");
-            $("#vehicle-swipe input").val("");
-            $("#overlay").fadeOut();
-            $("#ads-swipe").removeClass("active");
-            $("#success-title h1").text("Araç Oluşturuldu");
-            $("#success-title p").text("Araç detaylarını Filo Yönetimi sayfası üzerinden görüntüleyebilirsiniz.");
-            $("#success").fadeIn();
-            $("#loading").fadeOut();
-            getCrew();
-        },
-        error: function () {
-            $("#vehicle-swipe").removeClass("active");
-            $("#vehicle-swipe input").val("");
-            $("#overlay").fadeOut();
-            $("#error-title h1").text("Araç Oluşturulamadı");
-            $("#error-title p").text("Lütfen daha sonra tekrar deneyin.");
-            $("#error").fadeIn();
-            $("#loading").fadeOut();
-        }
-    });
+    if ($(this).hasClass("active")) {
+        $("#loading").fadeIn();
+        $.ajax({
+            url: "https://api.bsp-academy.com/Cars",
+            type: "POST",
+            headers: {
+                "Authorization": "bearer " + localStorage.getItem('token')
+            },
+            contentType: "application/json",
+            data: JSON.stringify({
+                "brand": $("input#brand").val(),
+                "model": $("input#model").val(),
+                "plate": $("input#plate").val(),
+                "capacity": parseInt($("input#capacity").val()),
+            }),
+            success: function () {
+                $("#vehicle-swipe").removeClass("active");
+                $("#save-vehicle").removeClass("active");
+                $("#vehicle-swipe input").val("");
+                $("#overlay").fadeOut();
+                $("#ads-swipe").removeClass("active");
+                $("#success-title h1").text("Araç Oluşturuldu");
+                $("#success-title p").text("Araç detaylarını Filo Yönetimi sayfası üzerinden görüntüleyebilirsiniz.");
+                $("#success").fadeIn();
+                $("#loading").fadeOut();
+                getCrew();
+                $("button#save-vehicle").removeClass("active");
+            },
+            error: function () {
+                $("#vehicle-swipe").removeClass("active");
+                $("#vehicle-swipe input").val("");
+                $("#overlay").fadeOut();
+                $("#error-title h1").text("Araç Oluşturulamadı");
+                $("#error-title p").text("Lütfen daha sonra tekrar deneyin.");
+                $("#error").fadeIn();
+                $("#loading").fadeOut();
+                $("button#save-vehicle").removeClass("active");
+            }
+        });
+    }
 });
 $("#save-member").click(function () {
-    $("#loading").fadeIn();
-
-    $.ajax({
-        url: "https://api.bsp-academy.com/Personals",
-        type: "POST",
-        headers: {
-            "Authorization": "bearer " + localStorage.getItem('token')
-        },
-        contentType: "application/json",
-        data: JSON.stringify({
-            "name": $("input#name").val(),
-            "surname": $("input#surname").val(),
-            "appellationId": $("select#appellation").val(),
-        }),
-        success: function () {
-            $("#member-swipe").removeClass("active");
-            $("#save-member").removeClass("active");
-            $("#member-swipe input,select").val("");
-            $("#overlay").fadeOut();
-            $("#ads-swipe").removeClass("active");
-            $("#success-title h1").text("Personel Oluşturuldu");
-            $("#success-title p").text("Personel detaylarını Filo Yönetimi sayfası üzerinden görüntüleyebilirsiniz.");
-            $("#success").fadeIn();
-            $("#loading").fadeOut();
-            getCrew();
-        },
-        error: function () {
-            $("#member-swipe").removeClass("active");
-            $("#member-swipe input").val("");
-            $("#overlay").fadeOut();
-            $("#error-title h1").text("Personel Oluşturulamadı");
-            $("#error-title p").text("Lütfen daha sonra tekrar deneyin.");
-            $("#error").fadeIn();
-            $("#loading").fadeOut();
-        }
-    });
+    if ($(this).hasClass("active")) {
+        $("#loading").fadeIn();
+        $.ajax({
+            url: "https://api.bsp-academy.com/Personals",
+            type: "POST",
+            headers: {
+                "Authorization": "bearer " + localStorage.getItem('token')
+            },
+            contentType: "application/json",
+            data: JSON.stringify({
+                "name": $("input#name").val(),
+                "surname": $("input#surname").val(),
+                "appellationId": $("select#appellation").val(),
+            }),
+            success: function () {
+                $("#member-swipe").removeClass("active");
+                $("#save-member").removeClass("active");
+                $("#member-swipe input,select").val("");
+                $("#overlay").fadeOut();
+                $("#ads-swipe").removeClass("active");
+                $("#success-title h1").text("Personel Oluşturuldu");
+                $("#success-title p").text("Personel detaylarını Filo Yönetimi sayfası üzerinden görüntüleyebilirsiniz.");
+                $("#success").fadeIn();
+                $("#loading").fadeOut();
+                getCrew();
+                $("button#save-member").removeClass("active");
+            },
+            error: function () {
+                $("#member-swipe").removeClass("active");
+                $("#member-swipe input").val("");
+                $("#overlay").fadeOut();
+                $("#error-title h1").text("Personel Oluşturulamadı");
+                $("#error-title p").text("Lütfen daha sonra tekrar deneyin.");
+                $("#error").fadeIn();
+                $("#loading").fadeOut();
+                $("button#save-member").removeClass("active");
+            }
+        });
+    }
 });

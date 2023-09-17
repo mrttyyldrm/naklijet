@@ -24,78 +24,83 @@ $(document).ready(function () {
             else if (window.location.pathname.split("/").pop() == "business.html") {
                 page = "business";
             }
-            $.each(chats, function (i, chat) {
-                if (i == 0) {
-                    $(".chat").attr("data", chat.fromId);
-                    $(".chat").find("h2").text("@" + chat.from.userName);
-                }
-                else {
-                    var newChat = $(".chat").first().clone();
-
-                    newChat.attr("data", chat.fromId);
-                    newChat.find("h2").text("@" + chat.from.userName);
-
-                    $("#messages-chats").append("<hr>");
-                    $("#messages-chats").append(newChat);
-                }
-
-                $(".chat").click(function () {
-                    comid = $(this).attr("data");
-                    user = $(this).children(".chat-info").children("h2").text();
-
-                    if (!$(this).hasClass("active")) {
-                        $(this).siblings(".chat").removeClass("active");
-                        $(this).addClass("active");
-                        $("#loading").fadeIn();
-
-                        $("section#" + page).addClass("fixed");
-                        $("#" + page + "-content").load("chat.html", function () {
-                            $("#chat-title h1").text(user);
-                            getMessages(comid, function(){
-                                setMessages();
-                            });
-                            startGetMessages(comid, function(){
-                                setMessages();
-                            });
-
-                            $("#send").click(function () {
-                                if ($(this).siblings("textarea").val() != "") {
-                                    $("#chat-content").append(`<div class="message outgoing"><p>${$("#chat-send textarea").val()}</p><span>${new Date().getHours()}:${new Date().getMinutes()}</span></div>`);
-                                    $("#chat-content").animate({
-                                        scrollTop: $(
-                                            '#chat-content').get(0).scrollHeight
-                                    }, 0);
-                                    if ($(this).children("textarea").val() != "") {
-                                        $.ajax({
-                                            url: "https://api.bsp-academy.com/Message",
-                                            type: "POST",
-                                            contentType: "application/json",
-                                            headers: {
-                                                "Authorization": "bearer " + localStorage.getItem('token')
-                                            },
-                                            data: JSON.stringify({
-                                                "content": $("#chat-send textarea").val(),
-                                                "toId": comid,
-                                            }),
-                                            success: function () {
-                                            },
-                                            error: function () {
-                                                $("#error-title h1").text("Hata");
-                                                $("#error-title p").text("Bir şeyler yanlış gitti. Lütfen daha sonra tekrar deneyiniz.");
-                                                $("#error-button a").attr("href", page + ".html");
-                                                $("#error-button a").text("Panele Dön");
-                                                $("#error").fadeIn();
-                                                $("#loading").fadeOut();
-                                            }
-                                        });
-                                        $(this).siblings("textarea").val("");
-                                    }
-                                }
-                            });
-                        });
+            if (chats.length == 0){
+                $("#messages-chats .chat").remove();
+            }
+            else{
+                $.each(chats, function (i, chat) {
+                    if (i == 0) {
+                        $(".chat").attr("data", chat.fromId);
+                        $(".chat").find("h2").text("@" + chat.from.userName);
                     }
-                })
-            });
+                    else {
+                        var newChat = $(".chat").first().clone();
+    
+                        newChat.attr("data", chat.fromId);
+                        newChat.find("h2").text("@" + chat.from.userName);
+    
+                        $("#messages-chats").append("<hr>");
+                        $("#messages-chats").append(newChat);
+                    }
+    
+                    $(".chat").click(function () {
+                        comid = $(this).attr("data");
+                        user = $(this).children(".chat-info").children("h2").text();
+    
+                        if (!$(this).hasClass("active")) {
+                            $(this).siblings(".chat").removeClass("active");
+                            $(this).addClass("active");
+                            $("#loading").fadeIn();
+    
+                            $("section#" + page).addClass("fixed");
+                            $("#" + page + "-content").load("chat.html", function () {
+                                $("#chat-title h1").text(user);
+                                getMessages(comid, function(){
+                                    setMessages();
+                                });
+                                startGetMessages(comid, function(){
+                                    setMessages();
+                                });
+    
+                                $("#send").click(function () {
+                                    if ($(this).siblings("textarea").val() != "") {
+                                        $("#chat-content").append(`<div class="message outgoing"><p>${$("#chat-send textarea").val()}</p><span>${new Date().getHours()}:${new Date().getMinutes()}</span></div>`);
+                                        $("#chat-content").animate({
+                                            scrollTop: $(
+                                                '#chat-content').get(0).scrollHeight
+                                        }, 0);
+                                        if ($(this).children("textarea").val() != "") {
+                                            $.ajax({
+                                                url: "https://api.bsp-academy.com/Message",
+                                                type: "POST",
+                                                contentType: "application/json",
+                                                headers: {
+                                                    "Authorization": "bearer " + localStorage.getItem('token')
+                                                },
+                                                data: JSON.stringify({
+                                                    "content": $("#chat-send textarea").val(),
+                                                    "toId": comid,
+                                                }),
+                                                success: function () {
+                                                },
+                                                error: function () {
+                                                    $("#error-title h1").text("Hata");
+                                                    $("#error-title p").text("Bir şeyler yanlış gitti. Lütfen daha sonra tekrar deneyiniz.");
+                                                    $("#error-button a").attr("href", page + ".html");
+                                                    $("#error-button a").text("Panele Dön");
+                                                    $("#error").fadeIn();
+                                                    $("#loading").fadeOut();
+                                                }
+                                            });
+                                            $(this).siblings("textarea").val("");
+                                        }
+                                    }
+                                });
+                            });
+                        }
+                    })
+                });
+            }
             $("#loading").fadeOut();
         },
         error: function () {

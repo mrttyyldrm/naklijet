@@ -43,9 +43,7 @@ $(document).ready(function(){
                 location.href = "customer.html";
             }
             else{
-                $("#business-content").load("sales.html", function(){
-                    $("#loading").fadeOut();
-                });
+                $("#business-content").load("sales.html");
             }
         },
         error: function(){

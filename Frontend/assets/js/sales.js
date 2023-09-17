@@ -4,6 +4,7 @@ function listSales(sales) {
         $("#sales-content .sale").remove();
     }
     else{
+        $("#sales-content .sale").not("#sales-content .sale:first").remove();
         $.each(sales, function (i, sale) {
             if (i == 0) {
                 $(".sale").attr("data", sale.id);
@@ -21,10 +22,10 @@ function listSales(sales) {
                 $(".sale").find(".sale-vehicle").text(sale.cars.brand + " " + sale.cars.model);
                 let driverCount = 0, workerCount = 0;
                 for (let person of sale.appPersonels) {
-                    if (person.appellationId == 1) {
+                    if (person.personals.appellationId == 1) {
                         driverCount++;
                     }
-                    else if (person.appellationId == 2) {
+                    else if (person.personals.appellationId == 2) {
                         workerCount++;
                     }
                 }
@@ -51,10 +52,10 @@ function listSales(sales) {
                 newSale.find(".sale-vehicle").text(sale.cars.brand + " " + sale.cars.model);
                 let driverCount = 0, workerCount = 0;
                 for (let person of sale.appPersonels) {
-                    if (person.appellationId == 1) {
+                    if (person.personals.appellationId == 1) {
                         driverCount++;
                     }
-                    else if (person.appellationId == 2) {
+                    else if (person.personals.appellationId == 2) {
                         workerCount++;
                     }
                 }
