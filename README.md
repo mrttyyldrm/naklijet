@@ -4,17 +4,16 @@ BSP Academy tarafından techcareer.com TransPortathon Hackathon yarışması iç
 ## Proje Görüntüleri
 
 #### NakliJET Logo
-![NakliJET Logo](https://github.com/mrttyyldrm/naklijet/assets/98252720/a1006486-898c-49c1-8a22-f47b06cb04b7)
+![Naklijet Logo](https://github.com/mrttyyldrm/naklijet/assets/98252720/085460e0-dfc1-4885-862a-d437c30b0fb1)
 
 #### NakliJET Web Tasarımı
-![NakliJET App Pages](https://github.com/mrttyyldrm/naklijet/assets/98252720/d920b153-63b5-4655-b188-2c6a267a6374)
+![NakliJET App Pages](https://github.com/mrttyyldrm/naklijet/assets/98252720/7e267910-a6a0-4ddf-afc4-693b6f6a3f9a)
 
 #### NakliJET Akış Diyagram
-<img width="3600" alt="NakliJET Akış Diyagramı" src="https://github.com/mrttyyldrm/naklijet/assets/98252720/3dffe758-1cae-4acc-8b60-865f54bee6c5">
+<img width="3600" alt="Flow Chart" src="https://github.com/mrttyyldrm/naklijet/assets/98252720/2976f0e0-3ae8-4c43-b247-83e93eae211a">
 
 #### NakliJET Database Diyagram
-![Database Diagram](https://github.com/mrttyyldrm/naklijet/assets/98252720/9b324e75-c11b-429b-bfd8-e7b528e7bd45)
-
+![Database Diagram](https://github.com/mrttyyldrm/naklijet/assets/98252720/d7a95964-60b8-4d1a-8983-19c9e6ccccf9)
 
 ## Canlı Deneyin
 Projemizi web site adresimiz üzerinden canlı olarak test edebilirsiniz.
@@ -31,4 +30,5 @@ Projemizi web site adresimiz üzerinden canlı olarak test edebilirsiniz.
 ### Örnek Firma:
 #### Kullanıcı Adı: hepsiburada | Parola: Hepsi123.
 
-
+## İletişim
+#### E Posta: mrttyyldrm@gmail.com
