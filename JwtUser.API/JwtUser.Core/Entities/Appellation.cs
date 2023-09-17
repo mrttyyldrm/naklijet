@@ -12,6 +12,8 @@ namespace JwtUser.Core.Entities
         public int Id { get; set; }
         public string? Name { get; set; }
 
+
+        //Relations
         [JsonIgnore]
         public ICollection<Personal>? Personal { get; set; }
     }

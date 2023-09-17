@@ -28,19 +28,12 @@ namespace JwtUser.Core.Entities
         public override string PhoneNumber { get; set; }
 
         [JsonIgnore]
-        public override bool PhoneNumberConfirmed { get; set; }
-        
-        //[JsonIgnore]
-        //public override string PasswordHash { get; set; }
-
-        //[JsonIgnore]
-        //public override string SecurityStamp { get; set; }
+        public override bool PhoneNumberConfirmed { get; set; }        
+      
 
         [JsonIgnore]
         public override bool LockoutEnabled { get; set; }
 
-        //[JsonIgnore]
-        //public override string NormalizedUserName { get; set; }
 
         [JsonIgnore]
         public override string NormalizedEmail { get; set; }
@@ -56,14 +49,15 @@ namespace JwtUser.Core.Entities
 
         #endregion
 
+        
+        //Relations
+
         [JsonIgnore]
         public ICollection<Transport> Transports { get; set; }
         
         [JsonIgnore]
         public ICollection<Application> Applications { get; set; }
-        
-        //[JsonIgnore]
-        //public ICollection<Message>? Messages { get; set; }
+       
 
     }
 }

@@ -40,6 +40,16 @@ namespace JwtUser.Service.Services
             return await _applicationRepository.GetCompanyCarPersonel(id);
         }
 
+        public async Task<List<Application>> GetMyApprovalApplication(string id)
+        {
+            return await _applicationRepository.GetMyApprovalApplication(id);
+        }
+
+        public async Task<List<Application>> GetMyApprovalApplicationForUser(string id)
+        {
+            return await _applicationRepository.GetMyApprovalApplicationForUser(id);
+        }
+
         public int GetTransportApplicationCount(int id)
         {
             return _applicationRepository.GetTransportApplicationCount(id);
@@ -48,6 +58,11 @@ namespace JwtUser.Service.Services
         public decimal Updaterating(int id, int rate)
         {
                 return _applicationRepository.Updaterating(id, rate);
+        }
+
+        public void UpdateStatus(int id, int statusId)
+        {
+            _applicationRepository.UpdateStatus(id, statusId);
         }
     }
 }

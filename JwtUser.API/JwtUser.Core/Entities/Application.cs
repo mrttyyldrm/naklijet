@@ -9,14 +9,21 @@ namespace JwtUser.Core.Entities
 {
     public class Application : BaseEntity
     {
-        public string? CompanyId { get; set; }
-        public AppUser? Company { get; set; }
 
         public decimal Price { get; set; }
-
         public int CompanyTransportTime { get; set; }
         public DateTime TransportTime { get; set; }
+        public bool? IsSuccess { get; set; }
+        public float? Rate { get; set; }
+        public string? CommentUser { get; set; }
+        public string? Comment { get; set; }
 
+
+        //Relations
+
+        public string? CompanyId { get; set; }
+        public AppUser? Company { get; set; }
+       
 
 
         public int TransportId { get; set; }
@@ -28,13 +35,11 @@ namespace JwtUser.Core.Entities
         public Cars? Cars { get; set; }
 
 
-        public bool? IsSuccess { get; set; }
 
+        public int? StatusId { get; set; }
+        public Status? Statuses { get; set; }
 
-        public float? Rate { get; set; }
-
-
-        //[JsonIgnore]
         public ICollection<AppPersonel> AppPersonels { get; set; }
+
     }
 }

@@ -16,6 +16,7 @@ namespace JwtUser.Core.Entities
         public string? Plate { get; set; }
 
 
+        //Relations
         public string? CompanyId { get; set; }
 
         [JsonIgnore]

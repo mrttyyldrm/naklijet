@@ -22,5 +22,9 @@ namespace JwtUser.Core.DTOs.Request
         public bool IsSuccess { get; set; }
         public List<int> PersonalIds { get; set; } // Birden fazla PersonalId'yi saklamak için bir liste kullanabilirsiniz.
 
+        public int? StatusId { get; set; }
+
+
+
     }
 }

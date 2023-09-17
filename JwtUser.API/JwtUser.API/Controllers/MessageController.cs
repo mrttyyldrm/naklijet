@@ -29,8 +29,9 @@ namespace JwtUser.API.Controllers
         public async Task<IActionResult> CreateMessage(AddMessageDto messageDto)
         {
             var userId = _httpContextAccessor.HttpContext!.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            
             messageDto.FromId = userId;
-
+            messageDto.Timestamp= DateTime.UtcNow.AddHours(3);
             var message = _mapper.Map<Message>(messageDto);
             await _messageService.AddAsync(message);
             return Ok("Data add succeeded");

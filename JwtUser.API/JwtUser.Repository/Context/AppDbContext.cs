@@ -24,6 +24,7 @@ namespace JwtUser.Repository.Context
         public DbSet<HowCarry> HowCarries { get; set; }
         public DbSet<Transport> Transports { get; set; }
         public DbSet<Cars> Cars { get; set; }
+        public DbSet<Status> Statuses { get; set; }
         public DbSet<Appellation> Appellations { get; set; }
         public DbSet<Application> Applications { get; set; }
         public DbSet<Personal> Personals { get; set; }

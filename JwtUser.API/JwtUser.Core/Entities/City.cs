@@ -12,6 +12,9 @@ namespace JwtUser.Core.Entities
         public string Name { get; set; }
 
 
+
+        //Relations
+
         [JsonIgnore]
         public ICollection<Town> Towns { get; set; }
 

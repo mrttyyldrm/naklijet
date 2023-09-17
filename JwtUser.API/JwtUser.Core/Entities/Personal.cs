@@ -12,11 +12,13 @@ namespace JwtUser.Core.Entities
         public string? Name { get; set; }
         public string? Surname { get; set; }
 
-        public int AppellationId { get; set; }
 
+        //Relations
+
+
+        public int AppellationId { get; set; }
         [JsonIgnore]
         public Appellation? Appellation { get; set; }
-
 
 
         public string? CompanyId { get; set; }

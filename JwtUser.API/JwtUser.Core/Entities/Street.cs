@@ -10,8 +10,11 @@ namespace JwtUser.Core.Entities
     public class Street : BaseEntity
     {
         public string Name { get; set; }
+
+
+        //Relations
+
         public int TownId { get; set; }
-        //[JsonIgnore]
         public Town Towns { get; set; }
 
 
