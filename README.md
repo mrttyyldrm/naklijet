@@ -25,10 +25,10 @@ Projemizi web site adresimiz üzerinden canlı olarak test edebilirsiniz.
 ## Önizleme Hesap Bilgileri
 
 ### Örnek Kullanıcı:
-#### Kullanıcı Adı: mrttyyldrm | Parola: Mert123.
+#### Kullanıcı Adı: mertyildirim | Parola: Mert123*
 
 ### Örnek Firma:
-#### Kullanıcı Adı: hepsiburada | Parola: Hepsi123.
+#### Kullanıcı Adı: techcareer | Parola: Techcareer123*
 
 ## İletişim
 #### E Posta: mrttyyldrm@gmail.com
