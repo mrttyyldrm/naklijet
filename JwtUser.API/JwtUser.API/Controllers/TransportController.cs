@@ -48,11 +48,12 @@ namespace JwtUser.API.Controllers
         [HttpPost("NewTransport")]
         public async Task<IActionResult> AddTransportCity(AddTransportCityDto transportCityDto)
         {
-            var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var userId = _httpContextAccessor.HttpContext!.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
             var transport = _mapper.Map<Transport>(transportCityDto);
 
-            transport.AppUserId = userId;
+            transport.AppUserId = userId!;
+            transport.isShow = true;
             transport.Weight = transport.bigitemCount*8 + transport.miditemCount*4 + transport.smallitemCount*1;
 
             await _transportService.AddAsync(transport);

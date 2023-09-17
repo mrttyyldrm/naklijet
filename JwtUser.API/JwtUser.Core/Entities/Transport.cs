@@ -21,7 +21,7 @@ namespace JwtUser.Core.Entities
         public bool isPackageHelpers { get; set; }
 
         public bool isInsurances { get; set; }
-
+        public bool? isShow { get; set; }
 
 
         //Relations

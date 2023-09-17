@@ -19,6 +19,7 @@ namespace JwtUser.Repository.Repositories
         public async Task<List<Dictionary<string, object>>> GetTransportswithRelations()
         {
             var values = await _dbContext.Transports
+                .Where(x=>x.isShow==true)
                 .Include(x => x.HowCarries)
                 .Include(x => x.AppUser)
                 .Include(x => x.Category)

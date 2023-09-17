@@ -35,17 +35,26 @@ namespace JwtUser.Repository.Repositories
                  .ThenInclude(x => x.Appellation)
          .ToListAsync();
 
+
+
             var results = new List<Dictionary<string, object>>();
 
             foreach (var application in applications)
             {
                 string compId = application.CompanyId;
-                decimal rate = CalculateRate(compId); // Burada rate hesaplanmalı (CalculateRate metodunun nasıl çalıştığını bilmiyorum)
+                decimal rate = CalculateRate(compId); 
+
+                
+                var matchingApplications = _dbContext.Applications
+                    .Where(x => x.CompanyId == compId)
+                    .Select(x => new { x.Comment, x.CommentUser,x.Rate })
+                    .ToList();
 
                 var result = new Dictionary<string, object>
-                 {
-                        { "application", application },
-                        { "rate", rate }
+                {
+                    { "application", application },
+                    { "rate", rate },
+                    { "comments", matchingApplications }
                 };
 
                 results.Add(result);
@@ -99,24 +108,24 @@ namespace JwtUser.Repository.Repositories
                 .Where(x => x.CompanyId == id)
                 .Include(x => x.Cars)
                 .Include(x => x.AppPersonels)
-                    .ThenInclude(x => x.Personals).ThenInclude(x=>x.Appellation)
+                    .ThenInclude(x => x.Personals).ThenInclude(x => x.Appellation)
                 .ToListAsync();
         }
 
         public async Task<List<Application>> GetMyApprovalApplication(string id)
         {
-              var applications = await _dbContext.Applications
-             .Where(x => x.CompanyId == id && x.IsSuccess==true)
-             .Include(x=>x.Transports.AppUser)
-             .Include(x=>x.Transports.Street.Towns.City)
-             .Include(x => x.Transports.ToStreet.Towns.City)
-             .Include(x=>x.Transports.Category)
-             .Include(x => x.Cars)
-             .Include(x => x.Statuses)
-             .Include(x => x.AppPersonels)
-                 .ThenInclude(x => x.Personals)
-                     .ThenInclude(x => x.Appellation)
-             .ToListAsync();
+            var applications = await _dbContext.Applications
+           .Where(x => x.CompanyId == id && x.IsSuccess == true)
+           .Include(x => x.Transports.AppUser)
+           .Include(x => x.Transports.Street.Towns.City)
+           .Include(x => x.Transports.ToStreet.Towns.City)
+           .Include(x => x.Transports.Category)
+           .Include(x => x.Cars)
+           .Include(x => x.Statuses)
+           .Include(x => x.AppPersonels)
+               .ThenInclude(x => x.Personals)
+                   .ThenInclude(x => x.Appellation)
+           .ToListAsync();
 
 
             return applications;
@@ -125,7 +134,7 @@ namespace JwtUser.Repository.Repositories
         public void UpdateStatus(int id, int statusId)
         {
             var application = _dbContext.Applications.FirstOrDefault(x => x.Id == id);
-            application!.StatusId= statusId;
+            application!.StatusId = statusId;
             _dbContext.SaveChanges();
         }
 
@@ -137,7 +146,7 @@ namespace JwtUser.Repository.Repositories
                          .Include(x => x.Transports.ToStreet.Towns.City)
                          .Include(x => x.Transports.Category)
                          .Include(x => x.Cars)
-                         .Include (x => x.Company)
+                         .Include(x => x.Company)
                          .Include(x => x.Statuses)
                          .Include(x => x.AppPersonels)
                              .ThenInclude(x => x.Personals)

@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using static System.Net.Mime.MediaTypeNames;
+using Application = JwtUser.Core.Entities.Application;
 
 namespace JwtUser.API.Controllers
 {
@@ -17,17 +19,17 @@ namespace JwtUser.API.Controllers
     public class ApplicationController : ControllerBase
     {
         private readonly IApplicationService _applicationService;
+        private readonly ITransportService _transportService;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IMapper _mapper;
-        private readonly AppDbContext _appDbContext;
         private readonly IAppPersonelService _appPersonelService;
-        public ApplicationController(IApplicationService applicationService, IMapper mapper, IHttpContextAccessor httpContextAccessor, AppDbContext appDbContext, IAppPersonelService appPersonelService)
+        public ApplicationController(IApplicationService applicationService, IMapper mapper, IHttpContextAccessor httpContextAccessor, IAppPersonelService appPersonelService, ITransportService transportService)
         {
             _applicationService = applicationService;
             _mapper = mapper;
             _httpContextAccessor = httpContextAccessor;
-            _appDbContext = appDbContext;
             _appPersonelService = appPersonelService;
+            _transportService = transportService;
         }
 
 
@@ -63,16 +65,15 @@ namespace JwtUser.API.Controllers
         public async Task<IActionResult> AddApplication(AddApplicationDto addApplicationDto)
         {
             var userId = _httpContextAccessor.HttpContext!.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            //var userName = _httpContextAccessor.HttpContext!.User.FindFirst(ClaimTypes.Name).Value; 
 
             var application = _mapper.Map<Application>(addApplicationDto);
+
 
             application.CompanyId = userId;
             application.IsSuccess = false;
             application.Rate = null;
             application.TransportTime = DateTime.Now.AddDays(application.CompanyTransportTime);
             application.StatusId = 1;
-            //application.CommentUser = userName;
 
             await _applicationService.AddAsync(application);
 
@@ -118,9 +119,16 @@ namespace JwtUser.API.Controllers
 
         [HttpGet]
         [Route("ConfirmTransport")]
-        public IActionResult ConfirmTransport(int id)
+        public async Task<IActionResult> ConfirmTransport(int id)
         {
+
+            var applications = await _applicationService.GetByIdAsync(id);
+
+            int transportId = applications.TransportId;
+            await TransportisShow(transportId);
+
             _applicationService.ConfirmTransport(id);
+
             return Ok("Transport successfully confirmed");
         }
 
@@ -172,9 +180,8 @@ namespace JwtUser.API.Controllers
         [Authorize]
         [HttpPost]
         [Route("UpdateRates")]
-        public async Task<IActionResult> UpdateComment(int appId, int rate, string comment, UpdateApplicationDto applicationDto)
+        public async Task<IActionResult> UpdateComment(int appId, int rate, string comment)
         {
-            var userId = _httpContextAccessor.HttpContext!.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             var userName = _httpContextAccessor.HttpContext!.User.FindFirst(ClaimTypes.Name).Value;
 
             var application = await _applicationService.GetByIdAsync(appId);
@@ -183,9 +190,16 @@ namespace JwtUser.API.Controllers
             application.Rate = rate;
             application.CommentUser = userName;
             _applicationService.Update(application);
-            return Ok("Data successfully updated");
-            
+            return Ok("Data successfully updated");            
 
         }
+
+
+        private async Task TransportisShow(int id)
+        {
+            var transports = await _transportService.GetByIdAsync(id);
+            transports.isShow = false;
+        }
+
     }
 }

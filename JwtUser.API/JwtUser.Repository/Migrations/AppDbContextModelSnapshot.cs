@@ -354,6 +354,9 @@ namespace JwtUser.Repository.Migrations
                     b.Property<bool>("isPackageHelpers")
                         .HasColumnType("bit");
 
+                    b.Property<bool?>("isShow")
+                        .HasColumnType("bit");
+
                     b.Property<int>("miditemCount")
                         .HasColumnType("int");
 
